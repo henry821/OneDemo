@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context="com.demo.activity.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_home_page"
+    <ListView
+        android:id="@+id/lv_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

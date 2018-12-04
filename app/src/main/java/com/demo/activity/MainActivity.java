@@ -1,52 +1,45 @@
 package com.demo.activity;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.databinding.DataBindingUtil;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.demo.adapter.TitleListAdapter;
+import com.demo.bean.TitleBean;
 import com.demo.one.R;
+import com.demo.one.databinding.ActivityMainBinding;
 import com.demo.utils.IntentUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
-    private List<String> mTitleList;
-
-    private ListView lvTitle;
-    private TitleListAdapter adapter;
+    private List<TitleBean> mTitleList;
 
     @Override
-    int getContentViewId() {
-        return R.layout.activity_main;
-    }
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    @Override
-    void initData() {
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
         initTitleList();
-    }
-
-    @Override
-    void initView() {
-        lvTitle = findViewById(R.id.lv_title);
-        adapter = new TitleListAdapter(this, mTitleList);
-        lvTitle.setAdapter(adapter);
-        lvTitle.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        TitleListAdapter adapter = new TitleListAdapter(this, mTitleList, new TitleListAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        IntentUtil.gotoActivity(mContext,SurfaceViewActivity.class,null);
-                        break;
-                }
+            public void onItemClick(TitleBean bean) {
+                IntentUtil.gotoActivity(MainActivity.this, bean.getToPkgClazz(), null);
             }
         });
+
+        binding.rvTitle.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvTitle.setAdapter(adapter);
     }
 
     private void initTitleList() {
         mTitleList = new ArrayList<>();
-        mTitleList.add("SurfaceView显示图片");
+        mTitleList.add(new TitleBean("SurfaceView显示图片", SurfaceViewActivity.class));
     }
+
 }

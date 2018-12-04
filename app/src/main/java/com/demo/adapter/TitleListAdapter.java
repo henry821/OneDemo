@@ -1,13 +1,16 @@
 package com.demo.adapter;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 
+import com.demo.bean.TitleBean;
 import com.demo.one.R;
+import com.demo.one.databinding.ItemTitleListBinding;
 
 import java.util.List;
 
@@ -16,51 +19,57 @@ import java.util.List;
  * <br>Author wanghengwei
  * <br>Date   2018/11/19 16:58
  */
-public class TitleListAdapter extends BaseAdapter {
+public class TitleListAdapter extends RecyclerView.Adapter<TitleListAdapter.MyViewHolder> {
 
     private Context context;
-    private List<String> mDataList;
+    private List<TitleBean> mDataList;
+    private OnItemClickListener itemClickListener;
 
-    public TitleListAdapter(Context context, List<String> mDataList) {
+    public TitleListAdapter(Context context, List<TitleBean> mDataList, OnItemClickListener itemClickListener) {
         this.context = context;
         this.mDataList = mDataList;
+        this.itemClickListener = itemClickListener;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ItemTitleListBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_title_list, parent, false);
+        MyViewHolder holder = new MyViewHolder(binding.getRoot());
+        holder.setBinding(binding);
+        return holder;
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.bind(mDataList.get(position), itemClickListener);
+    }
+
+    @Override
+    public int getItemCount() {
         return mDataList.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return mDataList.get(position);
-    }
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+        private ItemTitleListBinding binding;
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            holder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_title_list, parent, false);
-
-            holder.tvTitle = convertView.findViewById(R.id.tv_title);
-
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+        MyViewHolder(View itemView) {
+            super(itemView);
         }
 
-        holder.tvTitle.setText(mDataList.get(position));
+        void setBinding(ItemTitleListBinding binding) {
+            this.binding = binding;
+        }
 
-        return convertView;
+        void bind(TitleBean titleBean, OnItemClickListener itemClickListener) {
+            binding.setTitleBean(titleBean);
+            binding.setOnRvItemClickListener(itemClickListener);
+        }
     }
 
-    private static class ViewHolder {
-        private TextView tvTitle;
+    public interface OnItemClickListener {
+        void onItemClick(TitleBean bean);
     }
+
 }

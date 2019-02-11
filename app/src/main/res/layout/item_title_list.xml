@@ -5,11 +5,11 @@
 
         <variable
             name="titleBean"
-            type="com.demo.bean.TitleBean" />
+            type="com.demo.beans.TitleBean" />
 
         <variable
             name="onRvItemClickListener"
-            type="com.demo.adapter.TitleListAdapter.OnItemClickListener" />
+            type="com.demo.adapters.TitleListAdapter.OnItemClickListener" />
     </data>
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"

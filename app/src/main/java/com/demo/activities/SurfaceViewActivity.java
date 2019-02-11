@@ -1,4 +1,4 @@
-package com.demo.activity;
+package com.demo.activities;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;

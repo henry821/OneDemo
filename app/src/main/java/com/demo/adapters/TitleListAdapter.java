@@ -1,4 +1,4 @@
-package com.demo.adapter;
+package com.demo.adapters;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.demo.bean.TitleBean;
+import com.demo.beans.TitleBean;
 import com.demo.one.R;
 import com.demo.one.databinding.ItemTitleListBinding;
 

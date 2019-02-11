@@ -1,4 +1,4 @@
-package com.demo.activity;
+package com.demo.activities;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.demo.adapter.TitleListAdapter;
-import com.demo.bean.TitleBean;
+import com.demo.adapters.TitleListAdapter;
+import com.demo.beans.TitleBean;
 import com.demo.one.R;
 import com.demo.one.databinding.ActivityMainBinding;
 import com.demo.utils.IntentUtil;

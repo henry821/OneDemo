@@ -1,4 +1,4 @@
-package com.demo.bean;
+package com.demo.beans;
 
 /**
  * Description 首页列表Title

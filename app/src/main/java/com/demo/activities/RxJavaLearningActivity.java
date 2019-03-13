@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.demo.one.R;
-import com.demo.utils.LogUtil;
+import com.orhanobut.logger.Logger;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -19,8 +19,6 @@ import io.reactivex.disposables.Disposable;
  * <br>Date   2019/3/13 11:37
  */
 public class RxJavaLearningActivity extends AppCompatActivity {
-
-    private static final String TAG = "RxJavaLearningActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,22 +34,22 @@ public class RxJavaLearningActivity extends AppCompatActivity {
         }).subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                LogUtil.e(TAG, "onSubscribe");
+                Logger.e("onSubscribe");
             }
 
             @Override
             public void onNext(String s) {
-                LogUtil.e(TAG, "onNext : " + s);
+                Logger.e("onNext : %s", s);
             }
 
             @Override
             public void onError(Throwable e) {
-                LogUtil.e(TAG, "onError");
+                Logger.e("onError");
             }
 
             @Override
             public void onComplete() {
-                LogUtil.e(TAG, "onComplete");
+                Logger.e("onComplete");
             }
         });
     }

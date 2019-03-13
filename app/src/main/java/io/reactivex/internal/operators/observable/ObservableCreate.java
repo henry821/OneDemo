@@ -12,6 +12,8 @@
  */
 package io.reactivex.internal.operators.observable;
 
+import com.demo.utils.LogUtil;
+
 import java.util.concurrent.atomic.*;
 
 import io.reactivex.*;
@@ -28,11 +30,17 @@ public final class ObservableCreate<T> extends Observable<T> {
     final ObservableOnSubscribe<T> source;
 
     public ObservableCreate(ObservableOnSubscribe<T> source) {
+        //add by whw
+        LogUtil.e("ObservableCreate --> 构造函数");
+        //add by whw
         this.source = source;
     }
 
     @Override
     protected void subscribeActual(Observer<? super T> observer) {
+        //add by whw
+        LogUtil.e("ObservableCreate --> subscribeActual");
+        //add by whw
         CreateEmitter<T> parent = new CreateEmitter<T>(observer);
         observer.onSubscribe(parent);
 
@@ -58,6 +66,9 @@ public final class ObservableCreate<T> extends Observable<T> {
 
         @Override
         public void onNext(T t) {
+            //add by whw
+            LogUtil.i("CreateEmitter --> onNext");
+            //add by whw
             if (t == null) {
                 onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                 return;

@@ -13,6 +13,8 @@
 
 package io.reactivex.internal.observers;
 
+import com.demo.utils.LogUtil;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
@@ -47,6 +49,9 @@ public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueD
      * @param downstream the subscriber, not null (not verified)
      */
     public BasicFuseableObserver(Observer<? super R> downstream) {
+        //add by whw
+        LogUtil.w("BasicFuseableObserver --> 构造函数");
+        //add by whw
         this.downstream = downstream;
     }
 

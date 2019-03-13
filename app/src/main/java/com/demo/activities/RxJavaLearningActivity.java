@@ -12,6 +12,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Function;
 
 /**
  * Description 学习RxJava源码，基于2.2.7
@@ -25,31 +26,37 @@ public class RxJavaLearningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxjava_learning);
 
-        Observable.create(new ObservableOnSubscribe<String>() {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                emitter.onNext("Hello");
-                emitter.onNext("World");
+            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+                emitter.onNext(1);
+                emitter.onNext(2);
+                emitter.onComplete();
+            }
+        }).map(new Function<Integer, String>() {
+            @Override
+            public String apply(Integer integer) throws Exception {
+                return String.valueOf(integer);
             }
         }).subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                Logger.e("onSubscribe");
+                Logger.d("onSubscribe");
             }
 
             @Override
             public void onNext(String s) {
-                Logger.e("onNext : %s", s);
+                Logger.d("onNext : %s", s);
             }
 
             @Override
             public void onError(Throwable e) {
-                Logger.e("onError");
+                Logger.d("onError");
             }
 
             @Override
             public void onComplete() {
-                Logger.e("onComplete");
+                Logger.d("onComplete");
             }
         });
     }

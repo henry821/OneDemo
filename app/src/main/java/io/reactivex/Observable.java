@@ -13,6 +13,8 @@
 
 package io.reactivex;
 
+import com.demo.utils.LogUtil;
+
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -1631,6 +1633,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @NonNull
     @SchedulerSupport(SchedulerSupport.NONE)
     public static <T> Observable<T> create(ObservableOnSubscribe<T> source) {
+        //add by whw
+        LogUtil.e("Observable --> create");
+        //add by whw
         ObjectHelper.requireNonNull(source, "source is null");
         return RxJavaPlugins.onAssembly(new ObservableCreate<T>(source));
     }
@@ -9778,6 +9783,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     @SchedulerSupport(SchedulerSupport.NONE)
     public final <R> Observable<R> map(Function<? super T, ? extends R> mapper) {
+        //add by whw
+        LogUtil.e("Observable --> map");
+        //add by whw
         ObjectHelper.requireNonNull(mapper, "mapper is null");
         return RxJavaPlugins.onAssembly(new ObservableMap<T, R>(this, mapper));
     }
@@ -12259,6 +12267,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @SchedulerSupport(SchedulerSupport.NONE)
     @Override
     public final void subscribe(Observer<? super T> observer) {
+        //add by whw
+        LogUtil.e("Observable --> subscribe");
+        //add by whw
         ObjectHelper.requireNonNull(observer, "observer is null");
         try {
             observer = RxJavaPlugins.onSubscribe(this, observer);

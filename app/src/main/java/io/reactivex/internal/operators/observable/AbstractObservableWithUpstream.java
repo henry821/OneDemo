@@ -13,6 +13,8 @@
 
 package io.reactivex.internal.operators.observable;
 
+import com.demo.utils.LogUtil;
+
 import io.reactivex.*;
 import io.reactivex.internal.fuseable.HasUpstreamObservableSource;
 
@@ -32,11 +34,17 @@ abstract class AbstractObservableWithUpstream<T, U> extends Observable<U> implem
      * @param source the consumable Observable
      */
     AbstractObservableWithUpstream(ObservableSource<T> source) {
+        //add by whw
+        LogUtil.e("AbstractObservableWithUpstream --> 构造函数");
+        //add by whw
         this.source = source;
     }
 
     @Override
     public final ObservableSource<T> source() {
+        //add by whw
+        LogUtil.e("AbstractObservableWithUpstream --> source");
+        //add by whw
         return source;
     }
 

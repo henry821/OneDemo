@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private void initTitleList() {
         mTitleList = new ArrayList<>();
         mTitleList.add(new TitleBean("SurfaceView显示图片", SurfaceViewActivity.class));
+        mTitleList.add(new TitleBean("RxJava2源码学习", RxJavaLearningActivity.class));
     }
 
 }

@@ -26,16 +26,13 @@ public final class ObservableMap<T, U> extends AbstractObservableWithUpstream<T,
 
     public ObservableMap(ObservableSource<T> source, Function<? super T, ? extends U> function) {
         super(source);
-        //add by whw
-        LogUtil.e("ObservableMap --> 构造函数");
-        //add by whw
         this.function = function;
     }
 
     @Override
     public void subscribeActual(Observer<? super U> t) {
         //add by whw
-        LogUtil.e("ObservableMap --> subscribeActual");
+        LogUtil.printObservable(getClass(),"subscribeActual(Observer<? super U> t)");
         //add by whw
         source.subscribe(new MapObserver<T, U>(t, function));
     }
@@ -45,16 +42,13 @@ public final class ObservableMap<T, U> extends AbstractObservableWithUpstream<T,
 
         MapObserver(Observer<? super U> actual, Function<? super T, ? extends U> mapper) {
             super(actual);
-            //add by whw
-            LogUtil.w("MapObserver --> 构造函数");
-            //add by whw
             this.mapper = mapper;
         }
 
         @Override
         public void onNext(T t) {
             //add by whw
-            LogUtil.w("MapObserver --> onNext");
+            LogUtil.printObserver(getClass(), "onNext(T t)");
             //add by whw
             if (done) {
                 return;

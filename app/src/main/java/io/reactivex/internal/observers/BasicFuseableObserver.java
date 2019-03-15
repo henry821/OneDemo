@@ -49,10 +49,10 @@ public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueD
      * @param downstream the subscriber, not null (not verified)
      */
     public BasicFuseableObserver(Observer<? super R> downstream) {
-        //add by whw
-        LogUtil.w("BasicFuseableObserver --> 构造函数");
-        //add by whw
         this.downstream = downstream;
+        //add by whw
+        LogUtil.printObserver(getClass(), "构造函数，downStream类型-->" + downstream.getClass().getSimpleName());
+        //add by whw
     }
 
     // final: fixed protocol steps to support fuseable and non-fuseable upstream

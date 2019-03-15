@@ -1634,7 +1634,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @SchedulerSupport(SchedulerSupport.NONE)
     public static <T> Observable<T> create(ObservableOnSubscribe<T> source) {
         //add by whw
-        LogUtil.e("Observable --> create");
+        LogUtil.printObservable(Observable.class, "create(ObservableOnSubscribe<T> source)");
         //add by whw
         ObjectHelper.requireNonNull(source, "source is null");
         return RxJavaPlugins.onAssembly(new ObservableCreate<T>(source));
@@ -9784,7 +9784,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @SchedulerSupport(SchedulerSupport.NONE)
     public final <R> Observable<R> map(Function<? super T, ? extends R> mapper) {
         //add by whw
-        LogUtil.e("Observable --> map");
+        LogUtil.printObservable(getClass(),"map(Function<? super T, ? extends R> mapper)");
         //add by whw
         ObjectHelper.requireNonNull(mapper, "mapper is null");
         return RxJavaPlugins.onAssembly(new ObservableMap<T, R>(this, mapper));
@@ -12268,7 +12268,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @Override
     public final void subscribe(Observer<? super T> observer) {
         //add by whw
-        LogUtil.e("Observable --> subscribe");
+        LogUtil.printObservable(getClass(), "subscribe ，observer类型-->" + observer.getClass().getSimpleName());
         //add by whw
         ObjectHelper.requireNonNull(observer, "observer is null");
         try {

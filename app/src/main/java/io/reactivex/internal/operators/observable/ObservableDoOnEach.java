@@ -13,6 +13,8 @@
 
 package io.reactivex.internal.operators.observable;
 
+import com.demo.utils.LogUtil;
+
 import io.reactivex.*;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.*;
@@ -39,6 +41,9 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
 
     @Override
     public void subscribeActual(Observer<? super T> t) {
+        //add by whw
+        LogUtil.printObservable(getClass(), "subscribeActual(Observer<? super T> t)");
+        //add by whw
         source.subscribe(new DoOnEachObserver<T>(t, onNext, onError, onComplete, onAfterTerminate));
     }
 
@@ -64,10 +69,16 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
             this.onError = onError;
             this.onComplete = onComplete;
             this.onAfterTerminate = onAfterTerminate;
+            //add by whw
+            LogUtil.printObserver(getClass(), "构造函数，downStream类型：" + downstream.getClass().getSimpleName());
+            //add by whw
         }
 
         @Override
         public void onSubscribe(Disposable d) {
+            //add by whw
+            LogUtil.printObserver(getClass(), "onSubscribe(Disposable d)");
+            //add by whw
             if (DisposableHelper.validate(this.upstream, d)) {
                 this.upstream = d;
                 downstream.onSubscribe(this);
@@ -86,6 +97,9 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
 
         @Override
         public void onNext(T t) {
+            //add by whw
+            LogUtil.printObserver(getClass(), "onNext(T t)");
+            //add by whw
             if (done) {
                 return;
             }
@@ -126,6 +140,9 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
 
         @Override
         public void onComplete() {
+            //add by whw
+            LogUtil.printObserver(getClass(), "onComplete()");
+            //add by whw
             if (done) {
                 return;
             }

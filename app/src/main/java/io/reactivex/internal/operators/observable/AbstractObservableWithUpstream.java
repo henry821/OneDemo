@@ -34,16 +34,16 @@ abstract class AbstractObservableWithUpstream<T, U> extends Observable<U> implem
      * @param source the consumable Observable
      */
     AbstractObservableWithUpstream(ObservableSource<T> source) {
-        //add by whw
-        LogUtil.e("AbstractObservableWithUpstream --> 构造函数");
-        //add by whw
         this.source = source;
+        //add by whw
+        LogUtil.printObservable(getClass(), "构造函数，source类型-->" + source.getClass().getSimpleName());
+        //add by whw
     }
 
     @Override
     public final ObservableSource<T> source() {
         //add by whw
-        LogUtil.e("AbstractObservableWithUpstream --> source");
+        LogUtil.printObservable(getClass(), "source()");
         //add by whw
         return source;
     }

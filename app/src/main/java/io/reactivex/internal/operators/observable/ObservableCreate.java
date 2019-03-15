@@ -30,16 +30,16 @@ public final class ObservableCreate<T> extends Observable<T> {
     final ObservableOnSubscribe<T> source;
 
     public ObservableCreate(ObservableOnSubscribe<T> source) {
-        //add by whw
-        LogUtil.e("ObservableCreate --> 构造函数");
-        //add by whw
         this.source = source;
+        //add by whw
+        LogUtil.printObservable(getClass(), "构造函数，source类型-->" + source.getClass().getSimpleName());
+        //add by whw
     }
 
     @Override
     protected void subscribeActual(Observer<? super T> observer) {
         //add by whw
-        LogUtil.e("ObservableCreate --> subscribeActual");
+        LogUtil.printObservable(getClass(), "subscribeActual(Observer<? super T> observer)");
         //add by whw
         CreateEmitter<T> parent = new CreateEmitter<T>(observer);
         observer.onSubscribe(parent);
@@ -61,13 +61,16 @@ public final class ObservableCreate<T> extends Observable<T> {
         final Observer<? super T> observer;
 
         CreateEmitter(Observer<? super T> observer) {
+            //add by whw
+            LogUtil.printEmitter(getClass(), "构造函数(Observer<? super T> observer)");
+            //add by whw
             this.observer = observer;
         }
 
         @Override
         public void onNext(T t) {
             //add by whw
-            LogUtil.i("CreateEmitter --> onNext");
+            LogUtil.printEmitter(getClass(), "onNext(T t)");
             //add by whw
             if (t == null) {
                 onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));

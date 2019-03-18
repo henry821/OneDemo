@@ -50,7 +50,7 @@ public class RxJavaLearningActivity extends AppCompatActivity {
                         Logger.e("doOnNext : %s", s);
                     }
                 })
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.newThread())
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {

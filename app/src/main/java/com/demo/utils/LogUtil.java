@@ -35,14 +35,14 @@ public class LogUtil {
     /********************** 具体情境打印Log方法 *************************/
 
     public static void printObservable(Class clazz, String content) {
-        v("Observable : " + clazz.getSimpleName() + "." + content);
+        v("Observable : " + clazz.getSimpleName() + "." + content + "(当前线程：" + Thread.currentThread().getName() + ")");
     }
 
     public static void printObserver(Class clazz, String content) {
-        d("Observer : " + clazz.getSimpleName() + "." + content);
+        d("Observer : " + clazz.getSimpleName() + "." + content + "(当前线程：" + Thread.currentThread().getName() + ")");
     }
 
     public static void printEmitter(Class clazz, String content) {
-        i("Emitter : " + clazz.getSimpleName() + "." + content);
+        i("Emitter : " + clazz.getSimpleName() + "." + content + "(当前线程：" + Thread.currentThread().getName() + ")");
     }
 }

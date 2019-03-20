@@ -20,6 +20,7 @@
         </activity>
         <activity android:name="com.demo.activities.SurfaceViewActivity" />
         <activity android:name="com.demo.activities.RxJavaLearningActivity" />
+        <activity android:name="com.demo.activities.KotlinLearningActivity" />
     </application>
 
 </manifest>

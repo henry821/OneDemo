@@ -62,7 +62,7 @@ public final class ObservableCreate<T> extends Observable<T> {
 
         CreateEmitter(Observer<? super T> observer) {
             //add by whw
-            LogUtil.printEmitter(getClass(), "构造函数(Observer<? super T> observer)");
+            LogUtil.printEmitter(getClass(), "构造函数");
             //add by whw
             this.observer = observer;
         }
@@ -70,7 +70,7 @@ public final class ObservableCreate<T> extends Observable<T> {
         @Override
         public void onNext(T t) {
             //add by whw
-            LogUtil.printEmitter(getClass(), "onNext(T t)");
+            LogUtil.printEmitter(getClass(), "onNext");
             //add by whw
             if (t == null) {
                 onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));

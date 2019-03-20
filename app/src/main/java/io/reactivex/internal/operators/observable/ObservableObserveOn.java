@@ -13,6 +13,8 @@
 
 package io.reactivex.internal.operators.observable;
 
+import com.demo.utils.LogUtil;
+
 import io.reactivex.*;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
@@ -37,6 +39,9 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
 
     @Override
     protected void subscribeActual(Observer<? super T> observer) {
+        //add by whw
+        LogUtil.printObservable(getClass(),"subscribeActual");
+        //add by whw
         if (scheduler instanceof TrampolineScheduler) {
             source.subscribe(observer);
         } else {

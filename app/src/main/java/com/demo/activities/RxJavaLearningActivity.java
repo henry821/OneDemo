@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.demo.one.R;
-import com.orhanobut.logger.Logger;
+import com.demo.utils.LogUtil;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -33,7 +33,7 @@ public class RxJavaLearningActivity extends AppCompatActivity {
                 .create(new ObservableOnSubscribe<Integer>() {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                        Logger.e("subscribe");
+                        LogUtil.e("subscribe" + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                         emitter.onNext(1);
                         emitter.onNext(2);
                         emitter.onComplete();
@@ -48,7 +48,7 @@ public class RxJavaLearningActivity extends AppCompatActivity {
                 .doOnNext(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
-                        Logger.e("doOnNext : %s", s);
+                        LogUtil.e("doOnNext : " + s + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                     }
                 })
                 .subscribeOn(Schedulers.newThread())
@@ -56,22 +56,22 @@ public class RxJavaLearningActivity extends AppCompatActivity {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Logger.e("onSubscribe");
+                        LogUtil.e("onSubscribe" + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Logger.e("onNext : %s", s);
+                        LogUtil.e("onNext : " + s + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Logger.e("onError");
+                        LogUtil.e("onError" + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                     }
 
                     @Override
                     public void onComplete() {
-                        Logger.e("onComplete");
+                        LogUtil.e("onComplete" + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                     }
                 });
     }

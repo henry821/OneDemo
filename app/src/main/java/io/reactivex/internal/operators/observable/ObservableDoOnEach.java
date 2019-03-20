@@ -42,7 +42,7 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
     @Override
     public void subscribeActual(Observer<? super T> t) {
         //add by whw
-        LogUtil.printObservable(getClass(), "subscribeActual(Observer<? super T> t)");
+        LogUtil.printObservable(getClass(), "subscribeActual");
         //add by whw
         source.subscribe(new DoOnEachObserver<T>(t, onNext, onError, onComplete, onAfterTerminate));
     }
@@ -98,7 +98,7 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
         @Override
         public void onNext(T t) {
             //add by whw
-            LogUtil.printObserver(getClass(), "onNext(T t)");
+            LogUtil.printObserver(getClass(), "onNext");
             //add by whw
             if (done) {
                 return;

@@ -32,7 +32,7 @@ public final class ObservableMap<T, U> extends AbstractObservableWithUpstream<T,
     @Override
     public void subscribeActual(Observer<? super U> t) {
         //add by whw
-        LogUtil.printObservable(getClass(),"subscribeActual(Observer<? super U> t)");
+        LogUtil.printObservable(getClass(),"subscribeActual");
         //add by whw
         source.subscribe(new MapObserver<T, U>(t, function));
     }
@@ -48,7 +48,7 @@ public final class ObservableMap<T, U> extends AbstractObservableWithUpstream<T,
         @Override
         public void onNext(T t) {
             //add by whw
-            LogUtil.printObserver(getClass(), "onNext(T t)");
+            LogUtil.printObserver(getClass(), "onNext");
             //add by whw
             if (done) {
                 return;

@@ -13,6 +13,8 @@
 
 package io.reactivex.internal.operators.observable;
 
+import com.demo.utils.LogUtil;
+
 import java.util.concurrent.atomic.AtomicReference;
 
 import io.reactivex.*;
@@ -29,6 +31,9 @@ public final class ObservableSubscribeOn<T> extends AbstractObservableWithUpstre
 
     @Override
     public void subscribeActual(final Observer<? super T> observer) {
+        //add by whw
+        LogUtil.printObservable(getClass(),"subscribeActual");
+        //add by whw
         final SubscribeOnObserver<T> parent = new SubscribeOnObserver<T>(observer);
 
         observer.onSubscribe(parent);

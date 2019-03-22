@@ -37,9 +37,13 @@ class KotlinLearningActivity : Activity() {
 
     private fun initTitleRecyclerView() {
         mTitleList.add(TitleBean("普通用法", null))
+        mTitleList.add(TitleBean("普通用法2", null))
+        mTitleList.add(TitleBean("普通用法3", null))
         mTitleListAdapter = TitleListNormalAdapter(this, mTitleList, TitleListNormalAdapter.OnItemClickListener { position, bean ->
             when (position) {
                 0 -> CoroutinesUtil.basicMethod()
+                1 -> CoroutinesUtil.basicMethod2()
+                2 -> CoroutinesUtil.basicMethod3()
             }
         })
         rvOperation.layoutManager = LinearLayoutManager(this)

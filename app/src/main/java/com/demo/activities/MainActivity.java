@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.demo.adapters.TitleListAdapter;
+import com.demo.adapters.TitleListDataBindingAdapter;
 import com.demo.beans.TitleBean;
 import com.demo.one.R;
 import com.demo.one.databinding.ActivityMainBinding;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         initTitleList();
-        TitleListAdapter adapter = new TitleListAdapter(this, mTitleList, new TitleListAdapter.OnItemClickListener() {
+        TitleListDataBindingAdapter adapter = new TitleListDataBindingAdapter(this, mTitleList, new TitleListDataBindingAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(TitleBean bean) {
                 IntentUtil.gotoActivity(MainActivity.this, bean.getToPkgClazz(), null);

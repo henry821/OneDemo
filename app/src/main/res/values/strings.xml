@@ -2,4 +2,5 @@
     <string name="app_name">OneDemo</string>
 
     <string name="kotlin_learning">Kotlin Learning</string>
+    <string name="kotlin_learning_coroutines">协程</string>
 </resources>

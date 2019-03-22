@@ -45,4 +45,9 @@ public class LogUtil {
     public static void printEmitter(Class clazz, String content) {
         i("Emitter : " + clazz.getSimpleName() + "." + content + "(当前线程：" + Thread.currentThread().getName() + ")");
     }
+
+    public static void printCoroutines(String content) {
+        String wrappedContent = content + " (当前线程" + Thread.currentThread().getName() + ")";
+        LogUtil.e(wrappedContent);
+    }
 }

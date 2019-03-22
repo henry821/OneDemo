@@ -10,22 +10,22 @@ import android.view.ViewGroup;
 
 import com.demo.beans.TitleBean;
 import com.demo.one.R;
-import com.demo.one.databinding.ItemTitleListBinding;
+import com.demo.one.databinding.ItemTitleListDataBindingBinding;
 
 import java.util.List;
 
 /**
- * Description 首页列表Adapter
+ * Description 首页列表Adapter,使用DataBinding
  * <br>Author wanghengwei
  * <br>Date   2018/11/19 16:58
  */
-public class TitleListAdapter extends RecyclerView.Adapter<TitleListAdapter.MyViewHolder> {
+public class TitleListDataBindingAdapter extends RecyclerView.Adapter<TitleListDataBindingAdapter.MyViewHolder> {
 
     private Context context;
     private List<TitleBean> mDataList;
     private OnItemClickListener itemClickListener;
 
-    public TitleListAdapter(Context context, List<TitleBean> mDataList, OnItemClickListener itemClickListener) {
+    public TitleListDataBindingAdapter(Context context, List<TitleBean> mDataList, OnItemClickListener itemClickListener) {
         this.context = context;
         this.mDataList = mDataList;
         this.itemClickListener = itemClickListener;
@@ -34,7 +34,8 @@ public class TitleListAdapter extends RecyclerView.Adapter<TitleListAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemTitleListBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_title_list, parent, false);
+        ItemTitleListDataBindingBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context)
+                , R.layout.item_title_list_data_binding, parent, false);
         MyViewHolder holder = new MyViewHolder(binding.getRoot());
         holder.setBinding(binding);
         return holder;
@@ -52,13 +53,13 @@ public class TitleListAdapter extends RecyclerView.Adapter<TitleListAdapter.MyVi
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ItemTitleListBinding binding;
+        private ItemTitleListDataBindingBinding binding;
 
         MyViewHolder(View itemView) {
             super(itemView);
         }
 
-        void setBinding(ItemTitleListBinding binding) {
+        void setBinding(ItemTitleListDataBindingBinding binding) {
             this.binding = binding;
         }
 

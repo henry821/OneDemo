@@ -9,7 +9,7 @@
 
         <variable
             name="onRvItemClickListener"
-            type="com.demo.adapters.TitleListAdapter.OnItemClickListener" />
+            type="com.demo.adapters.TitleListDataBindingAdapter.OnItemClickListener" />
     </data>
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"

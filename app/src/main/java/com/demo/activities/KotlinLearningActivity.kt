@@ -4,10 +4,12 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.TextView
 import com.demo.adapters.TitleListNormalAdapter
 import com.demo.beans.TitleBean
 import com.demo.one.R
 import com.demo.utils.CoroutinesUtil
+import com.demo.utils.LogUtil
 
 /**
  * Description
@@ -16,6 +18,7 @@ import com.demo.utils.CoroutinesUtil
  */
 class KotlinLearningActivity : Activity() {
 
+    private lateinit var tvCheckNull: TextView
     private lateinit var rvOperation: RecyclerView
 
     private lateinit var mTitleList: ArrayList<TitleBean>
@@ -27,11 +30,16 @@ class KotlinLearningActivity : Activity() {
 
         setContentView(R.layout.activity_kotlin_learning)
 
+        tvCheckNull = findViewById(R.id.tv_title_check_null)
         rvOperation = findViewById(R.id.rv_operation)
 
         mTitleList = ArrayList()
 
         initTitleRecyclerView()
+
+        tvCheckNull.setOnClickListener {
+            checkNull()
+        }
 
     }
 
@@ -54,6 +62,16 @@ class KotlinLearningActivity : Activity() {
         })
         rvOperation.layoutManager = LinearLayoutManager(this)
         rvOperation.adapter = mTitleListAdapter
+    }
+
+    private fun checkNull() {
+        val output: String? = createString()
+        LogUtil.e(output ?: "This is a Null String")
+    }
+
+    private fun createString(): String? {
+//        return "123456"
+        return null
     }
 
 

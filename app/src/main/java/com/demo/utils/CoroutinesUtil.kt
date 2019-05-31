@@ -1,6 +1,7 @@
 package com.demo.utils
 
 import kotlinx.coroutines.*
+import kotlin.system.measureTimeMillis
 
 /**
  * Description 协程工具类
@@ -111,5 +112,29 @@ object CoroutinesUtil {
         }
         LogUtil.printCoroutines("Result is $result")
     }
+
+    /**
+     * 使用async并发
+     *
+     */
+    fun asyncMethod() = runBlocking {
+        val time = measureTimeMillis {
+            val one = async { doSomethingUsefulOne() }
+            val two = async { doSomethingUsefulTwo() }
+            LogUtil.printCoroutines("The answer is ${one.await() + two.await()}")
+        }
+        LogUtil.printCoroutines("Completed in $time ms")
+    }
+
+    private suspend fun doSomethingUsefulOne(): Int {
+        delay(1000L)
+        return 13
+    }
+
+    private suspend fun doSomethingUsefulTwo(): Int {
+        delay(1000L)
+        return 29
+    }
+
 
 }

@@ -50,6 +50,7 @@ class KotlinLearningActivity : Activity() {
         mTitleList.add(TitleBean("取消协程的执行", null))
         mTitleList.add(TitleBean("取消协程的执行2", null))
         mTitleList.add(TitleBean("协程超时", null))
+        mTitleList.add(TitleBean("并发执行", null))
         mTitleListAdapter = TitleListNormalAdapter(this, mTitleList, TitleListNormalAdapter.OnItemClickListener { position, bean ->
             when (position) {
                 0 -> CoroutinesUtil.basicMethod()
@@ -58,6 +59,7 @@ class KotlinLearningActivity : Activity() {
                 3 -> CoroutinesUtil.cancelMethod()
                 4 -> CoroutinesUtil.cancelMethod2()
                 5 -> CoroutinesUtil.timeoutMethod()
+                6 -> CoroutinesUtil.asyncMethod()
             }
         })
         rvOperation.layoutManager = LinearLayoutManager(this)

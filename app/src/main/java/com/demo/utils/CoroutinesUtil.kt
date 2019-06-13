@@ -1,5 +1,6 @@
 package com.demo.utils
 
+import com.baselibrary.utils.LogUtil
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 

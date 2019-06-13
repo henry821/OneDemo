@@ -10,7 +10,7 @@ import com.demo.adapters.TitleListDataBindingAdapter;
 import com.demo.beans.TitleBean;
 import com.demo.one.R;
 import com.demo.one.databinding.ActivityMainBinding;
-import com.demo.utils.IntentUtil;
+import com.baselibrary.utils.IntentUtil;
 
 import java.util.ArrayList;
 import java.util.List;

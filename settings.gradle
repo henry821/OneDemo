@@ -1,1 +1,1 @@
-include ':app', ':leetcode', ':sourcecode'
+include ':app', ':leetcode', ':sourcecode', ':baselibrary'

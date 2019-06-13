@@ -5,17 +5,16 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.demo.one.R;
-import com.demo.utils.LogUtil;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import com.baselibrary.utils.LogUtil;
+import com.sourcecode.io.reactivex.Observable;
+import com.sourcecode.io.reactivex.ObservableEmitter;
+import com.sourcecode.io.reactivex.ObservableOnSubscribe;
+import com.sourcecode.io.reactivex.Observer;
+import com.sourcecode.io.reactivex.android.schedulers.AndroidSchedulers;
+import com.sourcecode.io.reactivex.disposables.Disposable;
+import com.sourcecode.io.reactivex.functions.Consumer;
+import com.sourcecode.io.reactivex.functions.Function;
+import com.sourcecode.io.reactivex.schedulers.Schedulers;
 
 /**
  * Description 学习RxJava源码，基于2.2.7

@@ -1,0 +1,13 @@
+ext{
+
+    applicationId = "com.demo.one"
+    compileSdkVersion = 27
+    minSdkVersion = 15
+    targetSdkVersion = 27
+    versionCode = 1
+    versionName = '1.0'
+    kotlinVersion = '1.3.31'
+    androidSupportVerision = '27.1.1'
+
+
+}

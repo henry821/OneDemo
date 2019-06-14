@@ -1,6 +1,6 @@
-package com.demo.leetcode.easy;
+package com.leetcode.easy;
 
-import com.demo.leetcode.beans.ListNode;
+import com.leetcode.beans.ListNode;
 
 /**
  * 删除链表中的节点 https://leetcode-cn.com/problems/delete-node-in-a-linked-list/

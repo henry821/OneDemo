@@ -1,4 +1,4 @@
-package com.demo.leetcode.beans;
+package com.leetcode.beans;
 
 public class ListNode {
 

@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mTitleList.add(new TitleBean("SurfaceView显示图片", SurfaceViewActivity.class));
         mTitleList.add(new TitleBean("RxJava2源码学习", RxJavaLearningActivity.class));
         mTitleList.add(new TitleBean("Kotlin学习", KotlinLearningActivity.class));
+        mTitleList.add(new TitleBean("热更新示例", HotFixActivity.class));
     }
 
 }

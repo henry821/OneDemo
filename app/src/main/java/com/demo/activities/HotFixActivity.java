@@ -1,13 +1,17 @@
 package com.demo.activities;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.demo.adapters.TitleListNormalAdapter;
 import com.demo.beans.TitleBean;
 import com.demo.one.R;
+import com.demo.utils.CreateBugUtil;
+import com.demo.utils.HotFix;
 import com.demo.utils.ReflectionUtil;
 
 import java.util.ArrayList;
@@ -37,6 +41,12 @@ public class HotFixActivity extends AppCompatActivity {
                     case 1:
                         ReflectionUtil.printReflectionDemoInfo();
                         break;
+                    case 2:
+                        CreateBugUtil.createBug(HotFixActivity.this);
+                        break;
+                    case 3:
+                        checkFix();
+                        break;
                     default:
                         break;
                 }
@@ -51,6 +61,20 @@ public class HotFixActivity extends AppCompatActivity {
         mTitleList = new ArrayList<>();
         mTitleList.add(new TitleBean("类的加载机制", null));
         mTitleList.add(new TitleBean("反射", null));
+        mTitleList.add(new TitleBean("测试热修复-->查看当前效果", null));
+        mTitleList.add(new TitleBean("测试热修复-->打入补丁包", null));
+    }
+
+    private void checkFix() {
+        try {
+            String dexPath = Environment.getExternalStorageDirectory() + "/fixed.dex";
+            HotFix.fix(this, dexPath);
+
+            Toast.makeText(HotFixActivity.this, "修复成功", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(HotFixActivity.this, "修复失败", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 
 }

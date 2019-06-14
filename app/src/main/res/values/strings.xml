@@ -4,4 +4,10 @@
     <string name="kotlin_learning">Kotlin Learning</string>
     <string name="kotlin_learning_check_null">Null检查机制</string>
     <string name="kotlin_learning_coroutines">协程</string>
+
+
+    <string name="hot_fix_before">假设此处产生了一个崩溃</string>
+    <string name="hot_fix_after">假设此处崩溃已被修复</string>
+
+
 </resources>

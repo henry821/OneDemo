@@ -7,11 +7,11 @@ import java.util.Random;
 public class LinkedListUtil {
 
     public static ListNode createLinkedList(int listCount) {
-        ListNode head = new ListNode(new Random().nextInt(100));
+        ListNode head = new ListNode(new Random().nextInt(10));
         ListNode curNode = head;
         int count = 1;
         while (count < listCount) {
-            ListNode tempNode = new ListNode(new Random().nextInt(100));
+            ListNode tempNode = new ListNode(new Random().nextInt(10));
             curNode.next = tempNode;
             curNode = tempNode;
             count++;

@@ -3,7 +3,7 @@ package com.leetcode.utils;
 /**
  * 排序工具类，各种排序算法
  */
-public class SortUtils {
+public class SortUtil {
 
     public static void main(String[] args) {
         int[] array = new int[]{3, 99, 45, 1, 70, 45, 8, 20};

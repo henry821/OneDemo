@@ -1,8 +1,10 @@
 package com.leetcode.utils;
 
 import com.leetcode.beans.GraphNode;
+import com.leetcode.normal.AddTwoNumbers;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Description 图操作工具类
@@ -12,6 +14,7 @@ import java.util.LinkedList;
 public class MapUtil {
 
     public static void main(String[] args) {
+
 
     }
 
@@ -25,7 +28,7 @@ public class MapUtil {
      *
      * @return 左上角顶点
      */
-    public static GraphNode createMap1() {
+    public static GraphNode createMap() {
         GraphNode node0 = new GraphNode(0);
         GraphNode node1 = new GraphNode(1);
         GraphNode node2 = new GraphNode(2);
@@ -70,54 +73,5 @@ public class MapUtil {
         node8.addNode(node7);
 
         return node0;
-    }
-
-    /**
-     * 生成一张图,表示形式2
-     * 0--1--2
-     * |  |  |
-     * 3--4--5
-     * |  |  |
-     * 6--7--8
-     *
-     * @return 邻接表数组，数组每一项代表当前顶点，邻接表存储相邻顶点
-     */
-    public static LinkedList[] createMap2() {
-        LinkedList<Integer>[] list = new LinkedList[9];
-
-        list[0].add(1);
-        list[0].add(3);
-
-        list[1].add(0);
-        list[1].add(2);
-        list[1].add(4);
-
-        list[2].add(1);
-        list[2].add(5);
-
-        list[3].add(0);
-        list[3].add(4);
-        list[3].add(6);
-
-        list[4].add(1);
-        list[4].add(3);
-        list[4].add(5);
-        list[4].add(7);
-
-        list[5].add(2);
-        list[5].add(4);
-        list[5].add(8);
-
-        list[6].add(3);
-        list[6].add(7);
-
-        list[7].add(4);
-        list[7].add(6);
-        list[7].add(8);
-
-        list[8].add(5);
-        list[8].add(7);
-
-        return list;
     }
 }

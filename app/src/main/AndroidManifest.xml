@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.demo.activities.HotFixActivity"></activity>
         <activity android:name="com.demo.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +21,8 @@
         <activity android:name="com.demo.activities.SurfaceViewActivity" />
         <activity android:name="com.demo.activities.RxJavaLearningActivity" />
         <activity android:name="com.demo.activities.KotlinLearningActivity" />
+        <activity android:name="com.demo.activities.TestActivity"/>
+        <activity android:name="com.demo.activities.HotFixActivity" />
     </application>
 
 </manifest>

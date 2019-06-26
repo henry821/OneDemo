@@ -9,7 +9,8 @@ public class SortUtil {
         int[] array = new int[]{3, 99, 45, 1, 70, 45, 8, 20};
         printArray(array);
         System.out.println();
-        selectionSort(array);
+//        selectionSort(array);
+        quickSort(array, 0, array.length - 1);
         printArray(array);
     }
 
@@ -49,6 +50,9 @@ public class SortUtil {
         }
     }
 
+    /**
+     * 选择排序
+     */
     private static void selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int curMinIndex = i;
@@ -61,6 +65,37 @@ public class SortUtil {
                 swap(array, i, curMinIndex);
             }
         }
+    }
+
+    /**
+     * 快速排序
+     *
+     * @param array 数组
+     * @param low   低位下标
+     * @param high  高位下标
+     */
+    private static void quickSort(int[] array, int low, int high) {
+        if (low > high) {
+            return;
+        }
+        int i = low;
+        int j = high;
+        int temp = array[low]; //基准位
+        while (i < j) {
+            while (array[j] >= temp && i < j) {
+                j--;
+            }
+            while (array[i] <= temp && i < j) {
+                i++;
+            }
+            if (i < j) {
+                swap(array, i, j);
+            }
+        }
+        array[low] = array[i];
+        array[i] = temp;
+        quickSort(array, low, j - 1);
+        quickSort(array, j + 1, high);
     }
 
     /**

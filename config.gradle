@@ -1,9 +1,9 @@
 ext{
 
     applicationId = "com.demo.one"
-    compileSdkVersion = 27
+    compileSdkVersion = 26
     minSdkVersion = 15
-    targetSdkVersion = 27
+    targetSdkVersion = 26
     versionCode = 1
     versionName = '1.0'
     kotlinVersion = '1.3.31'

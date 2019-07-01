@@ -26,7 +26,11 @@ import com.sourcecode.io.reactivex.internal.fuseable.HasUpstreamObservableSource
  */
 abstract class AbstractObservableWithUpstream<T, U> extends Observable<U> implements HasUpstreamObservableSource<T> {
 
-    /** The source consumable Observable. */
+    /**
+     * The source consumable Observable.
+     *
+     * 上游Observable，用于在subscribe(observer)后把封装好的observer一次层层传递给源Observable
+     */
     protected final ObservableSource<T> source;
 
     /**

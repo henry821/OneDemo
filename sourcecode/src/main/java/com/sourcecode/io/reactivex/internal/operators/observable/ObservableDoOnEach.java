@@ -77,7 +77,7 @@ public final class ObservableDoOnEach<T> extends AbstractObservableWithUpstream<
         @Override
         public void onSubscribe(Disposable d) {
             //add by whw
-            LogUtil.printObserver(getClass(), "onSubscribe(Disposable d)");
+            LogUtil.printObserver(getClass(), "onSubscribe(Disposable d),upStream类型-->"+d.getClass().getSimpleName());
             //add by whw
             if (DisposableHelper.validate(this.upstream, d)) {
                 this.upstream = d;

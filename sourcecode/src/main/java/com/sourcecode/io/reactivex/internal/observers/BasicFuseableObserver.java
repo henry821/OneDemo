@@ -29,10 +29,18 @@ import com.sourcecode.io.reactivex.plugins.RxJavaPlugins;
  */
 public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueDisposable<R> {
 
-    /** The downstream subscriber. */
+    /**
+     * The downstream subscriber.
+     *
+     * 下游observer，用于在本observer的onNext方法里处理完消息后交给下游observer的onNext方法继续处理
+     */
     protected final Observer<? super R> downstream;
 
-    /** The upstream subscription. */
+    /**
+     * The upstream subscription.
+     *
+     * 上游Disposable，当执行{@link #onSubscribe(Disposable)}时，会把参数(上游Disposable)保存到此变量
+     */
     protected Disposable upstream;
 
     /** The upstream's QueueDisposable if not null. */
@@ -60,6 +68,10 @@ public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueD
     @Override
     public final void onSubscribe(Disposable d) {
         if (DisposableHelper.validate(this.upstream, d)) {
+
+            //add by whw
+            LogUtil.printObserver(getClass(),"onSubscribe(Disposable d),upStream类型-->"+d.getClass().getSimpleName());
+            //add by whw
 
             this.upstream = d;
             if (d instanceof QueueDisposable) {

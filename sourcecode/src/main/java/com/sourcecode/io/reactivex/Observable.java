@@ -8267,6 +8267,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     @SchedulerSupport(SchedulerSupport.NONE)
     public final Observable<T> doOnNext(Consumer<? super T> onNext) {
+        //add by whw
+        LogUtil.printObservable(getClass(),"doOnNext(Consumer<? super T> onNext)");
+        //add by whw
         return doOnEach(onNext, Functions.emptyConsumer(), Functions.EMPTY_ACTION, Functions.EMPTY_ACTION);
     }
 
@@ -9931,6 +9934,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     public final Observable<T> observeOn(Scheduler scheduler) {
+        //add by whw
+        LogUtil.printObservable(getClass(),"observeOn(Scheduler scheduler)");
+        //add by whw
         return observeOn(scheduler, false, bufferSize());
     }
 
@@ -12352,6 +12358,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
     @CheckReturnValue
     @SchedulerSupport(SchedulerSupport.CUSTOM)
     public final Observable<T> subscribeOn(Scheduler scheduler) {
+        //add by whw
+        LogUtil.printObservable(getClass(),"subscribeOn(Scheduler scheduler)");
+        //add by whw
         ObjectHelper.requireNonNull(scheduler, "scheduler is null");
         return RxJavaPlugins.onAssembly(new ObservableSubscribeOn<T>(this, scheduler));
     }

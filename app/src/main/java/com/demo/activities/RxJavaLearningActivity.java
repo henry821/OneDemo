@@ -35,6 +35,7 @@ public class RxJavaLearningActivity extends AppCompatActivity {
                         LogUtil.e("subscribe" + "(当前线程 ：" + Thread.currentThread().getName() + ")");
                         emitter.onNext(1);
                         emitter.onNext(2);
+                        emitter.onNext(3);
                         emitter.onComplete();
                     }
                 })

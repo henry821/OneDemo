@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private void initTitleList() {
         mTitleList = new ArrayList<>();
         mTitleList.add(new TitleBean("RxJava2源码学习", RxJavaLearningActivity.class));
+        mTitleList.add(new TitleBean("Retrofit2学习", RetrofitLearningActivity.class));
         mTitleList.add(new TitleBean("Kotlin学习", KotlinLearningActivity.class));
         mTitleList.add(new TitleBean("热更新示例", HotFixActivity.class));
         mTitleList.add(new TitleBean("试验页面", TestActivity.class));

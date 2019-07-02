@@ -50,4 +50,8 @@ public class LogUtil {
         String wrappedContent = content + " (当前线程" + Thread.currentThread().getName() + ")";
         LogUtil.e(wrappedContent);
     }
+
+    public static void printError(Throwable throwable) {
+        Log.e(TAG, "error: ", throwable);
+    }
 }

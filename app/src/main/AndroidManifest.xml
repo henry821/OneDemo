@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.activities.SurfaceViewActivity" />
         <activity android:name="com.demo.activities.RxJavaLearningActivity" />
         <activity android:name="com.demo.activities.KotlinLearningActivity" />
         <activity android:name="com.demo.activities.TestActivity"/>

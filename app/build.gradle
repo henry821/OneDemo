@@ -34,5 +34,4 @@ dependencies {
     implementation project(':baselibrary')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

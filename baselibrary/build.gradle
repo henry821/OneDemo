@@ -30,4 +30,6 @@ dependencies {
     //retrofit2
     api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
 }

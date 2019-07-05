@@ -38,7 +38,7 @@ public class ReflectionUtil {
             ReflectionBean bean = (ReflectionBean) c.newInstance();
             printReflectionInfo("实例化", bean);
 
-            Constructor<?>[] constructors = c.getConstructors(); //获得访问属性为public的构造方法//获得指定参数的构造方法
+            Constructor<?>[] constructors = c.getConstructors(); //获得访问属性为public的构造方法
             printReflectionInfo("获得构造方法", constructors);
 
             Constructor<?> constructor = c.getDeclaredConstructor(int.class); // 获得指定参数的构造方法

@@ -14,6 +14,7 @@ public class RetrofitLearningActivity extends AppCompatActivity {
         setContentView(R.layout.activity_retrofit_learning);
 
         TranslationRequest request = new TranslationRequest();
-        request.getTranslation("hello world");
+//        request.getTranslation("hello world");
+        request.getTranslationByRetrofit("hello world");
     }
 }

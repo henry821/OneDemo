@@ -4,6 +4,7 @@ import com.demo.beans.TranslationBean;
 
 import java.util.HashMap;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
@@ -17,5 +18,9 @@ import retrofit2.http.QueryMap;
 public interface TranslationApi {
 
     @GET("ajax.php")
-    public Call<TranslationBean> getTranslation(@QueryMap HashMap<String, String> hashMap);
+    Call<TranslationBean> getTranslation(@QueryMap HashMap<String, String> hashMap);
+
+    @GET("ajax.php")
+    Observable<TranslationBean> getTranslationByRetrofit(@QueryMap HashMap<String, String> hashMap);
+
 }

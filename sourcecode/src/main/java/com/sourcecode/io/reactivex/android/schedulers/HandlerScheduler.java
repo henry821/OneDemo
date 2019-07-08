@@ -85,6 +85,9 @@ final class HandlerScheduler extends Scheduler {
                 message.setAsynchronous(true);
             }
 
+            //把消息发送出去，插入消息队列(MessageQueue)
+            //Looper循环遍历消息队列，遍历到此消息，交给handler的dispatchMessage方法
+            //dispatchMessage方法看到Message设置了callback,则执行Message的callback(即ScheduledRunnable的run()方法)
             handler.sendMessageDelayed(message, unit.toMillis(delay));
 
             // Re-check disposed state for removing in case we were racing a call to dispose().

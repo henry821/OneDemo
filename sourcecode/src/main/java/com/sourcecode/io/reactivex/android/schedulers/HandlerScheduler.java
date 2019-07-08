@@ -27,6 +27,7 @@ final class HandlerScheduler extends Scheduler {
     private final boolean async;
 
     HandlerScheduler(Handler handler, boolean async) {
+        //设置进来的handler是持有主线程Looper的Handler
         this.handler = handler;
         this.async = async;
     }

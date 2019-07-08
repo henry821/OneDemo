@@ -32,6 +32,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
     final int bufferSize;
     public ObservableObserveOn(ObservableSource<T> source, Scheduler scheduler, boolean delayError, int bufferSize) {
         super(source);
+        //this.scheduler具体类型为HandlerScheduler
         this.scheduler = scheduler;
         this.delayError = delayError;
         this.bufferSize = bufferSize;
@@ -45,6 +46,8 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         if (scheduler instanceof TrampolineScheduler) {
             source.subscribe(observer);
         } else {
+            //Worker实现了Disposable接口，可以看做Disposable
+            //此处的Worker为HandlerScheduler#HandlerWorker
             Scheduler.Worker w = scheduler.createWorker();
 
             source.subscribe(new ObserveOnObserver<T>(observer, w, delayError, bufferSize));
@@ -163,6 +166,10 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
 
         void schedule() {
             if (getAndIncrement() == 0) {
+                //此处把自身(Runnable)传递给HandlerWorker的schedule方法
+                //在方法中把主线程Handler和此Runnable封装到ScheduledRunnable中
+                //再把ScheduledRunnable设置进Message对象
+                //最后通过主线程Handler把Message发送出去
                 worker.schedule(this);
             }
         }

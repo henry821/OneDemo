@@ -38,6 +38,8 @@ public final class ObservableSubscribeOn<T> extends AbstractObservableWithUpstre
 
         observer.onSubscribe(parent);
 
+        //SubscribeTask实现了Runnable，run方法里调用了source.subscribe(parent);
+        //因为代码设置了Schedulers.newThread(),所以此处的scheduler为NewThreadScheduler()
         parent.setDisposable(scheduler.scheduleDirect(new SubscribeTask(parent)));
     }
 
@@ -98,6 +100,7 @@ public final class ObservableSubscribeOn<T> extends AbstractObservableWithUpstre
 
         @Override
         public void run() {
+            //从这里开始，上游Observable执行的subscribe方法均在新线程里执行
             source.subscribe(parent);
         }
     }

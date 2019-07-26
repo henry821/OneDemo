@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mTitleList.add(new TitleBean("Retrofit2学习", RetrofitLearningActivity.class));
         mTitleList.add(new TitleBean("Kotlin学习", KotlinLearningActivity.class));
         mTitleList.add(new TitleBean("热更新示例", HotFixActivity.class));
+        mTitleList.add(new TitleBean("SparseArray学习", SparseArrayLearningActivity.class));
         mTitleList.add(new TitleBean("试验页面", TestActivity.class));
     }
 

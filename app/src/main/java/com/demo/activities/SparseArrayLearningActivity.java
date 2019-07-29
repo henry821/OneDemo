@@ -23,6 +23,10 @@ public class SparseArrayLearningActivity extends AppCompatActivity {
         printArrayData();
 
         mySparseArray.put(11,"第一个元素");
+        printArrayData();
+
+        mySparseArray.put(17,"第二个元素");
+        printArrayData();
     }
 
     private void printArrayData() {

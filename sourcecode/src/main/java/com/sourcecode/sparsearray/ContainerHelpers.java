@@ -13,7 +13,7 @@ public class ContainerHelpers {
 
     // This is Arrays.binarySearch(), but doesn't do any argument validation.
     static int binarySearch(int[] array, int size, int value) {
-        LogUtil.e(" 进入二分查找方法：当前有效数据长度 = " + size + ", value = " + value);
+        LogUtil.e("--进入二分查找方法：当前有效数据长度 = " + size + ", value = " + value);
         int lo = 0;
         int hi = size - 1;
 
@@ -21,18 +21,18 @@ public class ContainerHelpers {
             final int mid = (lo + hi) >>> 1;
             final int midVal = array[mid];
 
-            LogUtil.e(" 进入while循环, lo = " + lo + ", hi = " + hi + ", mid = " + mid + ", midVal = " + midVal);
+            LogUtil.e("--进入while循环, lo = " + lo + ", hi = " + hi + ", mid = " + mid + ", midVal = " + midVal);
 
             if (midVal < value) {
                 lo = mid + 1;
             } else if (midVal > value) {
                 hi = mid - 1;
             } else {
-                LogUtil.e(" 找到value, 下标 = " + mid + ", 返回上级方法");
+                LogUtil.e("--找到value, 下标 = " + mid);
                 return mid;  // value found
             }
         }
-        LogUtil.e(" 未找到value, lo = " + lo + ", ~lo = " + ~lo + ", 返回上级方法");
+        LogUtil.e("--未找到value, lo = " + lo + ", ~lo = " + ~lo);
         return ~lo;  // value not present
     }
 

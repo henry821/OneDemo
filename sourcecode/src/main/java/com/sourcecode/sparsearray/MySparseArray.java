@@ -135,6 +135,7 @@ public class MySparseArray<E> {
 
     private void gc() {
         // Log.e("SparseArray", "gc start with " + mSize);
+        LogUtil.e("--进入gc方法");
 
         int n = mSize;
         int o = 0;
@@ -174,8 +175,10 @@ public class MySparseArray<E> {
             mValues[i] = value;
         } else {
             i = ~i;
+            LogUtil.e("put方法：当前插入下标i = " + i);
 
             if (i < mSize && mValues[i] == DELETED) {
+                LogUtil.e("此下标处为DELETED标记,直接插入");
                 mKeys[i] = key;
                 mValues[i] = value;
                 return;
@@ -186,9 +189,11 @@ public class MySparseArray<E> {
 
                 // Search again because indices may have changed.
                 i = ~ContainerHelpers.binarySearch(mKeys, mSize, key);
+                LogUtil.e("put方法：gc过后新的下标 i = " + i);
             }
-
+            LogUtil.e("put方法: 插入新的key");
             mKeys = GrowingArrayUtils.insert(mKeys, mSize, i, key);
+            LogUtil.e("put方法: 插入新的value");
             mValues = GrowingArrayUtils.insert(mValues, mSize, i, value);
             mSize++;
         }

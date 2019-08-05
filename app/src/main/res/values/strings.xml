@@ -9,5 +9,9 @@
     <string name="hot_fix_before">假设此处产生了一个崩溃</string>
     <string name="hot_fix_after">假设此处崩溃已被修复</string>
 
+    <string name="recycler_view_learning_reset">重置数据</string>
+    <string name="recycler_view_learning_add">添加数据</string>
+    <string name="recycler_view_learning_del">删除数据</string>
+
 
 </resources>

@@ -6,15 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.demo.one.R;
 import com.baselibrary.utils.LogUtil;
-import com.sourcecode.io.reactivex.Observable;
-import com.sourcecode.io.reactivex.ObservableEmitter;
-import com.sourcecode.io.reactivex.ObservableOnSubscribe;
-import com.sourcecode.io.reactivex.Observer;
-import com.sourcecode.io.reactivex.android.schedulers.AndroidSchedulers;
-import com.sourcecode.io.reactivex.disposables.Disposable;
-import com.sourcecode.io.reactivex.functions.Consumer;
-import com.sourcecode.io.reactivex.functions.Function;
-import com.sourcecode.io.reactivex.schedulers.Schedulers;
+import com.sourcecode.rxjava2.io.reactivex.Observable;
+import com.sourcecode.rxjava2.io.reactivex.ObservableEmitter;
+import com.sourcecode.rxjava2.io.reactivex.ObservableOnSubscribe;
+import com.sourcecode.rxjava2.io.reactivex.Observer;
+import com.sourcecode.rxjava2.io.reactivex.android.schedulers.AndroidSchedulers;
+import com.sourcecode.rxjava2.io.reactivex.disposables.Disposable;
+import com.sourcecode.rxjava2.io.reactivex.functions.Consumer;
+import com.sourcecode.rxjava2.io.reactivex.functions.Function;
+import com.sourcecode.rxjava2.io.reactivex.schedulers.Schedulers;
 
 /**
  * Description 学习RxJava源码，基于2.2.7

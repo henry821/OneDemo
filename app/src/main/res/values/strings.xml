@@ -13,5 +13,9 @@
     <string name="recycler_view_learning_add">添加数据</string>
     <string name="recycler_view_learning_del">删除数据</string>
 
+    <string name="event_bus_learning_dialog">弹出对话框</string>
+    <string name="event_bus_learning_send_event_1">发送事件1</string>
+    <string name="event_bus_learning_send_event_2">发送事件2</string>
+
 
 </resources>

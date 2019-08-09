@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mTitleList.add(new TitleBean("热更新示例", HotFixActivity.class));
         mTitleList.add(new TitleBean("SparseArray学习", SparseArrayLearningActivity.class));
         mTitleList.add(new TitleBean("RecyclerView学习", RecyclerViewLearningActivity.class));
+        mTitleList.add(new TitleBean("EventBus学习", EventBusLearningActivity.class));
         mTitleList.add(new TitleBean("试验页面", TestActivity.class));
     }
 

@@ -13,7 +13,7 @@ import com.demo.one.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewLearningActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity {
 
     public static final int ITEM_CHANGED_COUNT = 10;
 
@@ -25,7 +25,7 @@ public class RecyclerViewLearningActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view_learning);
+        setContentView(R.layout.activity_recycler_view);
 
         resetData();
 

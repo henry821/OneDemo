@@ -17,7 +17,7 @@ import java.util.*
  * Author wanghengwei
  * Date   2019/3/20 18:51
  */
-class KotlinLearningActivity : Activity() {
+class KotlinActivity : Activity() {
 
     private lateinit var tvCheckNull: TextView
     private lateinit var rvOperation: RecyclerView
@@ -29,7 +29,7 @@ class KotlinLearningActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_kotlin_learning)
+        setContentView(R.layout.activity_kotlin)
 
         tvCheckNull = findViewById(R.id.tv_title_check_null)
         rvOperation = findViewById(R.id.rv_operation)

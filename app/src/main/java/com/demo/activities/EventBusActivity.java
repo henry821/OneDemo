@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.ThreadMode;
  * Author wanghengwei
  * Date   2019/8/8 16:57
  */
-public class EventBusLearningActivity extends BaseActivity {
+public class EventBusActivity extends BaseActivity {
 
     private TextView tvEvent1;
     private TextView tvEvent2;
@@ -33,7 +33,7 @@ public class EventBusLearningActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_event_bus_learning);
+        setContentView(R.layout.activity_event_bus);
 
         findViewById(R.id.btn_dialog).setOnClickListener(new View.OnClickListener() {
             @Override

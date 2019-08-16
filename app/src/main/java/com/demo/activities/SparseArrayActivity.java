@@ -10,14 +10,14 @@ import com.sourcecode.sparsearray.MySparseArray;
 
 import java.lang.reflect.Array;
 
-public class SparseArrayLearningActivity extends AppCompatActivity {
+public class SparseArrayActivity extends AppCompatActivity {
 
     private MySparseArray<String> mySparseArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sparse_array_learning);
+        setContentView(R.layout.activity_sparse_array);
 
         mySparseArray = new MySparseArray<>();
         printArrayData();

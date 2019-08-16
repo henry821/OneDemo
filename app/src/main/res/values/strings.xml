@@ -2,20 +2,25 @@
     <string name="app_name">OneDemo</string>
 
     <string name="kotlin_learning">Kotlin Learning</string>
-    <string name="kotlin_learning_check_null">Null检查机制</string>
-    <string name="kotlin_learning_coroutines">协程</string>
+    <string name="kotlin_check_null">Null检查机制</string>
+    <string name="kotlin_coroutines">协程</string>
 
 
     <string name="hot_fix_before">假设此处产生了一个崩溃</string>
     <string name="hot_fix_after">假设此处崩溃已被修复</string>
 
-    <string name="recycler_view_learning_reset">重置数据</string>
-    <string name="recycler_view_learning_add">添加数据</string>
-    <string name="recycler_view_learning_del">删除数据</string>
+    <string name="recycler_view_reset">重置数据</string>
+    <string name="recycler_view_add">添加数据</string>
+    <string name="recycler_view_del">删除数据</string>
 
-    <string name="event_bus_learning_dialog">弹出对话框</string>
-    <string name="event_bus_learning_send_event_1">发送事件1</string>
-    <string name="event_bus_learning_send_event_2">发送事件2</string>
+    <string name="event_bus_dialog">弹出对话框</string>
+    <string name="event_bus_send_event_1">发送事件1</string>
+    <string name="event_bus_send_event_2">发送事件2</string>
+
+    <string name="espresso_click">测试点击事件</string>
+    <string name="espresso_username">请输入用户名</string>
+    <string name="espresso_password">请输入密码</string>
+    <string name="espresso_login">登录</string>
 
 
 </resources>

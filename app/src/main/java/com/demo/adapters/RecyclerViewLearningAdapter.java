@@ -33,7 +33,7 @@ public class RecyclerViewLearningAdapter extends RecyclerView.Adapter<RecyclerVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LogUtil.d("onCreateViewHolder, viewType = " + viewType);
-        return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_recycler_view_learning, parent, false));
+        return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_recycler_view, parent, false));
     }
 
     @Override

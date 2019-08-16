@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="@string/kotlin_learning_check_null"
+        android:text="@string/kotlin_check_null"
         android:textSize="22sp" />
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title_check_null"
         android:padding="10dp"
-        android:text="@string/kotlin_learning_coroutines"
+        android:text="@string/kotlin_coroutines"
         android:textSize="22sp" />
 
     <View

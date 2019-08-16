@@ -39,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTitleList() {
         mTitleList = new ArrayList<>();
-        mTitleList.add(new TitleBean("RxJava2源码学习", RxJavaLearningActivity.class));
-        mTitleList.add(new TitleBean("Retrofit2学习", RetrofitLearningActivity.class));
-        mTitleList.add(new TitleBean("Kotlin学习", KotlinLearningActivity.class));
+        mTitleList.add(new TitleBean("RxJava2源码学习", RxJavaActivity.class));
+        mTitleList.add(new TitleBean("Retrofit2学习", RetrofitActivity.class));
+        mTitleList.add(new TitleBean("Kotlin学习", KotlinActivity.class));
         mTitleList.add(new TitleBean("热更新示例", HotFixActivity.class));
-        mTitleList.add(new TitleBean("SparseArray学习", SparseArrayLearningActivity.class));
-        mTitleList.add(new TitleBean("RecyclerView学习", RecyclerViewLearningActivity.class));
-        mTitleList.add(new TitleBean("EventBus学习", EventBusLearningActivity.class));
+        mTitleList.add(new TitleBean("SparseArray学习", SparseArrayActivity.class));
+        mTitleList.add(new TitleBean("RecyclerView学习", RecyclerViewActivity.class));
+        mTitleList.add(new TitleBean("EventBus学习", EventBusActivity.class));
+        mTitleList.add(new TitleBean("Espresso学习", EspressoActivity.class));
         mTitleList.add(new TitleBean("试验页面", TestActivity.class));
     }
 

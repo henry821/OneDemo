@@ -20,14 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.activities.RxJavaLearningActivity" />
-        <activity android:name="com.demo.activities.RetrofitLearningActivity" />
-        <activity android:name="com.demo.activities.KotlinLearningActivity" />
+        <activity android:name="com.demo.activities.RxJavaActivity" />
+        <activity android:name="com.demo.activities.RetrofitActivity" />
+        <activity android:name="com.demo.activities.KotlinActivity" />
         <activity android:name="com.demo.activities.TestActivity" />
         <activity android:name="com.demo.activities.HotFixActivity" />
-        <activity android:name="com.demo.activities.RecyclerViewLearningActivity" />
-        <activity android:name="com.demo.activities.SparseArrayLearningActivity" />
-        <activity android:name="com.demo.activities.EventBusLearningActivity" />
+        <activity android:name="com.demo.activities.RecyclerViewActivity" />
+        <activity android:name="com.demo.activities.SparseArrayActivity" />
+        <activity android:name="com.demo.activities.EventBusActivity" />
+        <activity android:name="com.demo.activities.EspressoActivity" />
     </application>
 
 </manifest>

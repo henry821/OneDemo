@@ -4,28 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.demo.activities.RecyclerViewLearningActivity">
+    tools:context="com.demo.activities.RecyclerViewActivity">
 
     <Button
         android:id="@+id/btn_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="@string/recycler_view_learning_reset" />
+        android:text="@string/recycler_view_reset" />
 
     <Button
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="@string/recycler_view_learning_add" />
+        android:text="@string/recycler_view_add" />
 
     <Button
         android:id="@+id/btn_del"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="@string/recycler_view_learning_del" />
+        android:text="@string/recycler_view_del" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_main"

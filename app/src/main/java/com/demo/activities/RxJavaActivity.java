@@ -21,12 +21,12 @@ import com.sourcecode.rxjava2.io.reactivex.schedulers.Schedulers;
  * <br>Author wanghengwei
  * <br>Date   2019/3/13 11:37
  */
-public class RxJavaLearningActivity extends AppCompatActivity {
+public class RxJavaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rxjava_learning);
+        setContentView(R.layout.activity_rxjava);
 
         Observable
                 .create(new ObservableOnSubscribe<Integer>() {

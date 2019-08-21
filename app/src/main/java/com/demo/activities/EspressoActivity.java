@@ -2,6 +2,7 @@ package com.demo.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ import com.demo.one.R;
  * Author wanghengwei
  * Date   2019/8/16 11:12
  */
-public class EspressoActivity extends BaseActivity {
+public class EspressoActivity extends AppCompatActivity {
 
     private TextView tvResult;
     private Button btnTest;

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import org.greenrobot.eventbus.ThreadMode;
  * Author wanghengwei
  * Date   2019/8/8 16:57
  */
-public class EventBusActivity extends BaseActivity {
+public class EventBusActivity extends AppCompatActivity {
 
     private TextView tvEvent1;
     private TextView tvEvent2;

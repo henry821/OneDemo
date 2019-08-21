@@ -1,5 +1,6 @@
 package com.demo.requests;
 
+import com.baselibrary.manager.OkHttpManager;
 import com.baselibrary.utils.LogUtil;
 import com.demo.beans.TranslationBean;
 import com.demo.requests.apis.TranslationApi;
@@ -45,6 +46,7 @@ public class TranslationRequest {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://fy.iciba.com/")
+                .client(OkHttpManager.getInstance().getOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         TranslationApi translationApi = retrofit.create(TranslationApi.class);
@@ -69,6 +71,7 @@ public class TranslationRequest {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://fy.iciba.com/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
+                .client(OkHttpManager.getInstance().getOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         TranslationApi translationApi = retrofit.create(TranslationApi.class);

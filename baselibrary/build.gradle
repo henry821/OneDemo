@@ -34,4 +34,7 @@ dependencies {
     api 'io.reactivex.rxjava2:rxandroid:2.0.2'
     //EventBus
     api "org.greenrobot:eventbus:$rootProject.ext.eventbusVersion"
+    //Stetho
+    api "com.facebook.stetho:stetho:$rootProject.ext.stethoVersion"
+    api "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.stethoVersion"
 }

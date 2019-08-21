@@ -2,6 +2,7 @@ package com.demo.application;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -16,6 +17,7 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Logger.addLogAdapter(new AndroidLogAdapter());
+        Stetho.initializeWithDefaults(this);
     }
 
 }

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mTitleList.add(new TitleBean("RecyclerView学习", RecyclerViewActivity.class));
         mTitleList.add(new TitleBean("EventBus学习", EventBusActivity.class));
         mTitleList.add(new TitleBean("Espresso学习", EspressoActivity.class));
+        mTitleList.add(new TitleBean("LeakCanary学习", LeakCanaryActivity.class));
         mTitleList.add(new TitleBean("试验页面", TestActivity.class));
     }
 

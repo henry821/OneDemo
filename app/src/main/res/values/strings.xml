@@ -22,5 +22,10 @@
     <string name="espresso_password">请输入密码</string>
     <string name="espresso_login">登录</string>
 
+    <string name="leak_canary_singleton">单例类引起的内存泄漏</string>
+    <string name="leak_canary_normal_inner_class_static_instance">非静态内部类的静态实例</string>
+    <string name="leak_canary_inner_Thread">内部线程类</string>
+    <string name="leak_canary_normal_handler">非静态Handler</string>
+
 
 </resources>

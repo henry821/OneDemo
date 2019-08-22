@@ -29,6 +29,7 @@
         <activity android:name="com.demo.activities.SparseArrayActivity" />
         <activity android:name="com.demo.activities.EventBusActivity" />
         <activity android:name="com.demo.activities.EspressoActivity" />
+        <activity android:name="com.demo.activities.LeakCanaryActivity" />
     </application>
 
 </manifest>

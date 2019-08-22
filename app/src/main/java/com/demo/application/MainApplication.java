@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import com.baselibrary.utils.LogUtil;
 import com.facebook.stetho.Stetho;
+import com.github.moduth.blockcanary.BlockCanary;
+import com.github.moduth.blockcanary.BlockCanaryContext;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -21,6 +23,7 @@ public class MainApplication extends Application {
         super.onCreate();
         Logger.addLogAdapter(new AndroidLogAdapter());
         Stetho.initializeWithDefaults(this);
+        BlockCanary.install(this, new BlockCanaryContext()).start();
         registerActivityLifecycleCallbacks(new ActivityLifeCycleCallback());
     }
 
@@ -63,4 +66,5 @@ public class MainApplication extends Application {
             LogUtil.v(activity.getLocalClassName() + "---onDestroy");
         }
     }
+
 }

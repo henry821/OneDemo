@@ -27,5 +27,7 @@
     <string name="leak_canary_inner_Thread">内部线程类</string>
     <string name="leak_canary_normal_handler">非静态Handler</string>
 
+    <string name="block_canary_button">生成一个界面卡顿</string>
+
 
 </resources>

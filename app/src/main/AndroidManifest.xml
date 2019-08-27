@@ -30,6 +30,7 @@
         <activity android:name="com.demo.activities.EventBusActivity" />
         <activity android:name="com.demo.activities.EspressoActivity" />
         <activity android:name="com.demo.activities.LeakCanaryActivity" />
+        <activity android:name="com.demo.activities.BlockCanaryActivity"/>
     </application>
 
 </manifest>

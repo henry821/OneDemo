@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.demo.one">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name="com.demo.application.MainApplication"
         android:allowBackup="true"
@@ -30,7 +28,12 @@
         <activity android:name="com.demo.activities.EventBusActivity" />
         <activity android:name="com.demo.activities.EspressoActivity" />
         <activity android:name="com.demo.activities.LeakCanaryActivity" />
-        <activity android:name="com.demo.activities.BlockCanaryActivity"/>
+        <activity android:name="com.demo.activities.BlockCanaryActivity" />
+        <activity android:name="com.demo.activities.ServiceActivity" />
+
+        <service android:name="com.demo.service.StartModeService" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

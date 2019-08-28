@@ -29,5 +29,8 @@
 
     <string name="block_canary_button">生成一个界面卡顿</string>
 
+    <string name="service_start">start方式启动Service</string>
+    <string name="service_bind">bind方式启动Service</string>
+
 
 </resources>

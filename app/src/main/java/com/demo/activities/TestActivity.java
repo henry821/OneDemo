@@ -2,7 +2,9 @@ package com.demo.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
+import com.baselibrary.widgets.TurnPlateView;
 import com.demo.one.R;
 
 /**
@@ -16,5 +18,15 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        final TurnPlateView turnPlatView = findViewById(R.id.turnPlatView);
+        turnPlatView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnPlatView.startAnim();
+            }
+        });
+
+
     }
 }

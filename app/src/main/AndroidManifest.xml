@@ -32,6 +32,7 @@
         <activity android:name="com.demo.activities.ServiceActivity" />
 
         <service android:name="com.demo.service.StartModeService" />
+        <service android:name="com.demo.service.BindModeService" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

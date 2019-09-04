@@ -7,12 +7,25 @@ package com.baselibrary.beans;
  */
 public class TurnPlateViewItemBean {
 
+    private int id;
     private String color;
     private String desc;
 
-    public TurnPlateViewItemBean(String color, String desc) {
+    private float startAngle;
+    private float endAngle;
+
+    public TurnPlateViewItemBean(int id, String color, String desc) {
+        this.id = id;
         this.color = color;
         this.desc = desc;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getColor() {
@@ -29,5 +42,21 @@ public class TurnPlateViewItemBean {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public float getStartAngle() {
+        return startAngle;
+    }
+
+    public void setStartAngle(float startAngle) {
+        this.startAngle = startAngle;
+    }
+
+    public float getEndAngle() {
+        return endAngle;
+    }
+
+    public void setEndAngle(float endAngle) {
+        this.endAngle = endAngle;
     }
 }

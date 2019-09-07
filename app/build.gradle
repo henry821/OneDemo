@@ -46,13 +46,15 @@ dependencies {
     implementation group: "com.tencent.matrix", name: "matrix-resource-canary-android", version: matrixVersion, changing: true
     implementation group: "com.tencent.matrix", name: "matrix-resource-canary-common", version: matrixVersion, changing: true
     implementation group: "com.tencent.matrix", name: "matrix-io-canary", version: matrixVersion, changing: true
+    implementation group: "com.tencent.matrix", name: "matrix-thread-canary", version: '0.4.10.3', changing: true
     implementation group: "com.tencent.matrix", name: "matrix-sqlite-lint-android-sdk", version: matrixVersion, changing: true
+    releaseImplementation group: "com.tencent.matrix", name: "matrix-sqlite-lint-android-sdk-no-op", version: matrixVersion, changing: true
 }
 
 apply plugin: 'com.tencent.matrix-plugin'
 matrix {
     trace {
-        enable = true	//if you don't want to use trace canary, set false
+        enable = true    //if you don't want to use trace canary, set false
         baseMethodMapFile = "${project.buildDir}/matrix_output/Debug.methodmap"
         blackListFile = "${project.projectDir}/matrixTrace/blackMethodList.txt"
     }

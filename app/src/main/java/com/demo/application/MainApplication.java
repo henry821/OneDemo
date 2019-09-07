@@ -5,11 +5,14 @@ import android.app.Application;
 import android.os.Bundle;
 
 import com.baselibrary.utils.LogUtil;
+import com.demo.other.matrix.DynamicConfigImplDemo;
+import com.demo.other.matrix.TestPluginListener;
 import com.facebook.stetho.Stetho;
-import com.github.moduth.blockcanary.BlockCanary;
-import com.github.moduth.blockcanary.BlockCanaryContext;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.tencent.matrix.Matrix;
+import com.tencent.matrix.iocanary.IOCanaryPlugin;
+import com.tencent.matrix.iocanary.config.IOConfig;
 
 /**
  * Description 主Application
@@ -23,8 +26,27 @@ public class MainApplication extends Application {
         super.onCreate();
         Logger.addLogAdapter(new AndroidLogAdapter());
         Stetho.initializeWithDefaults(this);
-        BlockCanary.install(this, new BlockCanaryContext()).start();
+        initMatrix();
         registerActivityLifecycleCallbacks(new ActivityLifeCycleCallback());
+    }
+
+    private void initMatrix() {
+        Matrix.Builder builder = new Matrix.Builder(this); // build matrix
+        builder.patchListener(new TestPluginListener(this)); // add general pluginListener
+        DynamicConfigImplDemo dynamicConfig = new DynamicConfigImplDemo(); // dynamic config
+
+        // init plugin
+        IOCanaryPlugin ioCanaryPlugin = new IOCanaryPlugin(new IOConfig.Builder()
+                .dynamicConfig(dynamicConfig)
+                .build());
+        //add to matrix
+        builder.plugin(ioCanaryPlugin);
+
+        //init matrix
+        Matrix.init(builder.build());
+
+        // start plugin
+        ioCanaryPlugin.start();
     }
 
     private class ActivityLifeCycleCallback implements ActivityLifecycleCallbacks {

@@ -5,11 +5,15 @@ buildscript {
     repositories {
         google()
         jcenter()
+        //自定义插件目录
+        maven{ url uri('generated-plugin')}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlinVersion"
         classpath ("com.tencent.matrix:matrix-gradle-plugin:${matrixVersion}") { changing = true }
+        //使用自定义插件
+        classpath 'com.demo.plugin:statistics:1.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

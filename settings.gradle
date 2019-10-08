@@ -1,1 +1,1 @@
-include ':app', ':sourcecode', ':baselibrary', ':designpattern', ':leetcode', ':plugin'
+include ':app', ':sourcecode', ':baselibrary', ':designpattern', ':leetcode', ':statistic'

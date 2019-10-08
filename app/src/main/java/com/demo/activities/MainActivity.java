@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.baselibrary.annotation.WhwTest;
 import com.baselibrary.utils.IntentUtil;
 import com.demo.adapters.TitleListDataBindingAdapter;
 import com.demo.beans.TitleBean;
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         binding.rvTitle.setAdapter(adapter);
     }
 
-    @WhwTest
     private void initTitleList() {
         mTitleList = new ArrayList<>();
         mTitleList.add(new TitleBean("Service学习", ServiceActivity.class));

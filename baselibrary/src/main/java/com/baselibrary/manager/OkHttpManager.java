@@ -1,7 +1,5 @@
 package com.baselibrary.manager;
 
-import com.facebook.stetho.okhttp3.StethoInterceptor;
-
 import okhttp3.OkHttpClient;
 
 /**
@@ -23,7 +21,6 @@ public class OkHttpManager {
 
     private OkHttpManager() {
         sClient = new OkHttpClient.Builder()
-                .addNetworkInterceptor(new StethoInterceptor())
                 .build();
     }
 

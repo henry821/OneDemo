@@ -32,7 +32,6 @@
         <activity android:name="com.demo.activities.LeakCanaryActivity" />
         <activity android:name="com.demo.activities.BlockCanaryActivity" />
         <activity android:name="com.demo.activities.ServiceActivity" />
-        <activity android:name="com.demo.activities.IssuesListActivity" />
 
         <service android:name="com.demo.service.StartModeService" />
         <service android:name="com.demo.service.BindModeService" />

@@ -14,12 +14,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                // cpp 编译时的额外选项
-                cppFlags ""
-            }
-        }
+
         ndk {
             abiFilters "armeabi-v7a"
         }
@@ -35,12 +30,6 @@ android {
     //导入dataBinding支持
     dataBinding {
         enabled true
-    }
-    externalNativeBuild {
-        cmake {
-            // cmakelists文件的路径
-            path file('../jni/CMakeLists.txt')
-        }
     }
 }
 

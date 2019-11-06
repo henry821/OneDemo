@@ -10,8 +10,15 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
-        consumerProguardFiles 'consumer-rules.pro'
+        externalNativeBuild {
+            cmake {
+                // cpp 编译时的额外选项
+                cppFlags ""
+            }
+        }
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
     }
 
     buildTypes {
@@ -20,6 +27,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    externalNativeBuild {
+        cmake {
+            path file('CMakeLists.txt')
+        }
+    }
+
 
 }
 

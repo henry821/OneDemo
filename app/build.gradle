@@ -14,6 +14,15 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                // cpp 编译时的额外选项
+                cppFlags ""
+            }
+        }
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
     }
 
     buildTypes {
@@ -27,6 +36,12 @@ android {
     dataBinding {
         enabled true
     }
+    externalNativeBuild {
+        cmake {
+            // cmakelists文件的路径
+            path file('../jni/CMakeLists.txt')
+        }
+    }
 }
 
 
@@ -37,6 +52,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1'
     //测试相关
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'

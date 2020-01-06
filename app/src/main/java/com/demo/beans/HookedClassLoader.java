@@ -98,6 +98,6 @@ public class HookedClassLoader extends PathClassLoader {
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
         LogUtil.printClassLoaderE("loadClass: " + name);
-        return super.loadClass(name);
+        return mOrig.loadClass(name);
     }
 }

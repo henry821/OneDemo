@@ -2,9 +2,11 @@ package com.demo.application;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.baselibrary.utils.LogUtil;
+import com.demo.utils.PatchClassLoaderUtils;
 
 /**
  * Description 主Application
@@ -14,6 +16,13 @@ import com.baselibrary.utils.LogUtil;
 public class MainApplication extends Application {
 
     private static final String TAG = "MainApplication";
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        //Hook ClassLoader
+        PatchClassLoaderUtils.patch(this);
+    }
 
     @Override
     public void onCreate() {

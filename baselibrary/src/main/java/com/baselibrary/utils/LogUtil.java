@@ -3,7 +3,7 @@ package com.baselibrary.utils;
 import android.util.Log;
 
 /**
- * Description 输出简单Log工具类，输出详细Log信息使用{@link com.orhanobut.logger.Logger}
+ * Description 输出简单Log工具类
  * <br>Author wanghengwei
  * <br>Date   2019/3/13 14:22
  */
@@ -53,5 +53,13 @@ public class LogUtil {
 
     public static void printError(Throwable throwable) {
         Log.e(TAG, "error: ", throwable);
+    }
+
+    public static void printClassLoaderD(String content) {
+        d("[类加载器学习]" + content);
+    }
+
+    public static void printClassLoaderE(String content) {
+        e("[类加载器学习]" + content);
     }
 }

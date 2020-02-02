@@ -1,7 +1,8 @@
 package com.demo.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.demo.one.R;
 import com.demo.requests.TranslationRequest;

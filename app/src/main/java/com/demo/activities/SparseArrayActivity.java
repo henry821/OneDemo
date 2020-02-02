@@ -1,7 +1,8 @@
 package com.demo.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.demo.one.R;
 import com.demo.one.base.utils.LogUtil;

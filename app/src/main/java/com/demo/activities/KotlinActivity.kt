@@ -2,8 +2,6 @@ package com.demo.activities
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.widget.TextView
 import com.demo.adapters.TitleListNormalAdapter
 import com.demo.beans.TitleBean
@@ -20,7 +18,7 @@ import java.util.*
 class KotlinActivity : Activity() {
 
     private lateinit var tvCheckNull: TextView
-    private lateinit var rvOperation: RecyclerView
+    private lateinit var rvOperation: androidx.recyclerview.widget.RecyclerView
 
     private lateinit var mTitleList: ArrayList<TitleBean>
 
@@ -63,7 +61,7 @@ class KotlinActivity : Activity() {
                 6 -> CoroutinesUtil.asyncMethod()
             }
         })
-        rvOperation.layoutManager = LinearLayoutManager(this)
+        rvOperation.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         rvOperation.adapter = mTitleListAdapter
     }
 

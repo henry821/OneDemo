@@ -9,7 +9,6 @@ ext{
     compileSdkVersion = 28
     // JetPack依赖
     kotlinVersion = '1.3.50'
-    androidSupportVerision = '28.0.0'
     constraintLayoutVerision = '1.1.3'
     androidXVersion = '1.0.0'
     androidXTestVersion = '1.1.1'
@@ -17,8 +16,8 @@ ext{
     androidXLegacySupport = '1.0.0'
     materialVersion = '1.0.0'
     cardVersion = '1.0.0'
-    recyclerViewVersion = '1.0.0'
-    appCompatVersion = '1.0.2'
+    recyclerViewVersion = '1.1.0'
+    appCompatVersion = '1.1.0'
     // 第三方依赖
     retrofitVersion = '2.3.0'
     eventbusVersion = '3.1.1'

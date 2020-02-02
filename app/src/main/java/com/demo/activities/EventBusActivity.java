@@ -9,10 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.baselibrary.utils.LogUtil;
 import com.demo.beans.event.MainThreadEvent;
 import com.demo.beans.event.SubThreadEvent;
 import com.demo.one.R;
+import com.demo.one.base.utils.LogUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

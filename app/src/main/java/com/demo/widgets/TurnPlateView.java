@@ -1,4 +1,4 @@
-package com.baselibrary.widgets;
+package com.demo.widgets;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,10 +15,10 @@ import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.baselibrary.R;
-import com.baselibrary.beans.TurnPlateViewItemBean;
-import com.baselibrary.utils.DensityUtil;
-import com.baselibrary.utils.LogUtil;
+import com.demo.beans.TurnPlateViewItemBean;
+import com.demo.one.R;
+import com.demo.one.base.utils.LogUtil;
+import com.demo.utils.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.List;

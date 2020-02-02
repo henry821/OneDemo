@@ -38,7 +38,7 @@ public class RecyclerMethodVisitor extends AdviceAdapter {
         if (METHOD_Try_Get_ViewHolder_For_Position_By_Deadline.equals(methodName)) {
             //打印当前方法名
             mv.visitLdcInsn("[ASM埋点]当前方法：" + methodName);
-            mv.visitMethodInsn(INVOKESTATIC, "com/baselibrary/utils/LogUtil", "w", "(Ljava/lang/String;)V", false);
+            mv.visitMethodInsn(INVOKESTATIC, "com/demo/one/base/utils/LogUtil", "w", "(Ljava/lang/String;)V", false);
             // ----------------------------
         }
     }
@@ -48,15 +48,15 @@ public class RecyclerMethodVisitor extends AdviceAdapter {
         super.onMethodExit(opcode);
         if (METHOD_Try_Get_ViewHolder_For_Position_By_Deadline.equals(methodName)) {
             //把Recycler的mAttachedScrap缓存设置给Manager
-            mv.visitMethodInsn(INVOKESTATIC, "com/baselibrary/manager/RecyclerViewRecordManager", "getInstance", "()Lcom/baselibrary/manager/RecyclerViewRecordManager;", false);
+            mv.visitMethodInsn(INVOKESTATIC, "com/demo/manager/RecyclerViewRecordManager", "getInstance", "()Lcom/demo/manager/RecyclerViewRecordManager;", false);
             mv.visitVarInsn(ALOAD, 0);
             mv.visitFieldInsn(GETFIELD, "android/support/v7/widget/RecyclerView$Recycler", "mAttachedScrap", "Ljava/util/ArrayList;");
-            mv.visitMethodInsn(INVOKEVIRTUAL, "com/baselibrary/manager/RecyclerViewRecordManager", "setAttachedScrap", "(Ljava/util/List;)V", false);
+            mv.visitMethodInsn(INVOKEVIRTUAL, "com/demo/manager/RecyclerViewRecordManager", "setAttachedScrap", "(Ljava/util/List;)V", false);
             //把Recycler的mCachedViews缓存设置给Manager
-            mv.visitMethodInsn(INVOKESTATIC, "com/baselibrary/manager/RecyclerViewRecordManager", "getInstance", "()Lcom/baselibrary/manager/RecyclerViewRecordManager;", false);
+            mv.visitMethodInsn(INVOKESTATIC, "com/demo/manager/RecyclerViewRecordManager", "getInstance", "()Lcom/demo/manager/RecyclerViewRecordManager;", false);
             mv.visitVarInsn(ALOAD, 0);
             mv.visitFieldInsn(GETFIELD, "android/support/v7/widget/RecyclerView$Recycler", "mCachedViews", "Ljava/util/ArrayList;");
-            mv.visitMethodInsn(INVOKEVIRTUAL, "com/baselibrary/manager/RecyclerViewRecordManager", "setCachedViews", "(Ljava/util/List;)V", false);
+            mv.visitMethodInsn(INVOKEVIRTUAL, "com/demo/manager/RecyclerViewRecordManager", "setCachedViews", "(Ljava/util/List;)V", false);
         }
     }
 }

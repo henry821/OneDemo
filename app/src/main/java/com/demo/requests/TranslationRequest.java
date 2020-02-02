@@ -1,8 +1,8 @@
 package com.demo.requests;
 
-import com.baselibrary.manager.OkHttpManager;
-import com.baselibrary.utils.LogUtil;
 import com.demo.beans.TranslationBean;
+import com.demo.manager.OkHttpManager;
+import com.demo.one.base.utils.LogUtil;
 import com.demo.requests.apis.TranslationApi;
 
 import java.util.HashMap;

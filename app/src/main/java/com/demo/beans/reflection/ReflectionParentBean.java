@@ -1,6 +1,6 @@
 package com.demo.beans.reflection;
 
-import com.baselibrary.utils.LogUtil;
+import com.demo.one.base.utils.LogUtil;
 
 /**
  * Description 反射类父类

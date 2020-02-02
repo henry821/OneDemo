@@ -1,4 +1,4 @@
-package com.baselibrary.beans;
+package com.demo.beans;
 
 /**
  * Description 转盘条目

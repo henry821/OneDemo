@@ -1,6 +1,6 @@
 package com.sourcecode.sparsearray;
 
-import com.baselibrary.utils.LogUtil;
+import com.demo.one.base.utils.LogUtil;
 
 /**
  * Description
@@ -11,12 +11,13 @@ public class GrowingArrayUtils {
 
     /**
      * Appends an element to the end of the array, growing the array if there is no more room.
-     * @param array The array to which to append the element. This must NOT be null.
+     *
+     * @param array       The array to which to append the element. This must NOT be null.
      * @param currentSize The number of elements in the array. Must be less than or equal to
      *                    array.length.
-     * @param element The element to append.
+     * @param element     The element to append.
      * @return the array to which the element was appended. This may be different than the given
-     *         array.
+     * array.
      */
     public static <T> T[] append(T[] array, int currentSize, T element) {
         assert currentSize <= array.length;
@@ -25,7 +26,7 @@ public class GrowingArrayUtils {
             @SuppressWarnings("unchecked")
 //            T[] newArray = ArrayUtils.newUnpaddedArray(
 //                    (Class<T>) array.getClass().getComponentType(), growSize(currentSize));
-            T[] newArray = (T[]) HookArrayUtils.newUnpaddedArray(
+                    T[] newArray = (T[]) HookArrayUtils.newUnpaddedArray(
                     (Class<T>) array.getClass().getComponentType(), growSize(currentSize));
             System.arraycopy(array, 0, newArray, 0, currentSize);
             array = newArray;
@@ -52,12 +53,12 @@ public class GrowingArrayUtils {
      * Inserts an element into the array at the specified index, growing the array if there is no
      * more room.
      *
-     * @param array The array to which to append the element. Must NOT be null.
+     * @param array       The array to which to append the element. Must NOT be null.
      * @param currentSize The number of elements in the array. Must be less than or equal to
      *                    array.length.
-     * @param element The element to insert.
+     * @param element     The element to insert.
      * @return the array to which the element was appended. This may be different than the given
-     *         array.
+     * array.
      */
     public static <T> T[] insert(T[] array, int currentSize, int index, T element) {
         LogUtil.e("--进入插入Key方法,当前currentSize(有效数据长度) = " + currentSize + ", array.length(真实数组长度) = " + array.length + ", index(插入下标) = " + index + ", value(插入元素) = " + element);
@@ -73,7 +74,7 @@ public class GrowingArrayUtils {
         @SuppressWarnings("unchecked")
 //        T[] newArray = ArrayUtils.newUnpaddedArray((Class<T>)array.getClass().getComponentType(),
 //                growSize(currentSize));
-        T[] newArray = (T[]) HookArrayUtils.newUnpaddedArray((Class<T>)array.getClass().getComponentType(),
+                T[] newArray = (T[]) HookArrayUtils.newUnpaddedArray((Class<T>) array.getClass().getComponentType(),
                 growSize(currentSize));
         System.arraycopy(array, 0, newArray, 0, index);
         newArray[index] = element;
@@ -113,6 +114,7 @@ public class GrowingArrayUtils {
     }
 
     // Uninstantiable
-    private GrowingArrayUtils() {}
+    private GrowingArrayUtils() {
+    }
 
 }

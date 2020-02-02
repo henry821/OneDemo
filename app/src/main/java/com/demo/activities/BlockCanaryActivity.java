@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.baselibrary.utils.LogUtil;
 import com.demo.one.R;
+import com.demo.one.base.utils.LogUtil;
 
 import java.lang.ref.WeakReference;
 

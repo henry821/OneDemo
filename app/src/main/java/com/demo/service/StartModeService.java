@@ -3,7 +3,7 @@ package com.demo.service;
 import android.content.Intent;
 import android.os.IBinder;
 
-import com.baselibrary.utils.LogUtil;
+import com.demo.one.base.utils.LogUtil;
 
 /**
  * Description 使用start方法创建的Service

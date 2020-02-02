@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.baselibrary.utils.LogUtil;
 import com.demo.one.R;
+import com.demo.one.base.utils.LogUtil;
 
 import java.util.List;
 

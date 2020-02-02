@@ -19,8 +19,8 @@ package com.demo.utils;
 import android.app.Application;
 import android.content.Context;
 
-import com.baselibrary.utils.LogUtil;
 import com.demo.beans.HookedClassLoader;
+import com.demo.one.base.utils.LogUtil;
 
 /**
  * 对宿主的HostClassLoader做修改。这是RePlugin中唯一需要修改宿主私有属性的位置了

@@ -1,6 +1,6 @@
 package com.sourcecode.sparsearray;
 
-import com.baselibrary.utils.LogUtil;
+import com.demo.one.base.utils.LogUtil;
 
 /**
  * Description 移植SparseArray源码
@@ -80,8 +80,7 @@ public class MySparseArray<E> {
     }
 
     /**
-     * @hide
-     * Removes the mapping from the specified key, if there was any, returning the old value.
+     * @hide Removes the mapping from the specified key, if there was any, returning the old value.
      */
     public E removeReturnOld(int key) {
         int i = ContainerHelpers.binarySearch(mKeys, mSize, key);
@@ -121,10 +120,10 @@ public class MySparseArray<E> {
      * Remove a range of mappings as a batch.
      *
      * @param index Index to begin at
-     * @param size Number of mappings to remove
+     * @param size  Number of mappings to remove
      *
-     * <p>For indices outside of the range <code>0...size()-1</code>,
-     * the behavior is undefined.</p>
+     *              <p>For indices outside of the range <code>0...size()-1</code>,
+     *              the behavior is undefined.</p>
      */
     public void removeAtRange(int index, int size) {
         final int end = Math.min(mSize, index + size);
@@ -315,6 +314,7 @@ public class MySparseArray<E> {
      * and that multiple keys can map to the same value and this will
      * find only one of them.
      * <p>Note also that this method uses {@code equals} unlike {@code indexOfValue}.
+     *
      * @hide
      */
     public int indexOfValueByValue(E value) {
@@ -385,7 +385,7 @@ public class MySparseArray<E> {
 
         StringBuilder buffer = new StringBuilder(mSize * 28);
         buffer.append('{');
-        for (int i=0; i<mSize; i++) {
+        for (int i = 0; i < mSize; i++) {
             if (i > 0) {
                 buffer.append(", ");
             }

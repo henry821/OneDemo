@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.TextView
-import com.baselibrary.utils.LogUtil
 import com.demo.adapters.TitleListNormalAdapter
 import com.demo.beans.TitleBean
 import com.demo.one.R
+import com.demo.one.base.utils.LogUtil
 import com.demo.utils.CoroutinesUtil
 import java.util.*
 

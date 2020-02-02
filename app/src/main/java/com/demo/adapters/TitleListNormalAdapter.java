@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.demo.beans.TitleBean;
-import com.baselibrary.utils.DensityUtil;
+import com.demo.utils.DensityUtil;
 
 import java.util.List;
 

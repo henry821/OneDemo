@@ -12,7 +12,7 @@ import com.demo.beans.TitleBean;
 import com.demo.one.R;
 import com.demo.utils.CreateBugUtil;
 import com.demo.utils.HotFix;
-import com.demo.utils.ReflectionUtil;
+import com.demo.utils.ReflectUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class HotFixActivity extends AppCompatActivity {
             public void onItemClick(int position, TitleBean bean) {
                 switch (position) {
                     case 1:
-                        ReflectionUtil.printReflectionDemoInfo();
+                        ReflectUtils.printReflectionDemoInfo();
                         break;
                     case 2:
                         CreateBugUtil.createBug(HotFixActivity.this);

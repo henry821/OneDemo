@@ -2,7 +2,7 @@ package com.demo.beans;
 
 import android.os.Build;
 
-import com.baselibrary.utils.LogUtil;
+import com.demo.one.base.utils.LogUtil;
 import com.demo.utils.ReflectUtils;
 import com.demo.utils.StringUtils;
 

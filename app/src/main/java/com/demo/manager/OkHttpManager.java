@@ -1,4 +1,4 @@
-package com.baselibrary.manager;
+package com.demo.manager;
 
 import okhttp3.OkHttpClient;
 

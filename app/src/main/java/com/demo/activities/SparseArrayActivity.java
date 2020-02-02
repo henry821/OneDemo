@@ -3,9 +3,9 @@ package com.demo.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.baselibrary.utils.LogUtil;
-import com.baselibrary.utils.ReflectionUtil;
 import com.demo.one.R;
+import com.demo.one.base.utils.LogUtil;
+import com.demo.utils.ReflectUtils;
 import com.sourcecode.sparsearray.MySparseArray;
 
 import java.lang.reflect.Array;
@@ -32,7 +32,7 @@ public class SparseArrayActivity extends AppCompatActivity {
     private void printArrayData() {
         StringBuilder builder = new StringBuilder();
         try {
-            Object mKeys = ReflectionUtil.getField(mySparseArray, mySparseArray.getClass(), "mKeys");
+            Object mKeys = ReflectUtils.readField(mySparseArray, "mKeys");
             int length = Array.getLength(mKeys);
             for (int i = 0; i < length; i++) {
                 int key = mySparseArray.keyAt(i);

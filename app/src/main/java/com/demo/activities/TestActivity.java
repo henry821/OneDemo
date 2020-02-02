@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.baselibrary.widgets.TurnPlateView;
 import com.demo.one.R;
+import com.demo.widgets.TurnPlateView;
 
 /**
  * Description 测试Activity，用于临时试验

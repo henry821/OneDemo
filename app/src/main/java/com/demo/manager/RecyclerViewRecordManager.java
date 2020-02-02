@@ -1,4 +1,4 @@
-package com.baselibrary.manager;
+package com.demo.manager;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;

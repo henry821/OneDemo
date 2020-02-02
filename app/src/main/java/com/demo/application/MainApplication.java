@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.baselibrary.utils.LogUtil;
+import com.demo.one.base.utils.LogUtil;
 import com.demo.utils.PatchClassLoaderUtils;
 
 /**

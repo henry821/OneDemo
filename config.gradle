@@ -18,7 +18,8 @@ ext{
     cardVersion = '1.0.0'
     recyclerViewVersion = '1.1.0'
     appCompatVersion = '1.1.0'
-    archLifecycleVersion = '2.0.0'
+    archLifecycleVersion = '2.2.0'
+    materialVersion = '1.0.0'
     // 第三方依赖
     retrofitVersion = '2.3.0'
     eventbusVersion = '3.1.1'

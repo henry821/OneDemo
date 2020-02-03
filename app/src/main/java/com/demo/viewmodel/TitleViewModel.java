@@ -14,7 +14,7 @@ import com.demo.activities.LeakCanaryActivity;
 import com.demo.activities.RecyclerViewActivity;
 import com.demo.activities.RetrofitActivity;
 import com.demo.activities.RxJavaActivity;
-import com.demo.activities.ServiceActivity;
+import com.demo.activities.ServiceFragment;
 import com.demo.activities.SparseArrayActivity;
 import com.demo.activities.TestActivity;
 import com.demo.beans.TitleBean;
@@ -43,7 +43,7 @@ public class TitleViewModel extends ViewModel {
         mTitles = new MutableLiveData<>();
 
         List<TitleBean> titleList = new ArrayList<>();
-        titleList.add(new TitleBean("Service学习", ServiceActivity.class));
+        titleList.add(new TitleBean("Service学习", ServiceFragment.class));
         titleList.add(new TitleBean("RxJava2源码学习", RxJavaActivity.class));
         titleList.add(new TitleBean("Retrofit2学习", RetrofitActivity.class));
         titleList.add(new TitleBean("Kotlin学习", KotlinActivity.class));

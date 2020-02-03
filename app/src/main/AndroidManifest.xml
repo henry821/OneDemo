@@ -42,7 +42,7 @@
         <activity android:name="com.demo.activities.EspressoActivity" />
         <activity android:name="com.demo.activities.LeakCanaryActivity" />
         <activity android:name="com.demo.activities.BlockCanaryActivity" />
-        <activity android:name="com.demo.activities.ServiceActivity" />
+        <activity android:name="com.demo.activities.ServiceFragment" />
         <activity android:name="com.demo.activities.JniActivity"/>
 
         <service android:name="com.demo.service.StartModeService" />

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">OneDemo</string>
 
+    <string name="home_btn_open_drawer">打开侧边栏</string>
+
     <string name="kotlin_learning">Kotlin Learning</string>
     <string name="kotlin_check_null">Null检查机制</string>
     <string name="kotlin_coroutines">协程</string>

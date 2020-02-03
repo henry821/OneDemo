@@ -4,7 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.demo.adapters.TitleListDataBindingAdapter;
@@ -12,47 +14,37 @@ import com.demo.beans.TitleBean;
 import com.demo.one.R;
 import com.demo.one.databinding.ActivityMainBinding;
 import com.demo.utils.IntentUtil;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.demo.viewmodel.TitleViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<TitleBean> mTitleList;
+    private ActivityMainBinding binding;
+    private TitleViewModel mTaskViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        initTitleList();
-        TitleListDataBindingAdapter adapter = new TitleListDataBindingAdapter(this, mTitleList, new TitleListDataBindingAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(TitleBean bean) {
-                IntentUtil.gotoActivity(MainActivity.this, bean.getToPkgClazz(), null);
-            }
-        });
+        mTaskViewModel = ViewModelProviders.of(this).get(TitleViewModel.class);
 
-        binding.rvTitle.setLayoutManager(new LinearLayoutManager(this));
-        binding.rvTitle.setAdapter(adapter);
+        TitleListDataBindingAdapter adapter = new TitleListDataBindingAdapter(this,
+                mTaskViewModel.getTitles().getValue(),
+                new TitleListDataBindingAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(TitleBean bean) {
+                        IntentUtil.gotoActivity(MainActivity.this, bean.getToPkgClazz(), null);
+                    }
+                });
+
+        binding.setCallback(this);
+        binding.setAdapter(adapter);
+        binding.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void initTitleList() {
-        mTitleList = new ArrayList<>();
-        mTitleList.add(new TitleBean("Service学习", ServiceActivity.class));
-        mTitleList.add(new TitleBean("RxJava2源码学习", RxJavaActivity.class));
-        mTitleList.add(new TitleBean("Retrofit2学习", RetrofitActivity.class));
-        mTitleList.add(new TitleBean("Kotlin学习", KotlinActivity.class));
-        mTitleList.add(new TitleBean("热更新示例", HotFixActivity.class));
-        mTitleList.add(new TitleBean("SparseArray学习", SparseArrayActivity.class));
-        mTitleList.add(new TitleBean("RecyclerView学习", RecyclerViewActivity.class));
-        mTitleList.add(new TitleBean("EventBus学习", EventBusActivity.class));
-        mTitleList.add(new TitleBean("Espresso学习", EspressoActivity.class));
-        mTitleList.add(new TitleBean("LeakCanary学习", LeakCanaryActivity.class));
-        mTitleList.add(new TitleBean("BlockCanary学习", BlockCanaryActivity.class));
-        mTitleList.add(new TitleBean("Jni学习", JniActivity.class));
-        mTitleList.add(new TitleBean("试验页面", TestActivity.class));
+    public void openDrawer() {
+        binding.drawerLayout.openDrawer(GravityCompat.START);
     }
 
 }

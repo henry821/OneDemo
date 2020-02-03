@@ -25,6 +25,7 @@ dependencies {
     api "androidx.appcompat:appcompat:$appCompatVersion"
     api "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     api "androidx.constraintlayout:constraintlayout:$constraintLayoutVerision"
+    api "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
     //Retrofit2
     api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"

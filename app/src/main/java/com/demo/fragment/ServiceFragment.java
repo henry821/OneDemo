@@ -1,4 +1,4 @@
-package com.demo.activities;
+package com.demo.fragment;
 
 import android.content.ComponentName;
 import android.content.Intent;

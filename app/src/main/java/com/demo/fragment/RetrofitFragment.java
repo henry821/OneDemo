@@ -1,18 +1,17 @@
-package com.demo.activities;
+package com.demo.fragment;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-import com.demo.one.R;
 import com.demo.requests.TranslationRequest;
 
-public class RetrofitActivity extends AppCompatActivity {
+public class RetrofitFragment extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
 
         TranslationRequest request = new TranslationRequest();
 //        request.getTranslation("hello world");

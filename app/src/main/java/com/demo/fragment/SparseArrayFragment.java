@@ -1,8 +1,13 @@
-package com.demo.activities;
+package com.demo.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.demo.one.R;
 import com.demo.one.base.utils.LogUtil;
@@ -11,23 +16,28 @@ import com.sourcecode.sparsearray.MySparseArray;
 
 import java.lang.reflect.Array;
 
-public class SparseArrayActivity extends AppCompatActivity {
+public class SparseArrayFragment extends Fragment {
 
     private MySparseArray<String> mySparseArray;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sparse_array);
-
         mySparseArray = new MySparseArray<>();
         printArrayData();
 
-        mySparseArray.put(11,"第一个元素");
+        mySparseArray.put(11, "第一个元素");
         printArrayData();
 
-        mySparseArray.put(17,"第二个元素");
+        mySparseArray.put(17, "第二个元素");
         printArrayData();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_sparse_array, container, false);
+
     }
 
     private void printArrayData() {

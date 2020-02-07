@@ -31,6 +31,12 @@ android {
     dataBinding {
         enabled true
     }
+
+    externalNativeBuild {
+        cmake {
+            path '../jni/CMakeLists.txt'
+        }
+    }
 }
 
 

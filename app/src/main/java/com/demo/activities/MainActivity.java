@@ -8,13 +8,23 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.demo.adapters.TitleListDataBindingAdapter;
 import com.demo.beans.TitleBean;
+import com.demo.fragment.JniFragment;
+import com.demo.fragment.LeakCanaryFragment;
+import com.demo.fragment.RecyclerViewFragment;
+import com.demo.fragment.RetrofitFragment;
+import com.demo.fragment.RxJavaFragment;
+import com.demo.fragment.ServiceFragment;
+import com.demo.fragment.SparseArrayFragment;
+import com.demo.fragment.TestFragment;
 import com.demo.one.R;
 import com.demo.one.databinding.ActivityMainBinding;
 import com.demo.viewmodel.TitleViewModel;
@@ -23,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private TitleViewModel mTaskViewModel;
+    private Fragment mCurrentFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         setupToolbar();
 
-        mTaskViewModel = ViewModelProviders.of(this).get(TitleViewModel.class);
+        mTaskViewModel = ViewModelProvider.
+                AndroidViewModelFactory.getInstance(getApplication()).create(TitleViewModel.class);
 
         TitleListDataBindingAdapter adapter = new TitleListDataBindingAdapter(this,
                 mTaskViewModel.getTitles().getValue(),
@@ -40,12 +52,28 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(TitleBean bean) {
                         FragmentManager supportFragmentManager = getSupportFragmentManager();
-                        if (bean.getToPkgClazz().getSimpleName().equals("ServiceFragment")) {
-                            ServiceFragment fragment = new ServiceFragment();
-                            getLifecycle().addObserver(fragment);
-                            FragmentTransaction transaction = supportFragmentManager.beginTransaction();
-                            transaction.add(R.id.fl_content, fragment).commitAllowingStateLoss();
+                        String fragmentName = bean.getToPkgClazz().getSimpleName();
+                        if (ServiceFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new ServiceFragment();
+                            getLifecycle().addObserver((LifecycleObserver) mCurrentFragment);
+                        } else if (RxJavaFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new RxJavaFragment();
+                        } else if (RetrofitFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new RetrofitFragment();
+                        } else if (LeakCanaryFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new RetrofitFragment();
+                        } else if (JniFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new JniFragment();
+                        } else if (RecyclerViewFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new RecyclerViewFragment();
+                        } else if (SparseArrayFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new SparseArrayFragment();
+                        } else if (TestFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new TestFragment();
                         }
+                        FragmentTransaction transaction = supportFragmentManager.beginTransaction();
+                        transaction.replace(R.id.fl_content, mCurrentFragment).commitAllowingStateLoss();
+                        binding.drawerLayout.closeDrawer(GravityCompat.START);
                     }
                 });
 
@@ -53,10 +81,6 @@ public class MainActivity extends AppCompatActivity {
         binding.setAdapter(adapter);
         binding.setLayoutManager(new LinearLayoutManager(this));
 
-    }
-
-    public void openDrawer() {
-        binding.drawerLayout.openDrawer(GravityCompat.START);
     }
 
     @Override

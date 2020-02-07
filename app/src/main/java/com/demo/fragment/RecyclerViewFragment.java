@@ -1,10 +1,14 @@
-package com.demo.activities;
+package com.demo.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +18,7 @@ import com.demo.one.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewActivity extends AppCompatActivity {
+public class RecyclerViewFragment extends Fragment {
 
     public static final int ITEM_CHANGED_COUNT = 10;
 
@@ -24,20 +28,24 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private List<String> mDataList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
-
         resetData();
+    }
 
-        Button btnReset = findViewById(R.id.btn_reset);
-        Button btnAdd = findViewById(R.id.btn_add);
-        Button btnDel = findViewById(R.id.btn_del);
-        RecyclerView rvMain = findViewById(R.id.rv_main);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        mAdapter = new RecyclerViewLearningAdapter(this, mDataList);
+        Button btnReset = root.findViewById(R.id.btn_reset);
+        Button btnAdd = root.findViewById(R.id.btn_add);
+        Button btnDel = root.findViewById(R.id.btn_del);
+        RecyclerView rvMain = root.findViewById(R.id.rv_main);
 
-        rvMain.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new RecyclerViewLearningAdapter(getContext(), mDataList);
+
+        rvMain.setLayoutManager(new LinearLayoutManager(getContext()));
         rvMain.setAdapter(mAdapter);
 
         btnReset.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +72,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 mAdapter.notifyItemRangeRemoved(mDataList.size(), ITEM_CHANGED_COUNT);
             }
         });
+
+        return root;
     }
 
     private void resetData() {

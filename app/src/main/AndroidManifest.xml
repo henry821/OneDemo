@@ -23,7 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name="com.demo.activities.MainActivity">
+        <activity
+            android:name="com.demo.activities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -31,19 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.activities.RxJavaActivity" />
-        <activity android:name="com.demo.activities.RetrofitActivity" />
-        <activity android:name="com.demo.activities.KotlinActivity" />
-        <activity android:name="com.demo.activities.TestActivity" />
-        <activity android:name="com.demo.activities.HotFixActivity" />
-        <activity android:name="com.demo.activities.RecyclerViewActivity" />
-        <activity android:name="com.demo.activities.SparseArrayActivity" />
-        <activity android:name="com.demo.activities.EventBusActivity" />
-        <activity android:name="com.demo.activities.EspressoActivity" />
-        <activity android:name="com.demo.activities.LeakCanaryActivity" />
-        <activity android:name="com.demo.activities.BlockCanaryActivity" />
-        <activity android:name="com.demo.activities.ServiceFragment" />
-        <activity android:name="com.demo.activities.JniActivity"/>
 
         <service android:name="com.demo.service.StartModeService" />
         <service android:name="com.demo.service.BindModeService" />

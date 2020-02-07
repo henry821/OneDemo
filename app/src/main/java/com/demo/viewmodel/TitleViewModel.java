@@ -4,20 +4,15 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.demo.activities.BlockCanaryActivity;
-import com.demo.activities.EspressoActivity;
-import com.demo.activities.EventBusActivity;
-import com.demo.activities.HotFixActivity;
-import com.demo.activities.JniActivity;
-import com.demo.activities.KotlinActivity;
-import com.demo.activities.LeakCanaryActivity;
-import com.demo.activities.RecyclerViewActivity;
-import com.demo.activities.RetrofitActivity;
-import com.demo.activities.RxJavaActivity;
-import com.demo.activities.ServiceFragment;
-import com.demo.activities.SparseArrayActivity;
-import com.demo.activities.TestActivity;
 import com.demo.beans.TitleBean;
+import com.demo.fragment.JniFragment;
+import com.demo.fragment.LeakCanaryFragment;
+import com.demo.fragment.RecyclerViewFragment;
+import com.demo.fragment.RetrofitFragment;
+import com.demo.fragment.RxJavaFragment;
+import com.demo.fragment.ServiceFragment;
+import com.demo.fragment.SparseArrayFragment;
+import com.demo.fragment.TestFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,18 +39,13 @@ public class TitleViewModel extends ViewModel {
 
         List<TitleBean> titleList = new ArrayList<>();
         titleList.add(new TitleBean("Service学习", ServiceFragment.class));
-        titleList.add(new TitleBean("RxJava2源码学习", RxJavaActivity.class));
-        titleList.add(new TitleBean("Retrofit2学习", RetrofitActivity.class));
-        titleList.add(new TitleBean("Kotlin学习", KotlinActivity.class));
-        titleList.add(new TitleBean("热更新示例", HotFixActivity.class));
-        titleList.add(new TitleBean("SparseArray学习", SparseArrayActivity.class));
-        titleList.add(new TitleBean("RecyclerView学习", RecyclerViewActivity.class));
-        titleList.add(new TitleBean("EventBus学习", EventBusActivity.class));
-        titleList.add(new TitleBean("Espresso学习", EspressoActivity.class));
-        titleList.add(new TitleBean("LeakCanary学习", LeakCanaryActivity.class));
-        titleList.add(new TitleBean("BlockCanary学习", BlockCanaryActivity.class));
-        titleList.add(new TitleBean("Jni学习", JniActivity.class));
-        titleList.add(new TitleBean("试验页面", TestActivity.class));
+        titleList.add(new TitleBean("RxJava2源码学习", RxJavaFragment.class));
+        titleList.add(new TitleBean("Retrofit2学习", RetrofitFragment.class));
+        titleList.add(new TitleBean("SparseArray学习", SparseArrayFragment.class));
+        titleList.add(new TitleBean("RecyclerView学习", RecyclerViewFragment.class));
+        titleList.add(new TitleBean("LeakCanary学习", LeakCanaryFragment.class));
+        titleList.add(new TitleBean("Jni学习", JniFragment.class));
+        titleList.add(new TitleBean("试验页面", TestFragment.class));
 
         mTitles.setValue(titleList);
     }

@@ -7,14 +7,14 @@
 
         <variable
             name="onClickListener"
-            type="com.demo.activities.ServiceFragment" />
+            type="com.demo.fragment.ServiceFragment" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.demo.activities.ServiceFragment">
+        tools:context="com.demo.fragment.ServiceFragment">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

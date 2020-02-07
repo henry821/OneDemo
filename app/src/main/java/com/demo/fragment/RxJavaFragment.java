@@ -1,11 +1,10 @@
-package com.demo.activities;
+package com.demo.fragment;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.demo.one.R;
 import com.demo.one.base.utils.LogUtil;
 
 import io.reactivex.Observable;
@@ -23,13 +22,11 @@ import io.reactivex.schedulers.Schedulers;
  * <br>Author wanghengwei
  * <br>Date   2019/3/13 11:37
  */
-public class RxJavaActivity extends AppCompatActivity {
+public class RxJavaFragment extends Fragment {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rxjava);
-
         Observable
                 .create(new ObservableOnSubscribe<Integer>() {
                     @Override

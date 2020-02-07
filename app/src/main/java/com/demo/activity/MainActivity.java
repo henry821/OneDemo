@@ -1,4 +1,4 @@
-package com.demo.activities;
+package com.demo.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(TitleBean bean) {
                         FragmentManager supportFragmentManager = getSupportFragmentManager();
                         String fragmentName = bean.getToPkgClazz().getSimpleName();
+                        getLifecycle().removeObserver((LifecycleObserver) mCurrentFragment);
                         if (ServiceFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new ServiceFragment();
-                            getLifecycle().addObserver((LifecycleObserver) mCurrentFragment);
                         } else if (RxJavaFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new RxJavaFragment();
                         } else if (RetrofitFragment.class.getSimpleName().equals(fragmentName)) {
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         } else if (TestFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new TestFragment();
                         }
+                        getLifecycle().addObserver((LifecycleObserver) mCurrentFragment);
                         FragmentTransaction transaction = supportFragmentManager.beginTransaction();
                         transaction.replace(R.id.fl_content, mCurrentFragment).commitAllowingStateLoss();
                         binding.drawerLayout.closeDrawer(GravityCompat.START);

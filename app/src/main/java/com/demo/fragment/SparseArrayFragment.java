@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.demo.one.R;
 import com.demo.one.base.utils.LogUtil;
@@ -16,7 +15,7 @@ import com.sourcecode.sparsearray.MySparseArray;
 
 import java.lang.reflect.Array;
 
-public class SparseArrayFragment extends Fragment {
+public class SparseArrayFragment extends BaseFragment {
 
     private MySparseArray<String> mySparseArray;
 

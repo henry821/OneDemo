@@ -3,7 +3,6 @@ package com.demo.fragment;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.demo.one.base.utils.LogUtil;
 
@@ -22,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
  * <br>Author wanghengwei
  * <br>Date   2019/3/13 11:37
  */
-public class RxJavaFragment extends Fragment {
+public class RxJavaFragment extends BaseFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

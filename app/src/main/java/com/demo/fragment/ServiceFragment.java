@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
@@ -27,7 +26,7 @@ import com.demo.viewmodel.ServiceStatusViewModel;
 
 import static android.content.Context.BIND_AUTO_CREATE;
 
-public class ServiceFragment extends Fragment implements LifecycleObserver {
+public class ServiceFragment extends BaseFragment implements LifecycleObserver {
 
     private ServiceConnection mConnection;
     private BindModeService.MyBinder mBinder;

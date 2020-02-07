@@ -8,11 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.demo.one.R;
 
-public class JniFragment extends Fragment {
+public class JniFragment extends BaseFragment {
 
     static {
         System.loadLibrary("native-lib");

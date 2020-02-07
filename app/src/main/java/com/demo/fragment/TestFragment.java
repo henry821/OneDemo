@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.demo.one.R;
 import com.demo.widgets.TurnPlateView;
@@ -17,7 +16,7 @@ import com.demo.widgets.TurnPlateView;
  * Author wanghengwei
  * Date   2019/6/26 17:44
  */
-public class TestFragment extends Fragment {
+public class TestFragment extends BaseFragment {
 
     @Nullable
     @Override

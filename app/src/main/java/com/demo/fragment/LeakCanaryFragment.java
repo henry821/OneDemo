@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.demo.beans.MemoryLeakSingleton;
 import com.demo.one.R;
@@ -30,7 +29,7 @@ import com.demo.one.base.utils.LogUtil;
  * 原因：前两种由于Handler持有外部类引用，最后一种由于实现了Runnable的匿名内部类，所以Runnable持有外部类引用
  * 所以执行耗时操作或者存在大量未处理Message时导致Activity无法被回收
  */
-public class LeakCanaryFragment extends Fragment {
+public class LeakCanaryFragment extends BaseFragment {
 
     private static InnerClass sInnerClass;
     private Handler mHandler;

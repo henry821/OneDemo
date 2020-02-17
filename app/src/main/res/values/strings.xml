@@ -34,5 +34,9 @@
     <string name="service_start">start方式启动Service</string>
     <string name="service_bind">bind方式启动Service</string>
 
+    <string name="rx_java_title_1">组合/合并操作符</string>
+    <string name="rx_java_concat">concat</string>
+    <string name="rx_java_concat_array">concatArray</string>
+
 
 </resources>

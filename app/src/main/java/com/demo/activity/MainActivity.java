@@ -21,7 +21,6 @@ import com.demo.fragment.JniFragment;
 import com.demo.fragment.LeakCanaryFragment;
 import com.demo.fragment.RecyclerViewFragment;
 import com.demo.fragment.RetrofitFragment;
-import com.demo.fragment.RxJavaFragment;
 import com.demo.fragment.ServiceFragment;
 import com.demo.fragment.SparseArrayFragment;
 import com.demo.fragment.TestFragment;
@@ -56,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
                         getLifecycle().removeObserver((LifecycleObserver) mCurrentFragment);
                         if (ServiceFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new ServiceFragment();
-                        } else if (RxJavaFragment.class.getSimpleName().equals(fragmentName)) {
-                            mCurrentFragment = new RxJavaFragment();
                         } else if (RetrofitFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new RetrofitFragment();
                         } else if (LeakCanaryFragment.class.getSimpleName().equals(fragmentName)) {

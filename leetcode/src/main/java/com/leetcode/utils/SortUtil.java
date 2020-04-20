@@ -10,7 +10,8 @@ public class SortUtil {
         printArray(array);
         System.out.println();
 //        selectionSort(array);
-        quickSort(array, 0, array.length - 1);
+//        quickSort(array, 0, array.length - 1);
+        mergeSort(array, 0, array.length - 1);
         printArray(array);
     }
 
@@ -96,6 +97,46 @@ public class SortUtil {
         array[i] = temp;
         quickSort(array, low, j - 1);
         quickSort(array, j + 1, high);
+    }
+
+    /**
+     * 归并排序
+     *
+     * @param array 待排序数组
+     * @param start 起始索引
+     * @param end   结束索引
+     */
+    private static void mergeSort(int[] array, int start, int end) {
+        System.out.println("进入归并排序：start = " + start + " ,end = " + end);
+        if (start < end) {
+            int mid = (start + end) / 2;
+            mergeSort(array, start, mid);
+            mergeSort(array, mid + 1, end);
+            merge(array, start, mid, end);
+        }
+        System.out.println("退出归并排序：start = " + start + " ,end = " + end);
+    }
+
+    private static void merge(int[] array, int start, int mid, int end) {
+        System.out.println("开始合并数组：start = " + start + " ,mid = " + mid + " ,end = " + end);
+        int[] tmp = new int[array.length];//辅助数组
+        int p1 = start, p2 = mid + 1, k = start;//p1、p2是检测指针，k是存放指针
+
+        while (p1 <= mid && p2 <= end) {
+            if (array[p1] <= array[p2])
+                tmp[k++] = array[p1++];
+            else
+                tmp[k++] = array[p2++];
+        }
+
+        while (p1 <= mid) tmp[k++] = array[p1++];//如果第一个序列未检测完，直接将后面所有元素加到合并的序列中
+        while (p2 <= end) tmp[k++] = array[p2++];//同上
+
+        //复制回原素组
+        for (int i = start; i <= end; i++) {
+            array[i] = tmp[i];
+        }
+        System.out.println("结束合并数组：start = " + start + " ,mid = " + mid + " ,end = " + end);
     }
 
     /**

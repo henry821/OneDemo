@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.demo.beans.TitleBean;
 import com.demo.fragment.JniFragment;
+import com.demo.fragment.LaunchModeFragment;
 import com.demo.fragment.LeakCanaryFragment;
 import com.demo.fragment.RecyclerViewFragment;
 import com.demo.fragment.RetrofitFragment;
@@ -38,7 +39,7 @@ public class TitleViewModel extends ViewModel {
 
         List<TitleBean> titleList = new ArrayList<>();
         titleList.add(new TitleBean("Service学习", ServiceFragment.class));
-        titleList.add(new TitleBean("RxJava2源码学习", RxJavaFragment.class));
+        titleList.add(new TitleBean("LaunchMode学习", LaunchModeFragment.class));
         titleList.add(new TitleBean("Retrofit2学习", RetrofitFragment.class));
         titleList.add(new TitleBean("SparseArray学习", SparseArrayFragment.class));
         titleList.add(new TitleBean("RecyclerView学习", RecyclerViewFragment.class));

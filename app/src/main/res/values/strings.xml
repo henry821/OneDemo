@@ -38,5 +38,10 @@
     <string name="rx_java_concat">concat</string>
     <string name="rx_java_concat_array">concatArray</string>
 
+    <string name="launch_mode_standard">启动Standard页面</string>
+    <string name="launch_mode_single_top">启动SingleTop页面</string>
+    <string name="launch_mode_single_task">启动SingleTask页面</string>
+    <string name="launch_mode_single_instance">启动SingleInstance页面</string>
+
 
 </resources>

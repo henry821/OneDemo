@@ -25,30 +25,10 @@
         android:layout_height="match_parent"
         tools:context="com.demo.activity.MainActivity">
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/fl_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/colorPrimary"
-                    android:minHeight="?attr/actionBarSize"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-            </com.google.android.material.appbar.AppBarLayout>
-
-            <FrameLayout
-                android:id="@+id/fl_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
+            android:layout_height="match_parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_nav"

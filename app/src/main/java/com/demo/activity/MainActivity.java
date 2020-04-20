@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.demo.adapters.TitleListDataBindingAdapter;
 import com.demo.beans.TitleBean;
 import com.demo.fragment.JniFragment;
+import com.demo.fragment.LaunchModeFragment;
 import com.demo.fragment.LeakCanaryFragment;
 import com.demo.fragment.RecyclerViewFragment;
 import com.demo.fragment.RetrofitFragment;
@@ -31,7 +32,6 @@ import com.demo.viewmodel.TitleViewModel;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private TitleViewModel mTaskViewModel;
     private Fragment mCurrentFragment;
 
     @Override
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         setupToolbar();
 
-        mTaskViewModel = ViewModelProvider.
+        TitleViewModel mTaskViewModel = ViewModelProvider.
                 AndroidViewModelFactory.getInstance(getApplication()).create(TitleViewModel.class);
 
         TitleListDataBindingAdapter adapter = new TitleListDataBindingAdapter(this,
@@ -55,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
                         getLifecycle().removeObserver((LifecycleObserver) mCurrentFragment);
                         if (ServiceFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new ServiceFragment();
+                        } else if (LaunchModeFragment.class.getSimpleName().equals(fragmentName)) {
+                            mCurrentFragment = new LaunchModeFragment();
                         } else if (RetrofitFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new RetrofitFragment();
                         } else if (LeakCanaryFragment.class.getSimpleName().equals(fragmentName)) {
-                            mCurrentFragment = new RetrofitFragment();
+                            mCurrentFragment = new LeakCanaryFragment();
                         } else if (JniFragment.class.getSimpleName().equals(fragmentName)) {
                             mCurrentFragment = new JniFragment();
                         } else if (RecyclerViewFragment.class.getSimpleName().equals(fragmentName)) {
@@ -91,10 +93,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupToolbar() {
-        setSupportActionBar(binding.toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
-        ab.setDisplayHomeAsUpEnabled(true);
+        if (ab != null) {
+            ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
 }

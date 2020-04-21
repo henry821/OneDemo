@@ -40,14 +40,17 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.demo.activity.launchmode.SingleTopActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.demo.activity.launchmode.SingleTaskActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.demo.activity.launchmode.SingleInstanceActivity"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
 

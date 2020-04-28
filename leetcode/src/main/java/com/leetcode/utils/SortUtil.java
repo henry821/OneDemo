@@ -1,5 +1,7 @@
 package com.leetcode.utils;
 
+import java.util.Arrays;
+
 /**
  * 排序工具类，各种排序算法
  */
@@ -7,12 +9,13 @@ public class SortUtil {
 
     public static void main(String[] args) {
         int[] array = new int[]{3, 99, 45, 1, 70, 45, 8, 20};
-        printArray(array);
+        System.out.println(Arrays.toString(array));
         System.out.println();
 //        selectionSort(array);
 //        quickSort(array, 0, array.length - 1);
-        mergeSort(array, 0, array.length - 1);
-        printArray(array);
+//        mergeSort(array, 0, array.length - 1);
+        heapSort(array);
+        System.out.println(Arrays.toString(array));
     }
 
     /**
@@ -140,18 +143,60 @@ public class SortUtil {
     }
 
     /**
+     * 堆排序（升序）
+     *
+     * @param array 待排序数组
+     */
+    private static void heapSort(int[] array) {
+        //把无序数组构建成大顶堆
+        for (int i = (array.length - 2) / 2; i >= 0; i--) {
+            downAdjust(array, i, array.length);
+        }
+        //循环删除堆顶元素，移到集合尾部，调整堆产生新的堆顶
+        for (int i = array.length - 1; i > 0; i--) {
+            //最后一个元素和第一个元素交换
+            int temp = array[i];
+            array[i] = array[0];
+            array[0] = temp;
+            //下沉调整最大堆
+            downAdjust(array, 0, i);
+        }
+    }
+
+    /**
+     * 向下调整，建造大顶堆，父节点小于左右子节点中最大的那个则交换
+     *
+     * @param array       待排序数组
+     * @param parentIndex 要“下沉”父节点
+     * @param length      数组有效长度
+     */
+    private static void downAdjust(int[] array, int parentIndex, int length) {
+        int temp = array[parentIndex];
+        //得到左子节点
+        int childIndex = parentIndex * 2 + 1;
+        while (childIndex < length) {
+            //如果右子节点大于左子节点，则子节点索引移动到右子节点处
+            if (childIndex + 1 < length && array[childIndex + 1] > array[childIndex]) {
+                childIndex += 1;
+            }
+            //如果父节点的值比子节点的值大，则直接跳出
+            if (temp >= array[childIndex]) {
+                break;
+            }
+            array[parentIndex] = array[childIndex];
+            parentIndex = childIndex;
+            childIndex = childIndex * 2 + 1;
+        }
+        array[parentIndex] = temp;
+    }
+
+    /**
      * 交换两个元素
      */
     private static void swap(int[] array, int i, int j) {
         int temp = array[j];
         array[j] = array[i];
         array[i] = temp;
-    }
-
-    private static void printArray(int[] array) {
-        for (int num : array) {
-            System.out.print(num + ",");
-        }
     }
 
 }

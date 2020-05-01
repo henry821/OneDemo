@@ -5,14 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.demo.beans.TitleBean;
-import com.demo.fragment.JniFragment;
-import com.demo.fragment.LaunchModeFragment;
-import com.demo.fragment.LeakCanaryFragment;
-import com.demo.fragment.RecyclerViewFragment;
-import com.demo.fragment.RetrofitFragment;
-import com.demo.fragment.ServiceFragment;
-import com.demo.fragment.SparseArrayFragment;
-import com.demo.fragment.TestFragment;
+import com.demo.one.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,14 +31,14 @@ public class TitleViewModel extends ViewModel {
         mTitles = new MutableLiveData<>();
 
         List<TitleBean> titleList = new ArrayList<>();
-        titleList.add(new TitleBean("Service学习", ServiceFragment.class));
-        titleList.add(new TitleBean("LaunchMode学习", LaunchModeFragment.class));
-        titleList.add(new TitleBean("Retrofit2学习", RetrofitFragment.class));
-        titleList.add(new TitleBean("SparseArray学习", SparseArrayFragment.class));
-        titleList.add(new TitleBean("RecyclerView学习", RecyclerViewFragment.class));
-        titleList.add(new TitleBean("LeakCanary学习", LeakCanaryFragment.class));
-        titleList.add(new TitleBean("Jni学习", JniFragment.class));
-        titleList.add(new TitleBean("试验页面", TestFragment.class));
+        titleList.add(new TitleBean("Service学习", R.id.action_mainFragment_to_serviceFragment));
+        titleList.add(new TitleBean("LaunchMode学习", R.id.action_mainFragment_to_launchModeFragment));
+        titleList.add(new TitleBean("Retrofit2学习", R.id.action_mainFragment_to_retrofitFragment));
+        titleList.add(new TitleBean("SparseArray学习", R.id.action_mainFragment_to_sparseArrayFragment));
+        titleList.add(new TitleBean("RecyclerView学习", R.id.action_mainFragment_to_recyclerViewFragment));
+        titleList.add(new TitleBean("LeakCanary学习", R.id.action_mainFragment_to_leakCanaryFragment));
+        titleList.add(new TitleBean("Jni学习", R.id.action_mainFragment_to_jniFragment));
+        titleList.add(new TitleBean("试验页面", R.id.action_mainFragment_to_testFragment));
 
         mTitles.setValue(titleList);
     }

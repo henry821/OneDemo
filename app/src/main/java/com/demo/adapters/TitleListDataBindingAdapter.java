@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.demo.beans.TitleBean;
 import com.demo.one.R;
-import com.demo.one.databinding.ItemTitleListDataBindingBinding;
 
 import java.util.List;
 
@@ -24,27 +24,29 @@ public class TitleListDataBindingAdapter extends RecyclerView.Adapter<TitleListD
 
     private Context context;
     private List<TitleBean> mDataList;
-    private OnItemClickListener itemClickListener;
 
-    public TitleListDataBindingAdapter(Context context, List<TitleBean> mDataList, OnItemClickListener itemClickListener) {
+    public TitleListDataBindingAdapter(Context context, List<TitleBean> mDataList) {
         this.context = context;
         this.mDataList = mDataList;
-        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemTitleListDataBindingBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context)
-                , R.layout.item_title_list_data_binding, parent, false);
-        MyViewHolder holder = new MyViewHolder(binding.getRoot());
-        holder.setBinding(binding);
-        return holder;
+        View root = LayoutInflater.from(context).
+                inflate(R.layout.item_title_list_data_binding, parent, false);
+        return new MyViewHolder(root);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.bind(mDataList.get(position), itemClickListener);
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        holder.tvTitle.setText(mDataList.get(position).getTitle());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(mDataList.get(position).getNavAction());
+            }
+        });
     }
 
     @Override
@@ -52,26 +54,16 @@ public class TitleListDataBindingAdapter extends RecyclerView.Adapter<TitleListD
         return mDataList.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ItemTitleListDataBindingBinding binding;
+        TextView tvTitle;
+        View.OnClickListener onItemClickListener;
 
         MyViewHolder(View itemView) {
             super(itemView);
+            tvTitle = itemView.findViewById(R.id.tv_title);
         }
 
-        void setBinding(ItemTitleListDataBindingBinding binding) {
-            this.binding = binding;
-        }
-
-        void bind(TitleBean titleBean, OnItemClickListener itemClickListener) {
-            binding.setTitleBean(titleBean);
-            binding.setOnRvItemClickListener(itemClickListener);
-        }
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(TitleBean bean);
     }
 
 }

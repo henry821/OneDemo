@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.demo.fragment.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_launchModeFragment"
+            app:destination="@id/launchModeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_retrofitFragment"
+            app:destination="@id/retrofitFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_sparseArrayFragment"
+            app:destination="@id/sparseArrayFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_leakCanaryFragment"
+            app:destination="@id/leakCanaryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_jniFragment"
+            app:destination="@id/jniFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceFragment"
+        android:name="com.demo.fragment.ServiceFragment"
+        android:label="serviceFragment"
+        tools:layout="@layout/fragment_service" />
+    <fragment
+        android:id="@+id/launchModeFragment"
+        android:name="com.demo.fragment.LaunchModeFragment"
+        android:label="LaunchModeFragment"
+        tools:layout="@layout/fragment_launch_mode" />
+    <fragment
+        android:id="@+id/retrofitFragment"
+        android:name="com.demo.fragment.RetrofitFragment"
+        android:label="retrofitFragment"
+        tools:layout="@layout/fragment_retrofit" />
+    <fragment
+        android:id="@+id/sparseArrayFragment"
+        android:name="com.demo.fragment.SparseArrayFragment"
+        android:label="sparseArrayFragment"
+        tools:layout="@layout/fragment_sparse_array" />
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.demo.fragment.RecyclerViewFragment"
+        android:label="recyclerViewFragment"
+        tools:layout="@layout/fragment_recycler_view" />
+    <fragment
+        android:id="@+id/leakCanaryFragment"
+        android:name="com.demo.fragment.LeakCanaryFragment"
+        android:label="leakCanaryFragment"
+        tools:layout="@layout/fragment_leak_canary" />
+    <fragment
+        android:id="@+id/jniFragment"
+        android:name="com.demo.fragment.JniFragment"
+        android:label="jniFragment"
+        tools:layout="@layout/fragment_jni" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.demo.fragment.TestFragment"
+        android:label="testFragment"
+        tools:layout="@layout/fragment_test" />
+</navigation>

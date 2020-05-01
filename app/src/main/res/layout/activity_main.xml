@@ -1,44 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
-
-        <variable
-            name="layoutManager"
-            type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
-
-        <variable
-            name="adapter"
-            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
-
-        <variable
-            name="callback"
-            type="com.demo.activity.MainActivity" />
-
-    </data>
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.demo.activity.MainActivity">
+        app:navGraph="@navigation/nav_main" />
 
-        <FrameLayout
-            android:id="@+id/fl_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_nav"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="@color/white"
-            app:adapter="@{adapter}"
-            app:layoutManager="@{layoutManager}" />
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
-    <data>
-
-        <variable
-            name="titleBean"
-            type="com.demo.beans.TitleBean" />
-
-        <variable
-            name="onRvItemClickListener"
-            type="com.demo.adapters.TitleListDataBindingAdapter.OnItemClickListener" />
-    </data>
-
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:onClick="@{(view)->onRvItemClickListener.onItemClick(titleBean)}"
-        android:padding="10dp"
-        android:text="@{titleBean.title}"
-        android:textSize="22sp" />
-</layout>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="10dp"
+    android:textSize="22sp" />

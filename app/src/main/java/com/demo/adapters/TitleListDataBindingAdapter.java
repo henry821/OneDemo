@@ -57,7 +57,6 @@ public class TitleListDataBindingAdapter extends RecyclerView.Adapter<TitleListD
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvTitle;
-        View.OnClickListener onItemClickListener;
 
         MyViewHolder(View itemView) {
             super(itemView);

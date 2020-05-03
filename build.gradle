@@ -9,7 +9,7 @@ buildscript {
         maven{ url uri('generated-plugin')}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'com.android.tools.build:gradle:3.6.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlinVersion"
         //使用自定义插件
         classpath 'com.demo.plugin:statistic:1.0'

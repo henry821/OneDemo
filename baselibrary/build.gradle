@@ -22,16 +22,5 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api "androidx.appcompat:appcompat:$appCompatVersion"
-    api "androidx.recyclerview:recyclerview:$recyclerViewVersion"
-    api "androidx.constraintlayout:constraintlayout:$constraintLayoutVerision"
-    api "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
-    api "com.google.android.material:material:$materialVersion"
-    //Retrofit2
-    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
-    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    //EventBus
-    api "org.greenrobot:eventbus:$rootProject.ext.eventbusVersion"
+    api project(path: ':foundation')
 }

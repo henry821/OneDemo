@@ -14,13 +14,15 @@ ext{
     androidXTestVersion = '1.1.1'
     androidXAnnotations = '1.0.1'
     androidXLegacySupport = '1.0.0'
-    materialVersion = '1.0.0'
+    materialVersion = '1.1.0'
     cardVersion = '1.0.0'
     recyclerViewVersion = '1.1.0'
     appCompatVersion = '1.1.0'
     archLifecycleVersion = '2.2.0'
-    materialVersion = '1.0.0'
+    navigationVersion = '2.2.2'
     // 第三方依赖
+    rxjavaVersion = '2.2.19'
+    rxandroidVersion = '2.1.0'
     retrofitVersion = '2.3.0'
     eventbusVersion = '3.1.1'
 

@@ -2,6 +2,8 @@
     <string name="app_name">OneDemo</string>
 
     <string name="home_btn_open_drawer">打开侧边栏</string>
+    <string name="open_drawer_desc">打开侧边栏</string>
+    <string name="close_drawer_desc">关闭侧边栏</string>
 
     <string name="kotlin_learning">Kotlin Learning</string>
     <string name="kotlin_check_null">Null检查机制</string>

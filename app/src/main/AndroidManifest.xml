@@ -26,7 +26,7 @@
         <activity
             android:name="com.demo.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/AppTheme.OverlapSystemBar"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,21 +38,25 @@
         <activity
             android:name="com.demo.activity.launchmode.StandardActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/LaunchModeActivityTheme"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.demo.activity.launchmode.SingleTopActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
+            android:theme="@style/LaunchModeActivityTheme"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.demo.activity.launchmode.SingleTaskActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
+            android:theme="@style/LaunchModeActivityTheme"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name="com.demo.activity.launchmode.SingleInstanceActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
+            android:theme="@style/LaunchModeActivityTheme"
             tools:ignore="LockedOrientationActivity" />
 
         <service android:name="com.demo.service.StartModeService" />

@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">OneDemo</string>
 
+    <string name="title_main_fragment">主页</string>
+    <string name="title_service_fragment">Service学习</string>
+    <string name="title_launch_mode_fragment">LaunchMode学习</string>
+    <string name="title_retrofit_fragment">Retrofit2学习</string>
+    <string name="title_sparse_array_fragment">SparseArray学习</string>
+    <string name="title_recycler_view_fragment">RecyclerView学习</string>
+    <string name="title_leak_canary_fragment">LeakCanary学习</string>
+    <string name="title_jni_fragment">Jni学习</string>
+    <string name="title_test_fragment">试验页面</string>
+
     <string name="home_btn_open_drawer">打开侧边栏</string>
-    <string name="open_drawer_desc">打开侧边栏</string>
-    <string name="close_drawer_desc">关闭侧边栏</string>
 
     <string name="kotlin_learning">Kotlin Learning</string>
     <string name="kotlin_check_null">Null检查机制</string>

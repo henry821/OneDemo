@@ -2,16 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-
         <item
-            android:id="@+id/service"
-            android:title="Service" />
+            android:id="@+id/main_fragment"
+            android:title="@string/title_main_fragment" />
         <item
-            android:id="@+id/launch_mode"
-            android:title="LaunchMode" />
+            android:id="@+id/service_fragment"
+            android:title="@string/title_service_fragment" />
         <item
-            android:id="@+id/recyclerview"
-            android:title="RecyclerView" />
+            android:id="@+id/launch_mode_fragment"
+            android:title="@string/title_launch_mode_fragment" />
+        <item
+            android:id="@+id/retrofit_fragment"
+            android:title="@string/title_retrofit_fragment" />
+        <item
+            android:id="@+id/sparse_array_fragment"
+            android:title="@string/title_sparse_array_fragment" />
+        <item
+            android:id="@+id/recycler_view_fragment"
+            android:title="@string/title_recycler_view_fragment" />
+        <item
+            android:id="@+id/leak_canary_fragment"
+            android:title="@string/title_leak_canary_fragment" />
+        <item
+            android:id="@+id/jni_fragment"
+            android:title="@string/title_jni_fragment" />
+        <item
+            android:id="@+id/test_fragment"
+            android:title="@string/title_test_fragment" />
     </group>
 
 </menu>

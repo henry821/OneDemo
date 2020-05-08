@@ -10,7 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.demo.one.R;
 import com.google.android.material.navigation.NavigationView;
@@ -18,9 +21,8 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private FragmentContainerView navHostFragment;
-    private NavigationView navigation;
+
+    private NavController navController;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        toolbar = findViewById(R.id.toolbar);
-        navHostFragment = findViewById(R.id.nav_host_fragment);
-        navigation = findViewById(R.id.navigation);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        NavigationView navigation = findViewById(R.id.navigation);
 
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
@@ -39,15 +40,19 @@ public class MainActivity extends AppCompatActivity {
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        drawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
-
-        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                drawerLayout.closeDrawers();
-                return true;
-            }
-        });
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        NavHostFragment navHostFragment = (NavHostFragment) supportFragmentManager.findFragmentById(R.id.nav_host_fragment);
+        if (navHostFragment != null) {
+            navController = navHostFragment.getNavController();
+            NavigationUI.setupWithNavController(navigation, navController);
+            navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    drawerLayout.closeDrawers();
+                    return NavigationUI.onNavDestinationSelected(item, navController);
+                }
+            });
+        }
 
     }
 

@@ -1,5 +1,8 @@
 package com.demo.beans;
 
+
+import android.util.Log;
+
 /**
  * Description 转盘条目
  * Author wanghengwei
@@ -7,25 +10,60 @@ package com.demo.beans;
  */
 public class TurnPlateViewItemBean {
 
-    private int id;
+    private static final String TAG = "TurnPlateViewItemBean";
+
+    private String id;
+    private String title;
+    private String angle;
     private String color;
-    private String desc;
 
     private float startAngle;
     private float endAngle;
 
-    public TurnPlateViewItemBean(int id, String color, String desc) {
+    public TurnPlateViewItemBean(String id, String title, String angle, String color) {
         this.id = id;
+        this.title = title;
+        this.angle = angle;
         this.color = color;
-        this.desc = desc;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAngle() {
+        return angle;
+    }
+
+    public void setAngle(String angle) {
+        this.angle = angle;
+    }
+
+    /**
+     * 获取当前条目扫过的角度，返回float类型
+     *
+     * @return 扫过的角度，float类型
+     */
+    public float getFloatAngle() {
+        float result = 0;
+        try {
+            result = Float.parseFloat(angle);
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
+        return result;
     }
 
     public String getColor() {
@@ -34,14 +72,6 @@ public class TurnPlateViewItemBean {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     public float getStartAngle() {
@@ -58,5 +88,17 @@ public class TurnPlateViewItemBean {
 
     public void setEndAngle(float endAngle) {
         this.endAngle = endAngle;
+    }
+
+    @Override
+    public String toString() {
+        return "TurnPlateViewItemBean{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", angle='" + angle + '\'' +
+                ", color='" + color + '\'' +
+                ", startAngle=" + startAngle +
+                ", endAngle=" + endAngle +
+                '}';
     }
 }

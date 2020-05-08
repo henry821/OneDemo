@@ -26,7 +26,7 @@ public class TestFragment extends BaseFragment {
         turnPlatView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((TurnPlateView) v).startAnim();
+                ((TurnPlateView) v).start(3);
             }
         });
         return root;

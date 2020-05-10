@@ -4,6 +4,7 @@
     <string name="title_main_fragment">主页</string>
     <string name="title_service_fragment">Service学习</string>
     <string name="title_launch_mode_fragment">LaunchMode学习</string>
+    <string name="title_custom_view_fragment">自定义控件</string>
     <string name="title_retrofit_fragment">Retrofit2学习</string>
     <string name="title_sparse_array_fragment">SparseArray学习</string>
     <string name="title_recycler_view_fragment">RecyclerView学习</string>

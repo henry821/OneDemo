@@ -289,35 +289,10 @@ public class TurnPlateView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
-        int width;
-        int height;
-
-        switch (widthMode) {
-            case MeasureSpec.EXACTLY:
-                width = widthSize;
-                break;
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.UNSPECIFIED:
-            default:
-                width = mBgBitmap.getWidth();
-                break;
-        }
-
-        switch (heightMode) {
-            case MeasureSpec.EXACTLY:
-                height = heightSize;
-                break;
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.UNSPECIFIED:
-            default:
-                height = mBgBitmap.getHeight();
-                break;
-        }
+        //根据转盘bitmap宽高和父布局的MeasureSpec计算出实际的尺寸
+        int width = resolveSize(mBgBitmap.getWidth(), widthMeasureSpec);
+        int height = resolveSize(mBgBitmap.getHeight(), heightMeasureSpec);
 
         //控件中心点
         int centerX = width / 2;

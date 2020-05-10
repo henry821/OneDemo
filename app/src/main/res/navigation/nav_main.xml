@@ -31,6 +31,13 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
+            android:id="@+id/action_mainFragment_to_customViewFragment"
+            app:destination="@id/custom_view_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
             android:id="@+id/action_mainFragment_to_retrofitFragment"
             app:destination="@id/retrofit_fragment"
             app:enterAnim="@anim/nav_default_enter_anim"
@@ -76,6 +83,11 @@
         android:name="com.demo.fragment.LaunchModeFragment"
         android:label="LaunchModeFragment"
         tools:layout="@layout/fragment_launch_mode" />
+    <fragment
+        android:id="@+id/custom_view_fragment"
+        android:name="com.demo.fragment.CustomViewFragment"
+        android:label="customViewFragment"
+        tools:layout="@layout/fragment_custom_view" />
     <fragment
         android:id="@+id/retrofit_fragment"
         android:name="com.demo.fragment.RetrofitFragment"

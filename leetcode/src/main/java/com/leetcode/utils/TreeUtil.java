@@ -2,7 +2,14 @@ package com.leetcode.utils;
 
 import com.leetcode.beans.TreeNode;
 
+import java.util.Stack;
+
 public class TreeUtil {
+
+    public static void main(String[] args) {
+        TreeNode treeNode = buildTree(new int[]{1, 2, 3, 4, 5, 6});
+        preOrderTraversalWithStack(treeNode);
+    }
 
     /**
      * 创建一个普通的树
@@ -70,6 +77,33 @@ public class TreeUtil {
         midSearch(root.left);
         System.out.print(root.val + ",");
         midSearch(root.right);
+    }
+
+
+    /**
+     * 使用栈进行二叉树非递归前序遍历
+     *
+     * @param root 根节点
+     */
+    private static void preOrderTraversalWithStack(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode treeNode = root;
+        while (treeNode != null || !stack.isEmpty()) {
+            //迭代访问节点的左孩子，并入栈
+            while (treeNode != null) {
+                stack.push(treeNode);
+                System.out.println("入栈当前元素 " + treeNode.val + ",当前栈: " + stack.toString() + ",寻找左子节点");
+                treeNode = treeNode.left;
+            }
+            System.out.println("treeNode == null");
+            //如果节点没有左孩子，则弹出栈顶节点，访问节点右孩子
+            if (!stack.isEmpty()) {
+                treeNode = stack.pop();
+                System.out.println("弹出栈顶元素 " + treeNode.val + ",当前栈: " + stack.toString() + ",寻找右子节点");
+                treeNode = treeNode.right;
+            }
+        }
+
     }
 
 }

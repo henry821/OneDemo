@@ -1,0 +1,15 @@
+{"pluginList":[{
+	"pluginName": "small_video_plugin",
+	"pluginDetail": [{
+		"pluginName": "small_video_plugin",
+		"packageName": "com.smallvideo",
+		"versionName": "1.0.0",
+		"versionCode": 1,
+		"hostMinVersion": 1,
+		"hostTargetVersion": 123,
+		"status": 2,
+		"grayReleaseChannels":[],
+		"downloadUrl": "small_video_plugin/1.0.0/small_video_plugin.apk",
+		"md5": "81804bdec0e7adca76ab1b7c3b0c021d"
+	}]
+}]}

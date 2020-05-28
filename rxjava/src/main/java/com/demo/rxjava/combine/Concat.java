@@ -1,4 +1,4 @@
-package com.demo.rxjava;
+package com.demo.rxjava.combine;
 
 import com.demo.rxjava.utl.ObserverUtil;
 

@@ -23,6 +23,10 @@ class RxJavaLogUtil {
         printLog("onNext : " + content);
     }
 
+    static <T> void printOnSuccess(T content) {
+        printLog("onSuccess : " + content);
+    }
+
     static void printOnComplete() {
         printLog("onComplete");
     }

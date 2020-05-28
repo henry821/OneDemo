@@ -1,19 +1,21 @@
-package com.demo.rxjava;
+package com.demo.rxjava.create;
 
 import com.demo.rxjava.utl.ObserverUtil;
 
 import io.reactivex.Observable;
 
 /**
- * Description Just操作符
+ * Description
  * Author wanghengwei
  * Date   2020/5/12
  */
-public class Just {
+public class FromArray {
 
     public static void main(String[] args) {
-        Observable.just("just操作符")
+
+        String[] strings = {"String1", "String2", "String3"};
+
+        Observable.fromArray(strings)
                 .subscribe(ObserverUtil.getBasicObserver());
     }
-
 }

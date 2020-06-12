@@ -1,3 +1,4 @@
+include ':sunlive'
 include ':app', ':sourcecode', ':framework', ':designpattern', ':leetcode', ':statistic', ':jni'
 include ':rxjava'
 include ':foundation'

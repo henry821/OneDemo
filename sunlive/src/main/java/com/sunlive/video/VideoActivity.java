@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.sunlive.BaseActivity;
+import com.sunlive.base.BaseActivity;
 import com.sunlive.R;
 
 public class VideoActivity extends BaseActivity {

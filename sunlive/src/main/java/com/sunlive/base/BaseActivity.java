@@ -1,4 +1,4 @@
-package com.sunlive;
+package com.sunlive.base;
 
 import android.os.Bundle;
 import android.util.Log;

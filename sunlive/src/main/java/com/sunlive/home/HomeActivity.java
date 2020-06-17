@@ -9,44 +9,54 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sunlive.R;
 import com.sunlive.base.BaseActivity;
-import com.sunlive.base.IBasePresenter;
-import com.sunlive.base.IBaseView;
+import com.sunlive.data.LiveInfo;
 
-public class HomeActivity extends BaseActivity implements IBaseView<LiveInfo> {
+import java.util.ArrayList;
+import java.util.List;
 
-    private RecyclerView rvContent;
-    private LiveListAdapter adapter;
+public class HomeActivity extends BaseActivity implements HomeContract.View {
 
-    private IBasePresenter<LiveInfo> presenter;
+    private LiveListAdapter mAdapter;
+
+    private HomeContract.Presenter mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        rvContent = findViewById(R.id.rv_content);
+        mPresenter = new HomePresenter(this);
 
-        presenter = new HomePresenter(this);
-        presenter.loadDataFromLocal();
-    }
-
-    @Override
-    public void showData(LiveInfo liveInfo) {
-        Log.e("whw", "showData: "+liveInfo.toString() );
-        if (adapter == null) {
-            adapter = new LiveListAdapter(liveInfo.getDataList());
-            rvContent.setAdapter(adapter);
-            rvContent.setLayoutManager(new LinearLayoutManager(this));
-        }
-    }
-
-    @Override
-    public void showLoadingView() {
+        RecyclerView rvContent = findViewById(R.id.rv_content);
+        mAdapter = new LiveListAdapter(new ArrayList<LiveInfo>());
+        rvContent.setAdapter(mAdapter);
+        rvContent.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
     @Override
-    public void hideLoadingView() {
+    protected void onResume() {
+        super.onResume();
+        mPresenter.start();
+    }
 
+    @Override
+    public void showLiveInfo(List<LiveInfo> liveInfoList) {
+        mAdapter.setDataList(liveInfoList);
+    }
+
+    @Override
+    public void showLoading() {
+        Log.e("whw", "showLoadingView: ");
+    }
+
+    @Override
+    public void hideLoading() {
+        Log.e("whw", "hideLoadingView: ");
+    }
+
+    @Override
+    public void setPresenter(HomeContract.Presenter presenter) {
+        mPresenter = presenter;
     }
 }

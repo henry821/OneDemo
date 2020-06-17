@@ -1,5 +1,6 @@
 package com.sunlive.home;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import com.sunlive.R;
+import com.sunlive.data.LiveInfo;
 
 import java.util.List;
 
 public class LiveListAdapter extends Adapter<LiveListAdapter.LiveListHolder> {
 
-    private List<LiveInfo.LiveInfoDetail> mDataList;
+    private List<LiveInfo> mDataList;
 
-    public LiveListAdapter(List<LiveInfo.LiveInfoDetail> mDataList) {
+    public LiveListAdapter(List<LiveInfo> mDataList) {
         this.mDataList = mDataList;
     }
 
@@ -39,6 +41,12 @@ public class LiveListAdapter extends Adapter<LiveListAdapter.LiveListHolder> {
         return mDataList.size();
     }
 
+    public void setDataList(List<LiveInfo> liveInfoList){
+        mDataList.clear();
+        mDataList.addAll(liveInfoList);
+        notifyDataSetChanged();
+    }
+
     static class LiveListHolder extends RecyclerView.ViewHolder {
 
         private ImageView ivCover;
@@ -49,7 +57,6 @@ public class LiveListAdapter extends Adapter<LiveListAdapter.LiveListHolder> {
 
             ivCover = itemView.findViewById(R.id.iv_cover);
             tvTitle = itemView.findViewById(R.id.tv_title);
-
 
         }
     }

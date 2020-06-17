@@ -1,7 +1,5 @@
 package com.demo;
 
-import android.os.AsyncTask;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,8 +17,8 @@ public class ExecutorManager {
         sService.execute(runnable);
     }
 
-    public <Params, Progress, Result> void execute(AsyncTask<Params, Progress, Result> task, Params... params) {
-        task.executeOnExecutor(sService, params);
+    public ExecutorService getService() {
+        return sService;
     }
 
     private ExecutorManager() {

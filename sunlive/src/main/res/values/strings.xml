@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">sunlive</string>
-
-    <string name="home">首页</string>
-    <string name="video">视频</string>
-    <string name="profile">我</string>
-
-</resources>

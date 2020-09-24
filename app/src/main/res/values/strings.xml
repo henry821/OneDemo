@@ -10,6 +10,7 @@
     <string name="title_recycler_view_fragment">RecyclerView学习</string>
     <string name="title_leak_canary_fragment">LeakCanary学习</string>
     <string name="title_jni_fragment">Jni学习</string>
+    <string name="title_auto_play_fragment">自动播放框架</string>
     <string name="title_test_fragment">试验页面</string>
 
     <string name="home_btn_open_drawer">打开侧边栏</string>

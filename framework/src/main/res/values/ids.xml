@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="panorama_tag_key_scroll_listener" />
+    <item type="id" name="story_tag_key_scroll_listener" />
+    <item type="id" name="video_feed_item_view_alpha_animation"/>
+    <item type="id" name="play_next_video_anchor"/>
+    <item type="id" name="video_horizontal_recommend_video_item_view"/>
+    <item type="id" name="video_tag"/>
+    <item type="id" name="detectable_item_active_state"/>
+    <item type="id" name="detectable_item_active_state_exposure"/>
+</resources>

@@ -58,10 +58,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/LaunchModeActivityTheme"
             tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.demo.autoplayarch.AutoPlayArchActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name="com.demo.service.StartModeService" />
         <service android:name="com.demo.service.BindModeService" />
-
     </application>
 
 </manifest>

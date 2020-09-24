@@ -30,6 +30,9 @@
             android:id="@+id/jni_fragment"
             android:title="@string/title_jni_fragment" />
         <item
+            android:id="@+id/auto_play_fragment"
+            android:title="@string/title_auto_play_fragment" />
+        <item
             android:id="@+id/test_fragment"
             android:title="@string/title_test_fragment" />
     </group>

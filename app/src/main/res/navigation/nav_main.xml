@@ -66,6 +66,13 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
+            android:id="@+id/action_mainFragment_to_autoPlayFragment"
+            app:destination="@id/auto_play_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
             android:id="@+id/action_mainFragment_to_testFragment"
             app:destination="@id/test_fragment"
             app:enterAnim="@anim/nav_default_enter_anim"
@@ -113,6 +120,11 @@
         android:name="com.demo.fragment.JniFragment"
         android:label="jniFragment"
         tools:layout="@layout/fragment_jni" />
+    <fragment
+        android:id="@+id/auto_play_fragment"
+        android:name="com.demo.fragment.AutoPlayFragment"
+        android:label="autoPlayFragment"
+        tools:layout="@layout/fragment_auto_play" />
     <fragment
         android:id="@+id/test_fragment"
         android:name="com.demo.fragment.TestFragment"

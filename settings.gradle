@@ -1,3 +1,1 @@
-include ':app', ':sourcecode', ':framework', ':designpattern', ':leetcode', ':statistic', ':jni'
-include ':rxjava'
-include ':foundation'
+include ':app', ':designpattern', ':leetcode'

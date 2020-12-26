@@ -11,8 +11,7 @@ buildscript {
         maven{ url uri('generated-plugin')}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlinVersion"
+        classpath 'com.android.tools.build:gradle:4.1.1'
         //使用自定义插件
         classpath 'com.demo.plugin:statistic:1.0'
 

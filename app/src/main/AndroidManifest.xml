@@ -15,7 +15,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name="com.demo.application.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,7 +25,6 @@
         <activity
             android:name="com.demo.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.OverlapSystemBar"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,35 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.demo.activity.launchmode.StandardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/LaunchModeActivityTheme"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.demo.activity.launchmode.SingleTopActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/LaunchModeActivityTheme"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.demo.activity.launchmode.SingleTaskActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/LaunchModeActivityTheme"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.demo.activity.launchmode.SingleInstanceActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/LaunchModeActivityTheme"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name="com.demo.autoplayarch.AutoPlayArchActivity"
-            android:screenOrientation="portrait" />
-
-        <service android:name="com.demo.service.StartModeService" />
-        <service android:name="com.demo.service.BindModeService" />
     </application>
 
 </manifest>

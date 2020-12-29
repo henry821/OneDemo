@@ -16,13 +16,13 @@ public class Main {
 
         Main main = new Main();
         Response response = main.getResponseWithInterceptorChain();
-
+        System.out.println(response.toString());
     }
 
     public Response getResponseWithInterceptorChain() {
 
         StringBuilder builder = new StringBuilder();
-        builder.append("原始请求参数").append("\r\n");
+        builder.append("原始请求参数");
         Request originalRequest = new Request(builder);
 
         List<Interceptor> interceptors = new ArrayList<>();
@@ -54,6 +54,9 @@ public class Main {
 
         @Override
         public Response proceed(Request request) {
+            if (index >= interceptors.size()) {
+                throw new AssertionError();
+            }
             RealInterceptorChain next = new RealInterceptorChain(interceptors, index + 1, request);
             Interceptor interceptor = interceptors.get(index);
             Response response = interceptor.intercept(next);

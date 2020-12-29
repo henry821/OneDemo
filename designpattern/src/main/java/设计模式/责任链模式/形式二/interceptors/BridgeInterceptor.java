@@ -10,8 +10,11 @@ import 设计模式.责任链模式.形式二.Response;
 public class BridgeInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) {
+        System.out.println("BridgeInterceptor 开始处理");
         Request request = chain.request();
-        request.getParams().append("BridgeInterceptor处理").append("\r\n");
-        return new Response(request);
+        request.getParams().append("--").append("BridgeInterceptor处理");
+        Response response = chain.proceed(request);
+        System.out.println("BridgeInterceptor 处理结束：" + response.toString());
+        return response;
     }
 }

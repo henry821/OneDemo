@@ -13,8 +13,6 @@ public class Response {
 
     @Override
     public String toString() {
-        return "{" +
-                "\"request\":" + request.toString() +
-                '}';
+        return String.format("请求结果，对应的请求：%s", request.toString());
     }
 }

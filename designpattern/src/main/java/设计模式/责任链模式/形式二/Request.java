@@ -17,8 +17,6 @@ public class Request {
 
     @Override
     public String toString() {
-        return "{" +
-                "\"params\":" + params.toString() +
-                '}';
+        return String.format("%s , 请求参数：%s", getClass().getSimpleName(), params.toString());
     }
 }

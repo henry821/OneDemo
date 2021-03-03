@@ -1,1 +1,4 @@
-include ':app', ':designpattern', ':leetcode'
+include ':app'
+include ':designpattern'
+include ':leetcode'
+include ':statistic'

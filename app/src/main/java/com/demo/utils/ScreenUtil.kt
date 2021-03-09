@@ -1,15 +1,29 @@
-package com.demo.utils;
+package com.demo.utils
 
-import android.app.Activity;
+import android.app.Activity
+import android.content.Context
+import android.graphics.Point
+import android.util.DisplayMetrics
+import android.view.WindowManager
 
-public class ScreenUtil {
+object ScreenUtil {
 
-    public static int getScreenWidth(Activity activity) {
-        return activity.getWindowManager().getDefaultDisplay().getWidth();
+    fun getScreenWidth(activity: Activity): Int {
+        val point = Point()
+        activity.windowManager.defaultDisplay.getSize(point)
+        return point.x
     }
 
-    public static int getScreenHeight(Activity activity) {
-        return activity.getWindowManager().getDefaultDisplay().getHeight();
+    fun getScreenHeight(activity: Activity): Int {
+        val point = Point()
+        activity.windowManager.defaultDisplay.getSize(point)
+        return point.y
     }
 
+    fun getScreenDensity(context: Context): Float {
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val dm = DisplayMetrics()
+        wm.defaultDisplay.getMetrics(dm)
+        return dm.density
+    }
 }

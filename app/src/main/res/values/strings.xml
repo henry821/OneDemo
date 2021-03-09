@@ -1,59 +1,8 @@
 <resources>
     <string name="app_name">OneDemo</string>
 
-    <string name="title_main_fragment">主页</string>
-    <string name="title_service_fragment">Service学习</string>
-    <string name="title_launch_mode_fragment">LaunchMode学习</string>
-    <string name="title_custom_view_fragment">自定义控件</string>
-    <string name="title_retrofit_fragment">Retrofit2学习</string>
-    <string name="title_sparse_array_fragment">SparseArray学习</string>
-    <string name="title_recycler_view_fragment">RecyclerView学习</string>
-    <string name="title_leak_canary_fragment">LeakCanary学习</string>
-    <string name="title_jni_fragment">Jni学习</string>
-    <string name="title_auto_play_fragment">自动播放框架</string>
-    <string name="title_test_fragment">试验页面</string>
-
-    <string name="home_btn_open_drawer">打开侧边栏</string>
-
-    <string name="kotlin_learning">Kotlin Learning</string>
-    <string name="kotlin_check_null">Null检查机制</string>
-    <string name="kotlin_coroutines">协程</string>
-
-
-    <string name="hot_fix_before">假设此处产生了一个崩溃</string>
-    <string name="hot_fix_after">假设此处崩溃已被修复</string>
-
-    <string name="recycler_view_reset">重置数据</string>
-    <string name="recycler_view_add">添加数据</string>
-    <string name="recycler_view_del">删除数据</string>
-
-    <string name="event_bus_dialog">弹出对话框</string>
-    <string name="event_bus_send_event_1">发送事件1</string>
-    <string name="event_bus_send_event_2">发送事件2</string>
-
-    <string name="espresso_click">测试点击事件</string>
-    <string name="espresso_username">请输入用户名</string>
-    <string name="espresso_password">请输入密码</string>
-    <string name="espresso_login">登录</string>
-
-    <string name="leak_canary_singleton">单例类引起的内存泄漏</string>
-    <string name="leak_canary_normal_inner_class_static_instance">非静态内部类的静态实例</string>
-    <string name="leak_canary_inner_Thread">内部线程类</string>
-    <string name="leak_canary_normal_handler">非静态Handler</string>
-
-    <string name="block_canary_button">生成一个界面卡顿</string>
-
-    <string name="service_start">start方式启动Service</string>
-    <string name="service_bind">bind方式启动Service</string>
-
-    <string name="rx_java_title_1">组合/合并操作符</string>
-    <string name="rx_java_concat">concat</string>
-    <string name="rx_java_concat_array">concatArray</string>
-
-    <string name="launch_mode_standard">启动Standard页面</string>
-    <string name="launch_mode_single_top">启动SingleTop页面</string>
-    <string name="launch_mode_single_task">启动SingleTask页面</string>
-    <string name="launch_mode_single_instance">启动SingleInstance页面</string>
-
+    <string name="screen_width">屏幕宽度：%dpx (%ddp)</string>
+    <string name="screen_height">屏幕高度：%dpx (%ddp)</string>
+    <string name="screen_density">屏幕密度：%.1ff</string>
 
 </resources>

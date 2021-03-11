@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">OneDemo</string>
 
+    <string name="jump2Lottie">验证Lottie文件</string>
+
     <string name="screen_width">屏幕宽度：%dpx (%ddp)</string>
     <string name="screen_height">屏幕高度：%dpx (%ddp)</string>
     <string name="screen_density">屏幕密度：%.1ff</string>

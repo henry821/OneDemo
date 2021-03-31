@@ -13,14 +13,15 @@ import com.demo.widgets.OverviewFloatView
 
 class MainActivity : AppCompatActivity() {
 
-    private var overviewFloatView: OverviewFloatView? = null
+    private lateinit var overviewFloatView: OverviewFloatView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val list = ArrayList<MainData>()
-        list.add(MainData(getString(R.string.jump2Lottie), LottieActivity::class.java))
+        list.add(MainData(getString(R.string.lottieActivity), LottieActivity::class.java))
+        list.add(MainData(getString(R.string.captureActivity), CaptureActivity::class.java))
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_content)
         val adapter = MainAdapter(list)
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         overviewFloatView = OverviewFloatView(this)
-        overviewFloatView?.show()
+        overviewFloatView.show()
     }
 
     class MainAdapter(private val dataList: List<MainData>) : RecyclerView.Adapter<MainAdapter.MainHolder>() {

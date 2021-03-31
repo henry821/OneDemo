@@ -20,4 +20,12 @@ object ScreenUtil {
         return ((px / getScreenDensity(ctx) + 0.5f).toInt())
     }
 
+    fun convertDpToPx(ctx: Context, dp: Int): Int {
+        return ((getScreenDensity(ctx) * dp + 0.5f).toInt())
+    }
+
+    fun convertDpToPx(ctx: Context, dp: Float): Float {
+        return getScreenDensity(ctx) * dp
+    }
+
 }

@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val list = ArrayList<MainData>()
         list.add(MainData(getString(R.string.lottieActivity), LottieActivity::class.java))
         list.add(MainData(getString(R.string.captureActivity), CaptureActivity::class.java))
+        list.add(MainData(getString(R.string.ExecutorServiceActivity), ThreadPoolExecutorActivity::class.java))
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_content)
         val adapter = MainAdapter(list)

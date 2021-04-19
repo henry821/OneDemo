@@ -35,6 +35,7 @@
         </activity>
         <activity android:name="com.demo.activity.LottieActivity" />
         <activity android:name="com.demo.activity.CaptureActivity" />
+        <activity android:name="com.demo.activity.ThreadPoolExecutorActivity" />
     </application>
 
 </manifest>

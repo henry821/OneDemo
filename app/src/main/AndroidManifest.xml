@@ -36,6 +36,7 @@
         <activity android:name="com.demo.activity.LottieActivity" />
         <activity android:name="com.demo.activity.CaptureActivity" />
         <activity android:name="com.demo.activity.ThreadPoolExecutorActivity" />
+        <activity android:name="com.demo.activity.ImageViewScaleTypeActivity" />
     </application>
 
 </manifest>

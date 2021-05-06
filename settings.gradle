@@ -1,3 +1,4 @@
+include ':statistic'
 include ':app'
 include ':designpattern'
 include ':leetcode'

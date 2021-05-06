@@ -1,12 +1,21 @@
-apply plugin: 'groovy'
-apply plugin: 'maven'
-
-repositories {
-    jcenter()
-    mavenCentral()
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'maven'
 }
 
-uploadArchives {
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation gradleApi()   //使用到gradle包里的方法进行自定义plugin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+//上传plugin到本地maven仓库
+uploadArchives{
     repositories {
         mavenDeployer {
             pom.groupId = 'com.demo.plugin'
@@ -16,13 +25,4 @@ uploadArchives {
             repository(url: uri('../generated-plugin'))
         }
     }
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    // gradle sdk
-    implementation gradleApi()
-    // groovy sdk
-    implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:3.1.2'
 }

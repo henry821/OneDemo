@@ -48,7 +48,7 @@ public class SimpleTabLayout extends HorizontalScrollView implements ValueAnimat
     private float currentPositionOffset = 0f;
 
     private final boolean shouldExpand;
-    private final boolean textAllCaps;
+//    private final boolean textAllCaps;
 
     private final int tabPadding;
 
@@ -111,7 +111,7 @@ public class SimpleTabLayout extends HorizontalScrollView implements ValueAnimat
                 ScreenUtil.INSTANCE.convertDpToPx(context, 24));
         tabBackgroundResId = a.getResourceId(R.styleable.SimpleTabLayout_tabBackground, R.drawable.page_background_tab);
         shouldExpand = a.getBoolean(R.styleable.SimpleTabLayout_shouldExpand, false);
-        textAllCaps = a.getBoolean(R.styleable.SimpleTabLayout_textAllCaps, false);
+//        textAllCaps = a.getBoolean(R.styleable.SimpleTabLayout_textAllCaps, false);
 
         a.recycle();
 
@@ -339,9 +339,9 @@ public class SimpleTabLayout extends HorizontalScrollView implements ValueAnimat
                 // setAllCaps() is only available from API 14, so the upper case
                 // is made manually if we are on a
                 // pre-ICS-build
-                if (textAllCaps) {
-                    tab.setAllCaps(true);
-                }
+//                if (textAllCaps) {
+//                    tab.setAllCaps(true);
+//                }
             }
         }
 

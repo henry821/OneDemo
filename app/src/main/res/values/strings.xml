@@ -1,15 +1,31 @@
 <resources>
     <string name="app_name">OneDemo</string>
 
-    <string name="lottieActivity">验证Lottie文件</string>
-    <string name="captureActivity">模仿拍摄页面</string>
-    <string name="ExecutorServiceActivity">线程池页面</string>
-    <string name="ImageViewScaleTypeActivity">ScaleType查询页面</string>
+    <string name="lottie_activity">验证Lottie文件</string>
+    <string name="capture_activity">模仿拍摄页面</string>
+    <string name="executor_service_activity">线程池页面</string>
+    <string name="image_view_scale_type_activity">ScaleType查询页面</string>
+    <string name="google_sample_activity">Google示例页面</string>
 
     <string name="screen_width">屏幕宽度：%dpx (%ddp)</string>
     <string name="screen_height">屏幕高度：%dpx (%ddp)</string>
     <string name="screen_density">屏幕密度：%.1f</string>
 
     <string name="scale_type_original">原始图片</string>
+
+    <string name="google_sample_storage_entrance">存储示例</string>
+
+    <!--ActionOpenDocument-->
+    <string name="action_open_document_app_name">aodViewer</string>
+    <string name="app_name_with_index">aodViewer (%1$d/%2$d)</string>
+    <string name="open_file">Open…</string>
+    <string name="info">Info</string>
+    <string name="open_file_button">Open File</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="intro_message">
+        This sample demonstrates how to use PdfRenderer to display PDF documents on the screen.
+    </string>
+    <string name="open_call_to_action">Click "open" to view the contents of a PDF.</string>
 
 </resources>

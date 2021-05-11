@@ -40,6 +40,10 @@
         <activity android:name="com.demo.google.GoogleSampleEntranceActivity" />
         <activity android:name="com.demo.google.storage.StorageEntranceActivity" />
         <activity android:name="com.demo.google.storage.actionopendocument.MainActivity" />
+        <activity
+            android:name="com.demo.google.storage.actionopendocumenttree.MainActivity"
+            android:label="@string/action_open_document_tree_app_name"
+            android:theme="@style/Theme.DirSelect.NoActionBar" />
     </application>
 
 </manifest>

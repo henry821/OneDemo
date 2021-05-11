@@ -28,4 +28,11 @@
     </string>
     <string name="open_call_to_action">Click "open" to view the contents of a PDF.</string>
 
+    <!--ActionOpenDocumentTree-->
+    <string name="action_open_document_tree_app_name">ktFiles</string>
+    <string name="action_open_document_tree_rename_title">Rename</string>
+    <string name="action_open_document_tree_rename_okay">Rename</string>
+    <string name="action_open_document_tree_rename_cancel">Cancel</string>
+    <string name="action_open_document_tree_error_no_activity">No activity found to open "%1$s".</string>
+
 </resources>

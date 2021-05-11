@@ -2,4 +2,7 @@
 <resources>
     <dimen name="pagesliging_tab_padding">2dip</dimen>
     <dimen name="pagesliging_tablayout_tab_padding">14dip</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="directory_item_height">72dp</dimen>
 </resources>

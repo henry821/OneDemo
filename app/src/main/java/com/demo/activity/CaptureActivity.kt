@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.demo.one.R
+import com.demo.widgets.CarouselView
 import com.demo.widgets.SimpleTabLayout
 
 /**
@@ -41,6 +42,8 @@ class CaptureActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture)
+
+        findViewById<CarouselView>(R.id.thumbnail).startScroll()
 
         initCategories()
         initProps()
@@ -85,7 +88,10 @@ class CaptureActivity : AppCompatActivity() {
         }
     }
 
-    class CategoryAdapter(private val categoryList: List<Category>, private val propList: List<Prop>) : PagerAdapter() {
+    class CategoryAdapter(
+        private val categoryList: List<Category>,
+        private val propList: List<Prop>
+    ) : PagerAdapter() {
         override fun getCount(): Int {
             return categoryList.size
         }
@@ -96,7 +102,10 @@ class CaptureActivity : AppCompatActivity() {
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             return RecyclerView(container.context).also {
-                it.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                it.layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
                 it.adapter = PropAdapter(propList)
                 it.layoutManager = GridLayoutManager(container.context, 5)
                 container.addView(it)
@@ -112,10 +121,12 @@ class CaptureActivity : AppCompatActivity() {
         }
     }
 
-    class PropAdapter(private val dataList: List<Prop>) : RecyclerView.Adapter<PropAdapter.PropHolder>() {
+    class PropAdapter(private val dataList: List<Prop>) :
+        RecyclerView.Adapter<PropAdapter.PropHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PropHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_capture_prop, parent, false)
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_capture_prop, parent, false)
             return PropHolder(view)
         }
 

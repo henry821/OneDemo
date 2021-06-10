@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,10 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 风格封面图ViewPager
+ * 轮播图控件，ViewPager实现
  * Created by hengwei on 2021/6/4.
  */
-public class StyleThumbnailView extends ViewPager {
+public class CarouselView extends ViewPager {
 
     private static final float ANIMATION_COUNT = 100;
 
@@ -43,20 +43,22 @@ public class StyleThumbnailView extends ViewPager {
     private ThumbnailAdapter adapter;
     private ValueAnimator animator;
 
-    public StyleThumbnailView(@NonNull Context context) {
+    public CarouselView(@NonNull Context context) {
         super(context);
     }
 
-    public StyleThumbnailView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public CarouselView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         adapter = new ThumbnailAdapter();
         setAdapter(adapter);
         setPageTransformer(true, new DepthPageTransformer());
+//        setPageMargin(100);
 
         animator = ValueAnimator.ofFloat(0, ANIMATION_COUNT);
-        animator.setDuration(1000);
-        animator.setInterpolator(new BounceInterpolator());
+        animator.setDuration(300);
+//        animator.setInterpolator(new BounceInterpolator());
+        animator.setInterpolator(new DecelerateInterpolator());
         animator.setStartDelay(1000);
     }
 

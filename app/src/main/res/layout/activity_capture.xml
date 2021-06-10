@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.demo.widgets.CarouselView
+        android:id="@+id/thumbnail"
+        android:layout_width="110dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!--底部按钮区域-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

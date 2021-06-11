@@ -20,6 +20,7 @@ class MainActivity : EntranceActivity() {
         list.add(MainData(getString(R.string.capture_activity), CaptureActivity::class.java))
         list.add(MainData(getString(R.string.executor_service_activity), ThreadPoolExecutorActivity::class.java))
         list.add(MainData(getString(R.string.image_view_scale_type_activity), ImageViewScaleTypeActivity::class.java))
+        list.add(MainData(getString(R.string.animator_app_name), AnimatorActivity::class.java))
         list.add(MainData(getString(R.string.google_sample_activity), GoogleSampleEntranceActivity::class.java))
         return list
     }

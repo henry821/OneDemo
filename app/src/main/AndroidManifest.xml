@@ -37,6 +37,7 @@
         <activity android:name="com.demo.activity.CaptureActivity" />
         <activity android:name="com.demo.activity.ThreadPoolExecutorActivity" />
         <activity android:name="com.demo.activity.ImageViewScaleTypeActivity" />
+        <activity android:name="com.demo.activity.AnimatorActivity" />
         <activity android:name="com.demo.google.GoogleSampleEntranceActivity" />
         <activity android:name="com.demo.google.storage.StorageEntranceActivity" />
         <activity android:name="com.demo.google.storage.actionopendocument.MainActivity" />

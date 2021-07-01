@@ -1,15 +1,15 @@
 package com.demo.widgets;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +22,7 @@ import com.demo.one.R;
 import com.demo.utils.ScreenUtil;
 import com.demo.widgets.transformer.DepthPageTransformer;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,17 +32,7 @@ import java.util.List;
  */
 public class CarouselView extends ViewPager {
 
-    private static final float ANIMATION_COUNT = 100;
-
-    //步长
-    private float step;
-    //当前进度对应的滑动距离
-    private float offset;
-    //上一进度对应的滑动距离
-    private float lastOffset;
-
-    private ThumbnailAdapter adapter;
-    private ValueAnimator animator;
+    private boolean autoScroll;
 
     public CarouselView(@NonNull Context context) {
         super(context);
@@ -50,88 +41,84 @@ public class CarouselView extends ViewPager {
     public CarouselView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
-        adapter = new ThumbnailAdapter();
+        ThumbnailAdapter adapter = new ThumbnailAdapter();
         setAdapter(adapter);
         setPageTransformer(true, new DepthPageTransformer());
-//        setPageMargin(100);
+        setPageMargin(ScreenUtil.INSTANCE.convertDpToPx(context, 65));
 
-        animator = ValueAnimator.ofFloat(0, ANIMATION_COUNT);
-        animator.setDuration(300);
-//        animator.setInterpolator(new BounceInterpolator());
-        animator.setInterpolator(new DecelerateInterpolator());
-        animator.setStartDelay(1000);
+        ViewPagerScroller scroller = new ViewPagerScroller(context, new OvershootInterpolator());
+        scroller.initViewPagerScroll(this);
+
+        addOnPageChangeListener(new SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(final int position) {
+                if (!autoScroll) {
+                    return;
+                }
+                postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        setCurrentItem(position + 1, true);
+                    }
+                }, 1000);
+            }
+        });
     }
 
-    /**
-     * 开启滚动
-     */
     public void startScroll() {
-        //需要的对象没有初始化则直接返回
-        if (animator == null || adapter == null) {
-            return;
-        }
-        animator.addListener(new Animator.AnimatorListener() {
+        autoScroll = true;
+        postDelayed(new Runnable() {
             @Override
-            public void onAnimationStart(Animator animation) {
-                step = getMeasuredWidth() / ANIMATION_COUNT;
-                beginFakeDrag();
+            public void run() {
+                setCurrentItem(1, true);
             }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                if (isFakeDragging()) {
-                    endFakeDrag();
-                    postAnimatorEnd();
-                }
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-                if (isFakeDragging()) {
-                    endFakeDrag();
-                }
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                float value = (float) animation.getAnimatedValue();
-                offset = value * step + getMeasuredWidth() * getCurrentItem();
-                //计算出当前需要拖动距离
-                float dragBy = offset - lastOffset;
-                //拖动ViewPager
-                if (isFakeDragging()) {
-                    fakeDragBy(-dragBy);
-                }
-                //保存已滑动距离
-                lastOffset = offset;
-            }
-        });
-        animator.start();
+        }, 1000);
     }
 
-    /**
-     * 取消动画
-     */
-    public void cancel() {
-        if (animator != null) {
-            animator.cancel();
-        }
-    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        return true;
+        return autoScroll || super.dispatchTouchEvent(ev);
     }
 
-    private void postAnimatorEnd() {
-        if (getCurrentItem() < adapter.getCount() - 1) {
-            animator.start();
+    /**
+     * ViewPager 滚动速度设置
+     */
+    private static class ViewPagerScroller extends Scroller {
+
+        private static final int SMOOTH_SCROLL_DURATION = 600;
+
+        public ViewPagerScroller(Context context) {
+            super(context);
+        }
+
+        public ViewPagerScroller(Context context, Interpolator interpolator) {
+            super(context, interpolator);
+        }
+
+        public ViewPagerScroller(Context context, Interpolator interpolator, boolean flywheel) {
+            super(context, interpolator, flywheel);
+        }
+
+        @Override
+        public void startScroll(int startX, int startY, int dx, int dy, int duration) {
+            super.startScroll(startX, startY, dx, dy, SMOOTH_SCROLL_DURATION);
+        }
+
+        @Override
+        public void startScroll(int startX, int startY, int dx, int dy) {
+            super.startScroll(startX, startY, dx, dy, SMOOTH_SCROLL_DURATION);
+        }
+
+
+        public void initViewPagerScroll(ViewPager viewPager) {
+            try {
+                Field mScroller = ViewPager.class.getDeclaredField("mScroller");
+                mScroller.setAccessible(true);
+                mScroller.set(viewPager, this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -236,4 +223,5 @@ public class CarouselView extends ViewPager {
             tvPage.setText(String.format("%s/%s", currentPage, totalPage));
         }
     }
+
 }

@@ -38,7 +38,7 @@
         <attr name="scrollOffset" format="dimension" />
         <attr name="tabBackground" format="reference" />
         <attr name="shouldExpand" format="boolean" />
-<!--        <attr name="textAllCaps" format="boolean" />-->
+        <!--        <attr name="textAllCaps" format="boolean" />-->
     </declare-styleable>
 
     <declare-styleable name="ImageViewScaleTypeLayout">
@@ -66,6 +66,21 @@
                  the view. -->
             <enum name="centerInside" value="7" />
         </attr>
+    </declare-styleable>
+
+    <!--边沿透明View-->
+    <declare-styleable name="EdgeTransparentView">
+        <attr name="edge_position">
+            <flag name="top" value="0x01" />
+            <flag name="bottom" value="0x02" />
+            <flag name="left" value="0x04" />
+            <flag name="right" value="0x08" />
+        </attr>
+        <attr name="edge_width" format="dimension" />
+        <attr name="left_edge_width" format="dimension" />
+        <attr name="top_edge_width" format="dimension" />
+        <attr name="right_edge_width" format="dimension" />
+        <attr name="bottom_edge_width" format="dimension" />
     </declare-styleable>
 
 </resources>

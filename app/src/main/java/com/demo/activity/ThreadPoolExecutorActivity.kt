@@ -26,8 +26,8 @@ class ThreadPoolExecutorActivity : AppCompatActivity() {
 
         private class NoLeakHandler(activity: ThreadPoolExecutorActivity) : Handler(Looper.getMainLooper()) {
             private var ref: WeakReference<ThreadPoolExecutorActivity> = WeakReference(activity)
-            override fun handleMessage(msg: Message?) {
-                msg?.run {
+            override fun handleMessage(msg: Message) {
+                msg.run {
                     val text = obj as String
                     val activity = ref.get()
                     if (what == MSG_UPDATE_SUM) {

@@ -2,7 +2,7 @@
     <string name="app_name">OneDemo</string>
 
     <string name="lottie_activity">验证Lottie文件</string>
-    <string name="capture_activity">模仿拍摄页面</string>
+    <string name="gesture_activity">手势页面</string>
     <string name="executor_service_activity">线程池页面</string>
     <string name="image_view_scale_type_activity">ScaleType查询页面</string>
     <string name="google_sample_activity">Google示例页面</string>

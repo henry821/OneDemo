@@ -17,7 +17,7 @@ class MainActivity : EntranceActivity() {
     override fun initData(): List<MainData> {
         val list = ArrayList<MainData>()
         list.add(MainData(getString(R.string.lottie_activity), LottieActivity::class.java))
-        list.add(MainData(getString(R.string.capture_activity), CaptureActivity::class.java))
+        list.add(MainData(getString(R.string.gesture_activity), GestureActivity::class.java))
         list.add(MainData(getString(R.string.executor_service_activity), ThreadPoolExecutorActivity::class.java))
         list.add(MainData(getString(R.string.image_view_scale_type_activity), ImageViewScaleTypeActivity::class.java))
         list.add(MainData(getString(R.string.animator_app_name), AnimatorActivity::class.java))

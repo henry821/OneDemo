@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.demo.activity.LottieActivity" />
-        <activity android:name="com.demo.activity.CaptureActivity" />
+        <activity android:name="com.demo.activity.GestureActivity" />
         <activity android:name="com.demo.activity.ThreadPoolExecutorActivity" />
         <activity android:name="com.demo.activity.ImageViewScaleTypeActivity" />
         <activity android:name="com.demo.activity.AnimatorActivity" />

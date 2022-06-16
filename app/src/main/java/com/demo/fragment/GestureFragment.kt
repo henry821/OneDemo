@@ -1,11 +1,14 @@
-package com.demo.activity
+package com.demo.fragment
 
 import android.annotation.SuppressLint
 import android.graphics.PointF
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.demo.one.R
 import com.demo.utils.dp
 import com.demo.widgets.GestureContainer
@@ -14,17 +17,28 @@ import com.demo.widgets.GestureContainer
  * 模仿录制视频页面
  * Created by hengwei on 2021/3/30.
  */
-class GestureActivity : AppCompatActivity() {
+class GestureFragment : Fragment() {
 
-    private val tvPosition: TextView by lazy { findViewById(R.id.tv_position) }
-    private val btnScale: Button by lazy { findViewById(R.id.btn_scale) }
-    private val btnProperties: Button by lazy { findViewById(R.id.btn_properties) }
-    private val gestureContainer: GestureContainer by lazy { findViewById(R.id.gesture_container) }
+    private lateinit var tvPosition: TextView
+    private lateinit var btnScale: Button
+    private lateinit var btnProperties: Button
+    private lateinit var gestureContainer: GestureContainer
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gesture)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_gesture, container, false)
+        tvPosition = root.findViewById(R.id.tv_position)
+        btnScale = root.findViewById(R.id.btn_scale)
+        btnProperties = root.findViewById(R.id.btn_properties)
+        gestureContainer = root.findViewById(R.id.gesture_container)
+        return root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         gestureContainer.onPositionChangedListener =
             object : GestureContainer.OnPositionChangedListener {
                 @SuppressLint("SetTextI18n")
@@ -46,4 +60,5 @@ class GestureActivity : AppCompatActivity() {
             gestureContainer.layoutParams = lp
         }
     }
+
 }

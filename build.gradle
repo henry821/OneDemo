@@ -3,6 +3,7 @@
 buildscript {
     ext {
         kotlin_version = '1.4.21'
+        nav_version = "2.2.2"
     }
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }

@@ -1,26 +1,28 @@
-package com.demo.activity
+package com.demo.fragment
 
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.*
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.demo.one.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * Created by hengwei on 2021/6/11.
  */
-class AnimatorActivity : AppCompatActivity() {
+class AnimatorFragment : Fragment() {
 
-    private val line: View by lazy { findViewById(R.id.line) }
-    private val ball: View by lazy { findViewById(R.id.ball) }
-    private val tvProgress: TextView by lazy { findViewById(R.id.tv_progress) }
-    private val tvValue: TextView by lazy { findViewById(R.id.tv_value) }
-    private val fab: FloatingActionButton by lazy { findViewById(R.id.fab) }
+    private lateinit var line: View
+    private lateinit var ball: View
+    private lateinit var tvProgress: TextView
+    private lateinit var tvValue: TextView
+    private lateinit var fab: FloatingActionButton
 
     private lateinit var dialog: AlertDialog
     private var adapter: ArrayAdapter<String>? = null
@@ -38,10 +40,23 @@ class AnimatorActivity : AppCompatActivity() {
         AccelerateInterpolator::class.java
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.animator_demo_activity_main)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_animator, container, false).apply {
+            line = findViewById(R.id.line)
+            ball = findViewById(R.id.ball)
+            tvProgress = findViewById(R.id.tv_progress)
+            tvValue = findViewById(R.id.tv_value)
+            fab = findViewById(R.id.fab)
+        }
+        return root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         line.post {
             animator = ValueAnimator.ofFloat(0f, line.measuredWidth.toFloat()).also {
                 it.duration = 5000
@@ -66,18 +81,17 @@ class AnimatorActivity : AppCompatActivity() {
         fab.setOnClickListener {
             dialog.show()
         }
-
     }
 
     private fun initDialog() {
         if (adapter == null) {
             adapter = ArrayAdapter(
-                this,
+                requireContext(),
                 android.R.layout.simple_dropdown_item_1line,
                 dataList.map { it.simpleName })
         }
         dialog = AlertDialog
-            .Builder(this)
+            .Builder(requireContext())
             .setAdapter(
                 adapter
             ) { dialog, which ->

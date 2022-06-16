@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/emptyFragment">
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="com.demo.fragment.EmptyFragment"
+        tools:layout="@layout/fragment_empty"
+        android:label="EmptyFragment" />
+    <fragment
+        android:id="@+id/lottieFragment"
+        android:name="com.demo.fragment.LottieFragment"
+        android:label="LottieFragment"
+        tools:layout="@layout/fragment_lottie"/>
+    <fragment
+        android:id="@+id/gestureFragment"
+        android:name="com.demo.fragment.GestureFragment"
+        android:label="GestureFragment"
+        tools:layout="@layout/fragment_gesture" />
+    <fragment
+        android:id="@+id/threadPoolExecutorFragment"
+        android:name="com.demo.fragment.ThreadPoolExecutorFragment"
+        tools:layout="@layout/fragment_thread_pool"
+        android:label="ThreadPoolExecutorFragment" />
+    <fragment
+        android:id="@+id/imageViewScaleTypeFragment"
+        android:name="com.demo.fragment.ImageViewScaleTypeFragment"
+        tools:layout="@layout/fragment_image_view_scale_type"
+        android:label="ImageViewScaleTypeFragment" />
+    <fragment
+        android:id="@+id/animatorFragment"
+        android:name="com.demo.fragment.AnimatorFragment"
+        tools:layout="@layout/fragment_animator"
+        android:label="AnimatorFragment" />
+    <fragment
+        android:id="@+id/windowInsetsFragment"
+        android:name="com.demo.fragment.WindowInsetsFragment"
+        tools:layout="@layout/fragment_window_insets"
+        android:label="WindowInsetsFragment" />
+</navigation>

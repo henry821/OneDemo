@@ -1,48 +1,76 @@
 package com.demo.fragment
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowInsets
-import android.widget.Button
-import androidx.annotation.RequiresApi
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
-import com.demo.one.R
+import com.demo.one.databinding.FragmentWindowInsetsBinding
 
 /**
  * Created by hengwei on 2022/6/15.
  */
 class WindowInsetsFragment : Fragment() {
 
-    private lateinit var btnHideSystemBars: Button
-    private lateinit var btnShowSystemBars: Button
+    private var _binding: FragmentWindowInsetsBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_window_insets, container, false).apply {
-            btnHideSystemBars = findViewById(R.id.btn_hide_system_bars)
-            btnShowSystemBars = findViewById(R.id.btn_show_system_bars)
-        }
-        return root
+        _binding = FragmentWindowInsetsBinding.inflate(inflater, container, false)
+        return _binding?.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.R)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnHideSystemBars.setOnClickListener {
-            val controller = it.windowInsetsController
-            controller?.hide(WindowInsets.Type.systemBars())
+
+        _binding?.btnHideStatusBars?.setOnClickListener {
+            ViewCompat.getWindowInsetsController(it)?.hide(WindowInsetsCompat.Type.statusBars())
         }
 
-        btnShowSystemBars.setOnClickListener {
-            val controller = it.windowInsetsController
-            controller?.show(WindowInsets.Type.systemBars())
+        _binding?.btnShowStatusBars?.setOnClickListener {
+            ViewCompat.getWindowInsetsController(it)?.show(WindowInsetsCompat.Type.statusBars())
         }
+
+        _binding?.btnHideNavigationBars?.setOnClickListener {
+            ViewCompat.getWindowInsetsController(it)?.hide(WindowInsetsCompat.Type.navigationBars())
+        }
+
+        _binding?.btnShowNavigationBars?.setOnClickListener {
+            ViewCompat.getWindowInsetsController(it)?.show(WindowInsetsCompat.Type.navigationBars())
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val targetView = _binding?.root ?: return
+        ViewCompat.setOnApplyWindowInsetsListener(targetView) { _, insets ->
+            val statusBarsInset = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val navigationBarsInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val systemBarsInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            _binding?.tvWindowInsetsInfo?.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                bottomMargin = navigationBarsInsets.bottom
+            }
+
+            _binding?.tvWindowInsetsInfo?.text = """
+                statusBars.Insets     (${statusBarsInset.left},${statusBarsInset.top},${statusBarsInset.right},${statusBarsInset.bottom})
+                navigationBars.Insets(${navigationBarsInsets.left},${navigationBarsInsets.top},${navigationBarsInsets.right},${navigationBarsInsets.bottom})
+                systemBarsInsets.Insets(${systemBarsInsets.left},${systemBarsInsets.top},${systemBarsInsets.right},${systemBarsInsets.bottom})
+            """.trimIndent()
+
+            WindowInsetsCompat.CONSUMED
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

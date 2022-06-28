@@ -5,12 +5,12 @@ apply plugin: 'statistic'
 
 android {
 
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.demo.one"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -19,10 +19,19 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
 
-        kotlinOptions {
-            jvmTarget = "1.8"
-        }
+    }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -36,16 +45,16 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.0.4"
-    implementation "androidx.core:core-ktx:1.3.2"
-    implementation 'androidx.fragment:fragment-ktx:1.2.5'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.material:material:1.3.0-alpha02'
+    implementation 'com.google.android.material:material:1.6.1'
     //navigation
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")

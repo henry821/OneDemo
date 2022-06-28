@@ -2,13 +2,12 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.4.21'
-        nav_version = "2.2.2"
+        kotlin_version = '1.6.21'
+        nav_version = "2.4.2"
     }
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
-        jcenter()
         mavenCentral()
         //自定义插件目录
         maven { url uri('generated-plugin') }
@@ -29,7 +28,6 @@ allprojects {
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
-        jcenter()
         mavenCentral()
     }
 }

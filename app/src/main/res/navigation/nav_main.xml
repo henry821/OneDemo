@@ -7,13 +7,13 @@
     <fragment
         android:id="@+id/emptyFragment"
         android:name="com.demo.fragment.EmptyFragment"
-        tools:layout="@layout/fragment_empty"
-        android:label="EmptyFragment" />
+        android:label="EmptyFragment"
+        tools:layout="@layout/fragment_empty" />
     <fragment
         android:id="@+id/lottieFragment"
         android:name="com.demo.fragment.LottieFragment"
         android:label="LottieFragment"
-        tools:layout="@layout/fragment_lottie"/>
+        tools:layout="@layout/fragment_lottie" />
     <fragment
         android:id="@+id/gestureFragment"
         android:name="com.demo.fragment.GestureFragment"
@@ -22,21 +22,26 @@
     <fragment
         android:id="@+id/threadPoolExecutorFragment"
         android:name="com.demo.fragment.ThreadPoolExecutorFragment"
-        tools:layout="@layout/fragment_thread_pool"
-        android:label="ThreadPoolExecutorFragment" />
+        android:label="ThreadPoolExecutorFragment"
+        tools:layout="@layout/fragment_thread_pool" />
     <fragment
         android:id="@+id/imageViewScaleTypeFragment"
         android:name="com.demo.fragment.ImageViewScaleTypeFragment"
-        tools:layout="@layout/fragment_image_view_scale_type"
-        android:label="ImageViewScaleTypeFragment" />
+        android:label="ImageViewScaleTypeFragment"
+        tools:layout="@layout/fragment_image_view_scale_type" />
     <fragment
         android:id="@+id/animatorFragment"
         android:name="com.demo.fragment.AnimatorFragment"
-        tools:layout="@layout/fragment_animator"
-        android:label="AnimatorFragment" />
+        android:label="AnimatorFragment"
+        tools:layout="@layout/fragment_animator" />
     <fragment
         android:id="@+id/windowInsetsFragment"
         android:name="com.demo.fragment.WindowInsetsFragment"
-        tools:layout="@layout/fragment_window_insets"
-        android:label="WindowInsetsFragment" />
+        android:label="WindowInsetsFragment"
+        tools:layout="@layout/fragment_window_insets" />
+    <fragment
+        android:id="@+id/coroutineFragment"
+        android:name="com.demo.fragment.CoroutineFragment"
+        android:label="CoroutineFragment"
+        tools:layout="@layout/fragment_coroutine" />
 </navigation>

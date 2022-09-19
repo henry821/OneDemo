@@ -7,6 +7,7 @@
     <string name="executor_service_activity">线程池页面</string>
     <string name="image_view_scale_type_activity">ScaleType查询页面</string>
     <string name="window_insets_activity">WINDOW_INSETS</string>
+    <string name="coroutine_fragment">协程</string>
     <string name="google_sample_activity">Google示例页面</string>
 
     <string name="main_show_content_description">Show navigation drawer</string>

@@ -44,4 +44,8 @@
         android:name="com.demo.fragment.CoroutineFragment"
         android:label="CoroutineFragment"
         tools:layout="@layout/fragment_coroutine" />
+    <fragment
+        android:id="@+id/openGlFragment"
+        android:name="com.demo.opengl.OpenGlFragment"
+        android:label="OpenGlFragment" />
 </navigation>

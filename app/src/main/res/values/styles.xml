@@ -83,4 +83,8 @@
         <attr name="bottom_edge_width" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="DisplayShapeView">
+        <attr name="display_shape" format="string" />
+    </declare-styleable>
+
 </resources>

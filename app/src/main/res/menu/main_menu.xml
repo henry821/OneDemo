@@ -49,6 +49,10 @@
                 android:title="@string/coroutine_fragment"
                 app:showAsAction="ifRoom" />
             <item
+                android:id="@+id/openGlFragment"
+                android:title="@string/opengl"
+                app:showAsAction="ifRoom" />
+            <item
                 android:id="@+id/google_sample"
                 android:title="@string/google_sample_activity"
                 app:showAsAction="ifRoom" />

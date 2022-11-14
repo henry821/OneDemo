@@ -48,4 +48,9 @@
         android:id="@+id/openGlFragment"
         android:name="com.demo.opengl.OpenGlFragment"
         android:label="OpenGlFragment" />
+    <fragment
+        android:id="@+id/editTextFragment"
+        android:name="com.demo.modules.edittext.EditTextFragment"
+        tools:layout="@layout/fragment_edit_text"
+        android:label="EditTextFragment" />
 </navigation>

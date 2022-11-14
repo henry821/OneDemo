@@ -25,11 +25,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-
         val navigationView: NavigationView = findViewById(R.id.navigation_view)
-
         NavigationUI.setupWithNavController(navigationView, navController)
-
     }
 
     override fun onAttachedToWindow() {

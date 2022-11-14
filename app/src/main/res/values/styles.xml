@@ -87,4 +87,11 @@
         <attr name="display_shape" format="string" />
     </declare-styleable>
 
+    <style name="EditTextFragmentText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">start</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/red_border_1dp</item>
+    </style>
+
 </resources>

@@ -45,9 +45,9 @@ class EditTextFragment : Fragment() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root, deferringInsetsListener)
 
         ViewCompat.setWindowInsetsAnimationCallback(
-            binding.editTextContainer,
+            binding.editText,
             TranslateDeferringInsetsAnimationCallback(
-                view = binding.editTextContainer,
+                view = binding.editText,
                 persistentInsetTypes = WindowInsetsCompat.Type.systemBars(),
                 deferredInsetTypes = WindowInsetsCompat.Type.ime(),
                 dispatchMode = WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_CONTINUE_ON_SUBTREE

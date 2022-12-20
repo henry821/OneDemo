@@ -53,4 +53,9 @@
         android:name="com.demo.modules.edittext.EditTextFragment"
         tools:layout="@layout/fragment_edit_text"
         android:label="EditTextFragment" />
+    <fragment
+        android:id="@+id/spanFragment"
+        android:name="com.demo.modules.span.SpanFragment"
+        tools:layout="@layout/fragment_span"
+        android:label="SpanFragment" />
 </navigation>

@@ -45,6 +45,10 @@
                 android:title="@string/edit_text"
                 app:showAsAction="ifRoom" />
             <item
+                android:id="@+id/spanFragment"
+                android:title="@string/textview_span"
+                app:showAsAction="ifRoom" />
+            <item
                 android:id="@+id/windowInsetsFragment"
                 android:title="@string/window_insets_activity"
                 app:showAsAction="ifRoom" />

@@ -7,6 +7,7 @@
     <string name="executor_service_activity">线程池页面</string>
     <string name="image_view_scale_type_activity">ScaleType查询页面</string>
     <string name="edit_text">EditText Demo</string>
+    <string name="textview_span">TextView Span</string>
     <string name="window_insets_activity">WINDOW_INSETS</string>
     <string name="coroutine_fragment">协程</string>
     <string name="opengl">opengl</string>

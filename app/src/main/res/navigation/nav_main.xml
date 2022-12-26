@@ -51,11 +51,21 @@
     <fragment
         android:id="@+id/editTextFragment"
         android:name="com.demo.modules.edittext.EditTextFragment"
-        tools:layout="@layout/fragment_edit_text"
-        android:label="EditTextFragment" />
+        android:label="EditTextFragment"
+        tools:layout="@layout/fragment_edit_text" />
     <fragment
         android:id="@+id/spanFragment"
         android:name="com.demo.modules.span.SpanFragment"
-        tools:layout="@layout/fragment_span"
-        android:label="SpanFragment" />
+        android:label="SpanFragment"
+        tools:layout="@layout/fragment_span" />
+    <activity
+        android:id="@+id/googleSampleEntranceActivity"
+        android:name="com.demo.google.GoogleSampleEntranceActivity"
+        android:label="GoogleSampleEntranceActivity"
+        tools:layout="@layout/activity_entrance" />
+    <fragment
+        android:id="@+id/touchEventFragment"
+        tools:layout="@layout/fragment_touch_event"
+        android:name="com.demo.modules.touchevent.TouchEventFragment"
+        android:label="TouchEventFragment" />
 </navigation>

@@ -15,4 +15,12 @@ class GoogleSampleEntranceActivity : EntranceActivity() {
         return list
     }
 
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+    }
+
 }

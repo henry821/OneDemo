@@ -29,6 +29,10 @@
                 android:title="@string/gesture_activity"
                 app:showAsAction="ifRoom" />
             <item
+                android:id="@+id/touchEventFragment"
+                android:title="@string/touch_event"
+                app:showAsAction="ifRoom" />
+            <item
                 android:id="@+id/threadPoolExecutorFragment"
                 android:title="@string/executor_service_activity"
                 app:showAsAction="ifRoom" />
@@ -61,7 +65,7 @@
                 android:title="@string/opengl"
                 app:showAsAction="ifRoom" />
             <item
-                android:id="@+id/google_sample"
+                android:id="@+id/googleSampleEntranceActivity"
                 android:title="@string/google_sample_activity"
                 app:showAsAction="ifRoom" />
         </menu>

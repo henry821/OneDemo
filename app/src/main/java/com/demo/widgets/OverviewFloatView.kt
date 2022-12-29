@@ -12,21 +12,40 @@ import com.demo.widgets.base.DragView
  */
 class OverviewFloatView : DragView {
 
+    private var fps: TextView
+
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     init {
         inflate(context, R.layout.layout_overview, this)
 
-        findViewById<TextView>(R.id.tv_width).text = context.getString(R.string.screen_width,
-                ScreenUtil.getScreenWidth(context),
-                ScreenUtil.convertPxToDp(context, ScreenUtil.getScreenWidth(context)))
-        findViewById<TextView>(R.id.tv_height).text = context.getString(R.string.screen_height,
-                ScreenUtil.getScreenHeight(context),
-                ScreenUtil.convertPxToDp(context, ScreenUtil.getScreenHeight(context)))
-        findViewById<TextView>(R.id.tv_density).text = context.getString(R.string.screen_density,
-                ScreenUtil.getScreenDensity(context))
+        findViewById<TextView>(R.id.tv_width).text = context.getString(
+            R.string.screen_width,
+            ScreenUtil.getScreenWidth(context),
+            ScreenUtil.convertPxToDp(context, ScreenUtil.getScreenWidth(context))
+        )
+        findViewById<TextView>(R.id.tv_height).text = context.getString(
+            R.string.screen_height,
+            ScreenUtil.getScreenHeight(context),
+            ScreenUtil.convertPxToDp(context, ScreenUtil.getScreenHeight(context))
+        )
+        findViewById<TextView>(R.id.tv_density).text = context.getString(
+            R.string.screen_density,
+            ScreenUtil.getScreenDensity(context)
+        )
+
+        fps = findViewById(R.id.tv_fps)
     }
+
+    fun updateFps(value: Int) {
+        fps.text = context.getString(R.string.screen_fps, value.toString())
+    }
+
 
 }

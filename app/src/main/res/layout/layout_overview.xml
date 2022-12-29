@@ -7,11 +7,18 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/tv_density"
+        android:id="@+id/tv_fps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_density"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_fps"
+        app:layout_constraintTop_toBottomOf="@id/tv_fps" />
 
     <TextView
         android:id="@+id/tv_width"

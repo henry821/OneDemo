@@ -17,6 +17,7 @@
     <string name="main_show_content_description">Show navigation drawer</string>
     <string name="main_hide_content_description">Hide navigation drawer</string>
 
+    <string name="screen_fps">帧率：%s</string>
     <string name="screen_width">屏幕宽度：%dpx (%ddp)</string>
     <string name="screen_height">屏幕高度：%dpx (%ddp)</string>
     <string name="screen_density">屏幕密度：%.1f</string>

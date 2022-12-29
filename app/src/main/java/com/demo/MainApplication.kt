@@ -9,8 +9,4 @@ import com.demo.modules.monitor.FpsMonitor
  * Date   2022/12/20
  */
 class MainApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        FpsMonitor().start()
-    }
 }

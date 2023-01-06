@@ -41,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.demo.modules.FragmentLifecycleActivity" />
         <activity android:name="com.demo.google.GoogleSampleEntranceActivity" />
         <activity android:name="com.demo.google.storage.StorageEntranceActivity" />
         <activity android:name="com.demo.google.storage.actionopendocument.MainActivity" />

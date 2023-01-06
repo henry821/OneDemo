@@ -2,6 +2,7 @@ package com.demo.modules.main
 
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,6 +24,7 @@ class MainViewModel : ViewModel() {
     private var fpsMonitor: FpsMonitor = FpsMonitor()
 
     fun watchFps() {
+        Looper.getMainLooper()
         viewModelScope.launch {
             fpsMonitorThread = HandlerThread("fps_monitor")
             fpsMonitorThread?.run {

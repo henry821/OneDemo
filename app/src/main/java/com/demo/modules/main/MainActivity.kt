@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        mainVM.watchFps()
+//        mainVM.watchFps()
     }
 
     override fun onSupportNavigateUp(): Boolean {

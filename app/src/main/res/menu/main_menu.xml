@@ -37,6 +37,10 @@
                 android:title="@string/executor_service_activity"
                 app:showAsAction="ifRoom" />
             <item
+                android:id="@+id/fragmentLifecycleActivity"
+                android:title="@string/fragment_lifecycle_activity"
+                app:showAsAction="ifRoom" />
+            <item
                 android:id="@+id/imageViewScaleTypeFragment"
                 android:title="@string/image_view_scale_type_activity"
                 app:showAsAction="ifRoom" />

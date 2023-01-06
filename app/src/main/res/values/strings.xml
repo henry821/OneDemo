@@ -6,6 +6,7 @@
     <string name="gesture_activity">手势页面</string>
     <string name="touch_event">触摸事件分发</string>
     <string name="executor_service_activity">线程池页面</string>
+    <string name="fragment_lifecycle_activity">Fragment生命周期</string>
     <string name="image_view_scale_type_activity">ScaleType查询页面</string>
     <string name="edit_text">EditText Demo</string>
     <string name="textview_span">TextView Span</string>

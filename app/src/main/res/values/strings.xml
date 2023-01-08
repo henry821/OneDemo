@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">OneDemo</string>
     <string name="menu">菜单</string>
+    <string name="settings">设置</string>
 
     <string name="lottie_activity">验证Lottie文件</string>
     <string name="gesture_activity">手势页面</string>
@@ -14,6 +15,7 @@
     <string name="coroutine_fragment">协程</string>
     <string name="opengl">opengl</string>
     <string name="google_sample_activity">Google示例页面</string>
+    <string name="global_gray">全局灰度化</string>
 
     <string name="main_show_content_description">Show navigation drawer</string>
     <string name="main_hide_content_description">Hide navigation drawer</string>
@@ -22,6 +24,9 @@
     <string name="screen_width">屏幕宽度：%dpx (%ddp)</string>
     <string name="screen_height">屏幕高度：%dpx (%ddp)</string>
     <string name="screen_density">屏幕密度：%.1f</string>
+
+    <string name="fragment_add">添加Fragment</string>
+    <string name="fragment_pop">弹出Fragment</string>
 
     <string name="scale_type_original">原始图片</string>
 

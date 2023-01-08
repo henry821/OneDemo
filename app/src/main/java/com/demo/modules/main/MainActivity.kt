@@ -7,6 +7,7 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.demo.modules.monitor.GlobalGray
 import com.demo.one.R
 import com.demo.one.databinding.ActivityMainBinding
 import com.demo.widgets.OverviewFloatView
@@ -30,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         NavigationUI.setupActionBarWithNavController(this, navController, binding.root)
         NavigationUI.setupWithNavController(binding.navigationView, navController)
+
+        binding.navigationView.menu.findItem(R.id.global_gray).setOnMenuItemClickListener {
+            GlobalGray.enable()
+            true
+        }
 
         mainVM.fps.observe(this) { overviewFloatView.updateFps(it) }
     }

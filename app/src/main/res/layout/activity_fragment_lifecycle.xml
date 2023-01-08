@@ -18,9 +18,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="添加Fragment"
+        android:text="@string/fragment_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/back_stack_info"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/back_stack_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pop_fragment"
+        app:layout_constraintStart_toEndOf="@id/add_fragment"
+        app:layout_constraintTop_toTopOf="@id/add_fragment" />
+
+    <Button
+        android:id="@+id/pop_fragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/fragment_pop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/back_stack_info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

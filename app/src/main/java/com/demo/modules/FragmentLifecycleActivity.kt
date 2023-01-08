@@ -8,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentManager.OnBackStackChangedListener
 import com.demo.one.R
 import com.demo.one.databinding.ActivityFragmentLifecycleBinding
 import com.demo.utils.*
@@ -24,6 +26,7 @@ import com.demo.utils.*
 class FragmentLifecycleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFragmentLifecycleBinding
+    private lateinit var backStackChangedListener: OnBackStackChangedListener
 
     private val index: Int
         get() = supportFragmentManager.fragments.size
@@ -38,10 +41,23 @@ class FragmentLifecycleActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.container, ChildFragment.newInstance(index))
                     .setReorderingAllowed(true)
-                    .addToBackStack(null)
+                    .addToBackStack(index.toString())
                     .commit()
             }
+            popFragment.setOnClickListener {
+                val popIndex = index / 2
+                Toast.makeText(
+                    this@FragmentLifecycleActivity,
+                    "弹出index：$popIndex",
+                    Toast.LENGTH_SHORT
+                ).show()
+                supportFragmentManager.popBackStack(popIndex.toString(), 0)
+            }
         }
+        backStackChangedListener = OnBackStackChangedListener {
+            binding.backStackInfo.text = "当前Fragment数量：${supportFragmentManager.fragments.size}"
+        }
+        supportFragmentManager.addOnBackStackChangedListener(backStackChangedListener)
         FragmentManager.enableDebugLogging(true)
     }
 
@@ -51,6 +67,11 @@ class FragmentLifecycleActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        supportFragmentManager.removeOnBackStackChangedListener(backStackChangedListener)
     }
 
 }

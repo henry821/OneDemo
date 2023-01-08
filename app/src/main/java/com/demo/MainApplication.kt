@@ -3,6 +3,7 @@ package com.demo
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
+import com.demo.modules.monitor.GlobalGray
 import com.demo.utils.*
 
 /**

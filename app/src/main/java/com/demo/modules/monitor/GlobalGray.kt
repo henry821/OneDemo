@@ -42,6 +42,7 @@ class GlobalGray {
                         super.onAdd(list, start, count)
                         val view = list?.get(start)
                         view?.setLayerType(View.LAYER_TYPE_HARDWARE, paint)
+                        view?.visibility = View.GONE
                     }
                 })
 

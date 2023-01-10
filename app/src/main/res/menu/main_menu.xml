@@ -61,10 +61,6 @@
                 android:title="@string/window_insets_activity"
                 app:showAsAction="ifRoom" />
             <item
-                android:id="@+id/coroutineFragment"
-                android:title="@string/coroutine_fragment"
-                app:showAsAction="ifRoom" />
-            <item
                 android:id="@+id/openGlFragment"
                 android:title="@string/opengl"
                 app:showAsAction="ifRoom" />

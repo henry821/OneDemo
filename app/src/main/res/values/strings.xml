@@ -28,6 +28,8 @@
     <string name="fragment_add">添加Fragment</string>
     <string name="fragment_pop">弹出Fragment</string>
 
+    <string name="touch_event_conflict">滑动冲突</string>
+
     <string name="scale_type_original">原始图片</string>
 
     <string name="google_sample_storage_entrance">存储示例</string>

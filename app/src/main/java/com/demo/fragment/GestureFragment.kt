@@ -14,7 +14,7 @@ import com.demo.utils.dp
 import com.demo.widgets.GestureContainer
 
 /**
- * 模仿录制视频页面
+ * 手势页面
  * Created by hengwei on 2021/3/30.
  */
 class GestureFragment : Fragment() {

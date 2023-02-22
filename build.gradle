@@ -2,6 +2,7 @@
 
 buildscript {
     ext {
+        java_version = JavaVersion.VERSION_1_8
         kotlin_version = '1.6.21'
         nav_version = "2.4.2"
     }
@@ -18,6 +19,7 @@ buildscript {
         //使用自定义插件
         classpath 'com.demo.plugin:statistic:1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.4"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

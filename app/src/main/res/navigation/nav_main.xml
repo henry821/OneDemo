@@ -53,11 +53,6 @@
         android:name="com.demo.modules.span.SpanFragment"
         android:label="SpanFragment"
         tools:layout="@layout/fragment_span" />
-    <activity
-        android:id="@+id/googleSampleEntranceActivity"
-        android:name="com.demo.google.GoogleSampleEntranceActivity"
-        android:label="GoogleSampleEntranceActivity"
-        tools:layout="@layout/activity_entrance" />
     <fragment
         android:id="@+id/touchEventFragment"
         android:name="com.demo.modules.touchevent.TouchEventFragment"

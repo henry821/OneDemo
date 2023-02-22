@@ -1,0 +1,3 @@
+[submodule "samples/camera-samples"]
+	path = samples/camera-samples
+	url = git@github.com:android/camera-samples.git

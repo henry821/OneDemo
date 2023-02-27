@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.demo.modules.monitor.FpsMonitor
+import com.demo.base.FpsMonitor
 import kotlinx.coroutines.launch
 
 /**

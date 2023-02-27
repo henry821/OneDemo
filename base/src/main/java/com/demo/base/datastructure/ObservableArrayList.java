@@ -1,4 +1,4 @@
-package com.demo.modules.monitor;
+package com.demo.base.datastructure;
 
 import android.util.Log;
 
@@ -122,7 +122,7 @@ public class ObservableArrayList<T> extends ArrayList<T> {
         void onRemove(ArrayList<T> list, int start, int count);
     }
 
-    static abstract class LoggableListener<T> implements OnListChangeListener<T> {
+    public static abstract class LoggableListener<T> implements OnListChangeListener<T> {
         @Override
         public void onChange(ArrayList<T> list, int index, int count) {
             Log.i(TAG, String.format("onChange -- list:%s, index:%s, count:%s", list.toString(), index, count));

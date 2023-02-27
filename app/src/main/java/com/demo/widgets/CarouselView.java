@@ -20,7 +20,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.demo.one.R;
 import com.demo.utils.ScreenUtil;
-import com.demo.widgets.transformer.DepthPageTransformer;
+import com.demo.base.transformer.DepthPageTransformer;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

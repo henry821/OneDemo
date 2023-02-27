@@ -1,11 +1,11 @@
-package com.demo.modules.monitor
+package com.demo.base
 
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import android.util.Log
 import android.view.View
-import com.demo.modules.monitor.ObservableArrayList.LoggableListener
+import com.demo.base.datastructure.ObservableArrayList
 
 /**
  * Description 视图灰度化
@@ -37,7 +37,8 @@ class GlobalGray {
 
                 //创建具有数据感知能力的ObservableArrayList
                 val observableArrayList = ObservableArrayList<View>()
-                observableArrayList.addOnListChangedListener(object : LoggableListener<View>() {
+                observableArrayList.addOnListChangedListener(object :
+                    ObservableArrayList.LoggableListener<View>() {
                     override fun onAdd(list: ArrayList<View>?, start: Int, count: Int) {
                         super.onAdd(list, start, count)
                         val view = list?.get(start)

@@ -1,0 +1,14 @@
+task generateMd5 {
+    doLast {
+        def apk = file(buildFile.absolutePath + "/outputs/apk/app-debug.apk")
+        println(apk.absolutePath)
+    }
+}
+
+afterEvaluate {
+    // 1. 找到需要依赖自己 Task的构建流程的Task
+    def assembleReleaseTask = tasks.findByName("assembleRelease")
+    println "assembleReleaseTask=$assembleReleaseTask"
+    // 2. 通过 finalizedBy 方法，插入到指定Task之后
+    assembleReleaseTask.finalizedBy(generateMd5)
+}

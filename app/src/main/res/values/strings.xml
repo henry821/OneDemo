@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">OneDemo</string>
     <string name="menu">菜单</string>
     <string name="settings">设置</string>
+    <string name="login">登录</string>
+    <string name="logout">登出</string>
 
     <string name="lottie_activity">验证Lottie文件</string>
     <string name="gesture_activity">手势页面</string>
@@ -37,6 +38,9 @@
     <string name="animator_app_name">动画</string>
     <string name="animator_value_progress">动画进度：%.0f%%</string>
     <string name="animator_time_progress">时间进度：%.0f%%</string>
+
+    <string name="login_tip">请登录</string>
+    <string name="logged_already">已经登录</string>
 
     <!--ActionOpenDocument-->
     <string name="action_open_document_app_name">aodViewer</string>

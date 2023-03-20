@@ -65,8 +65,8 @@
                 android:title="@string/opengl"
                 app:showAsAction="ifRoom" />
             <item
-                android:id="@+id/googleSampleEntranceActivity"
-                android:title="@string/google_sample_activity"
+                android:id="@+id/surfaceViewFragment"
+                android:title="@string/surface_view"
                 app:showAsAction="ifRoom" />
         </menu>
     </item>

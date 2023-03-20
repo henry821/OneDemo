@@ -58,6 +58,11 @@
         android:name="com.demo.modules.touchevent.TouchEventFragment"
         android:label="TouchEventFragment"
         tools:layout="@layout/fragment_touch_event" />
+    <fragment
+        android:id="@+id/surfaceViewFragment"
+        android:name="com.demo.modules.surfaceview.SurfaceViewFragment"
+        tools:layout="@layout/fragment_surfaceview"
+        android:label="SurfaceViewFragment" />
     <activity
         android:id="@+id/fragmentLifecycleActivity"
         android:name="com.demo.modules.FragmentLifecycleActivity"

@@ -14,7 +14,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.OnBackStackChangedListener
-import androidx.fragment.app.FragmentPagerAdapter
 import com.demo.one.R
 import com.demo.one.databinding.ActivityFragmentLifecycleBinding
 import com.demo.utils.*

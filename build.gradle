@@ -7,19 +7,13 @@ buildscript {
         nav_version = "2.4.2"
     }
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
         mavenCentral()
-        //自定义插件目录
-        maven { url uri('generated-plugin') }
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
-        //使用自定义插件
-        classpath 'com.demo.plugin:statistic:1.0'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.4"
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -28,7 +22,6 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
         mavenCentral()
     }

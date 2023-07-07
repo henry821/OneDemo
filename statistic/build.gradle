@@ -1,7 +1,6 @@
 plugins {
     id 'java-library'
     id 'kotlin'
-    id 'maven'
 }
 
 java {
@@ -12,17 +11,4 @@ java {
 dependencies {
     implementation gradleApi()   //使用到gradle包里的方法进行自定义plugin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-}
-
-//上传plugin到本地maven仓库
-uploadArchives{
-    repositories {
-        mavenDeployer {
-            pom.groupId = 'com.demo.plugin'
-            pom.artifactId = 'statistic'
-            pom.version = 1.0
-            // maven本地仓库的目录
-            repository(url: uri('../generated-plugin'))
-        }
-    }
 }

@@ -1,6 +1,5 @@
 include ':app'
 include ':base'
-include ':statistic'
 
 include ':designpattern'
 include ':leetcode'

@@ -1,10 +1,25 @@
-include ':app'
-include ':base'
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 
-include ':designpattern'
-include ':leetcode'
-include ':statistic'
-include ':concurrency'
+rootProject.name = "OneDemo"
+include (":app")
+include (":base")
+
+include (":designpattern")
+include (":leetcode")
+include (":concurrency")
 
 // google相机示例
 //include ':samples:camera-samples:Camera2Basic:app'
@@ -17,3 +32,4 @@ include ':concurrency'
 //
 //include ':samples:camera-samples:Camera2Video:app'
 //include ':samples:camera-samples:Camera2Video:utils'
+ 

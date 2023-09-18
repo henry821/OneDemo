@@ -24,7 +24,7 @@ class GestureContainer @JvmOverloads constructor(
     var onPositionChangedListener: OnPositionChangedListener? = null
 
     private var gestureDetector = GestureDetector(context, DemoGestureListener())
-    private var PointPaint = Paint().apply {
+    private var pointPaint = Paint().apply {
         color = Color.GREEN
         style = Paint.Style.STROKE
         isAntiAlias = true
@@ -32,33 +32,35 @@ class GestureContainer @JvmOverloads constructor(
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return gestureDetector.onTouchEvent(event)
+        return event?.let { gestureDetector.onTouchEvent(it) } ?: false
     }
 
     override fun dispatchDraw(canvas: Canvas?) {
         super.dispatchDraw(canvas)
-        canvas?.drawCircle(measuredWidth / 2f, measuredHeight / 2f, 5f.dp, PointPaint)
+        canvas?.drawCircle(measuredWidth / 2f, measuredHeight / 2f, 5f.dp, pointPaint)
 
     }
 
     inner class DemoGestureListener : GestureDetector.SimpleOnGestureListener() {
 
-        override fun onDown(e: MotionEvent?): Boolean {
-            onPositionChangedListener?.onPositionChanged(if (e == null) "null" else MotionEvent.actionToString(
-                e.action),
-                PointF(e?.x ?: 0f, e?.y ?: 0f))
+        override fun onDown(e: MotionEvent): Boolean {
+            onPositionChangedListener?.onPositionChanged(
+                MotionEvent.actionToString(e.action),
+                PointF(e.x, e.y)
+            )
             return true
         }
 
         override fun onScroll(
-            e1: MotionEvent?,
-            e2: MotionEvent?,
+            e1: MotionEvent,
+            e2: MotionEvent,
             distanceX: Float,
-            distanceY: Float,
+            distanceY: Float
         ): Boolean {
-            onPositionChangedListener?.onPositionChanged(if (e2 == null) "null" else MotionEvent.actionToString(
-                e2.action),
-                PointF(e2?.x ?: 0f, e2?.y ?: 0f))
+            onPositionChangedListener?.onPositionChanged(
+                MotionEvent.actionToString(e2.action),
+                PointF(e2.x, e2.y)
+            )
             return true
         }
     }

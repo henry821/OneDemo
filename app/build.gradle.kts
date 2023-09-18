@@ -1,45 +1,48 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.bytedance.rhea-trace'
-apply from: "$rootDir/script/md5.gradle"
+@Suppress("DSL_SCOPE_VIOLATION")
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.kotlin)
+    id("com.bytedance.rhea-trace")
+}
 
 android {
 
-    compileSdkVersion 31
+    namespace = "com.demo.one"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId "com.demo.one"
-        minSdkVersion 24
-        targetSdkVersion 31
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = "com.one.myapplication"
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
 
-        ndk {
-            abiFilters "armeabi-v7a", "x86", "x86_64"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+//        ndk {
+//            abiFilters("armeabi-v7a", "x86", "x86_64")
+//        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
-
     }
-
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
 
     buildFeatures {
         viewBinding = true
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 
     rheaTrace {
@@ -52,8 +55,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':base')
+    implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
+    implementation(project(":base"))
 
     implementation(libs.kotlin.stdlib.jdk7)
     implementation(libs.androidx.appcompat)
@@ -72,10 +75,6 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     //lottie
     implementation(libs.lottie)
-    // rhea-trace core lib
-    implementation(libs.rhea.trace.core)
-}
-repositories {
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-    mavenCentral()
+    //btrace
+    implementation(libs.btrace.core)
 }

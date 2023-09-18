@@ -30,10 +30,16 @@ androidx-navigation-ui-base = { group = "androidx.navigation", name = "navigatio
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigaton" }
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
-rhea-trace-core = { group = "com.bytedance.btrace", name = "rhea-core", version.ref = "rhea-trace" }
+btrace-core = { group = "com.bytedance.btrace", name = "rhea-core", version.ref = "rhea-trace" }
+
+# 构建插件依赖
+#android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-plugin" }
+#kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+#navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigaton" }
+btrace-gradle-plugin = { group = "com.bytedance.btrace", name = "rhea-gradle-plugin", version.ref = "rhea-trace" }
 
 [plugins]
-android-gradle-plugin = { id = "com.android.tools.build:gradle", version.ref = "android-plugin" }
-kotlin-gradle-plugin = { id = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-navigation-safe-args-gradle-plugin = { id = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigaton" }
-btrace-gradle-plugin = { id = "com.bytedance.btrace:rhea-gradle-plugin", version.ref = "rhea-trace" }
+android-application = { id = "com.android.application", version.ref = "android-plugin" }
+android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+btrace = { id = "com.bytedance.rhea-trace", version.ref = "rhea-trace" }
+

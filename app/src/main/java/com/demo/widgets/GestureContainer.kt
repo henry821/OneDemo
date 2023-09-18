@@ -35,9 +35,9 @@ class GestureContainer @JvmOverloads constructor(
         return event?.let { gestureDetector.onTouchEvent(it) } ?: false
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
-        canvas?.drawCircle(measuredWidth / 2f, measuredHeight / 2f, 5f.dp, pointPaint)
+        canvas.drawCircle(measuredWidth / 2f, measuredHeight / 2f, 5f.dp, pointPaint)
 
     }
 
@@ -52,7 +52,7 @@ class GestureContainer @JvmOverloads constructor(
         }
 
         override fun onScroll(
-            e1: MotionEvent,
+            e1: MotionEvent?,
             e2: MotionEvent,
             distanceX: Float,
             distanceY: Float

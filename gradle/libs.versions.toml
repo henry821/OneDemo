@@ -1,16 +1,16 @@
 [versions]
-kotlin = "1.6.21"
+kotlin = "1.9.0"
 android-plugin = "7.4.2"
-app-compat = "1.4.1"
-core-ktx = "1.8.0"
-fragment-ktx = "1.4.1"
+app-compat = "1.6.1"
+core-ktx = "1.12.0"
+fragment-ktx = "1.6.1"
 viewpager2 = "1.0.0"
 constraintlayout = "2.1.4"
-recyclerview = "1.2.1"
+recyclerview = "1.3.1"
 coordinatorlayout = "1.2.0"
 lifecycle-extensions = "2.2.0"
-navigaton = "2.4.2"
-material = "1.6.1"
+navigaton = "2.7.2"
+material = "1.9.0"
 lottie = "3.6.1"
 rhea-trace = "2.0.3-rc02"
 
@@ -36,10 +36,10 @@ btrace-core = { group = "com.bytedance.btrace", name = "rhea-core", version.ref 
 #android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-plugin" }
 #kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 #navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigaton" }
-btrace-gradle-plugin = { group = "com.bytedance.btrace", name = "rhea-gradle-plugin", version.ref = "rhea-trace" }
+#btrace-gradle-plugin = { group = "com.bytedance.btrace", name = "rhea-gradle-plugin", version.ref = "rhea-trace" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-plugin" }
 android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-btrace = { id = "com.bytedance.rhea-trace", version.ref = "rhea-trace" }
+#btrace = { id = "com.bytedance.rhea-trace", version.ref = "rhea-trace" }
 

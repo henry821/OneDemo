@@ -19,31 +19,12 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-//        ndk {
-//            abiFilters("armeabi-v7a", "x86", "x86_64")
-//        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        ndk {
+            abiFilters += listOf("armeabi-v7a", "x86", "x86_64")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 
-    buildFeatures {
-        viewBinding = true
-    }
+    viewBinding.isEnabled = true
 
     rheaTrace {
         compilation {
@@ -58,7 +39,6 @@ dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
     implementation(project(":base"))
 
-    implementation(libs.kotlin.stdlib.jdk7)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.fragment.ktx)

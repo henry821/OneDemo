@@ -55,25 +55,25 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':base')
 
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
-    implementation "androidx.core:core-ktx:1.8.0"
-    implementation 'androidx.fragment:fragment-ktx:1.4.1'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation(libs.kotlin.stdlib.jdk7)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.viewpager2)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.coordinatorlayout)
+    implementation(libs.androidx.lifecycle.extensions)
+    implementation(libs.android.material)
     //navigation
-    implementation("androidx.navigation:navigation-fragment:$nav_version")
-    implementation("androidx.navigation:navigation-ui:$nav_version")
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation(libs.androidx.navigation.fragment.base)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.base)
+    implementation(libs.androidx.navigation.ui.ktx)
     //lottie
-    implementation 'com.airbnb.android:lottie:3.6.1'
-    // rheatrace core lib
-    implementation "com.bytedance.btrace:rhea-core:2.0.3-rc02"
+    implementation(libs.lottie)
+    // rhea-trace core lib
+    implementation(libs.rhea.trace.core)
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }

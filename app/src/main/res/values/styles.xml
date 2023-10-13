@@ -8,6 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Splash启动页Style -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!--启动画面背景颜色-->
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <!-- 启动画面icon图标：这里可以是图片、帧动画等-->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/avd_splash</item>
+        <!-- icon动画在关闭之前显示的时长：最长时间为1000毫秒-->
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <!-- Splash退出后的主题-->
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="Theme.DirSelect" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

@@ -14,12 +14,13 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "OneDemo"
-include (":app")
-include (":base")
+include(":app")
+include(":base")
+include(":plugin")
 
-include (":designpattern")
-include (":leetcode")
-include (":concurrency")
+include(":designpattern")
+include(":leetcode")
+include(":concurrency")
 
 // google相机示例
 //include ':samples:camera-samples:Camera2Basic:app'

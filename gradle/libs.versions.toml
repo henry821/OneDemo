@@ -14,6 +14,8 @@ splashscreen = "1.0.1"
 material = "1.9.0"
 lottie = "3.6.1"
 rhea-trace = "2.0.3-rc02"
+one-demo = "1.0.0"
+asm = "9.2"
 
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "app-compat" }
@@ -32,15 +34,21 @@ androidx-splashscreen = { group = "androidx.core", name = "core-splashscreen", v
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 btrace-core = { group = "com.bytedance.btrace", name = "rhea-core", version.ref = "rhea-trace" }
+asm-base = {group = "org.ow2.asm" , name = "asm" , version.ref = "asm"}
+asm-util = {group = "org.ow2.asm" , name = "asm-util" , version.ref = "asm"}
+asm-common = {group = "org.ow2.asm" , name = "asm-commons" , version.ref = "asm"}
 
 # 构建插件依赖
-#android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-plugin" }
+android-gradle-plugin-base = { group = "com.android.tools.build", name = "gradle", version.ref = "android-plugin" }
+android-gradle-plugin-api = { group = "com.android.tools.build", name = "gradle-api", version.ref = "android-plugin" }
 #kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 #navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigaton" }
-#btrace-gradle-plugin = { group = "com.bytedance.btrace", name = "rhea-gradle-plugin", version.ref = "rhea-trace" }
+btrace-gradle-plugin = { group = "com.bytedance.btrace", name = "rhea-gradle-plugin", version.ref = "rhea-trace" }
+one-demo-plugin = { group = "com.demo", name = "plugin", version.ref = "one-demo" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-plugin" }
 android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+one-demo = { id = "one-demo", version = "1.0.0" }
 #btrace = { id = "com.bytedance.rhea-trace", version.ref = "rhea-trace" }
 

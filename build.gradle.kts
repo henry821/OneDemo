@@ -5,9 +5,11 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven(url = "\\localmaven")
     }
     dependencies {
-        classpath("com.bytedance.btrace", "rhea-gradle-plugin", libs.versions.rhea.trace.get())
+        classpath(libs.btrace.gradle.plugin)
+        classpath(libs.one.demo.plugin)
     }
 }
 

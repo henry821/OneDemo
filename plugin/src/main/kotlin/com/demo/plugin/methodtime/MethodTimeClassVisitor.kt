@@ -29,8 +29,6 @@ class MethodTimeClassVisitor(nextVisitor: ClassVisitor, val config: MethodTimeCo
         }
         //从配置中读取tag
         val tag = config.logTag.get()
-        val pluginExecuteThreadName = Thread.currentThread().toString()
-        Thread.dumpStack()
         val newMethodVisitor =
             object : AdviceAdapter(Opcodes.ASM5, methodVisitor, access, name, descriptor) {
                 private var startTimeLocal = -1 // 保存 startTime 的局部变量索引
@@ -52,55 +50,51 @@ class MethodTimeClassVisitor(nextVisitor: ClassVisitor, val config: MethodTimeCo
 
                 @Override
                 override fun onMethodExit(opcode: Int) {
-                    // 在onMethodExit中插入代码 Log.e("tag", "Method: $name, timecost: " + (System.currentTimeMillis() - startTime))
-                    mv.visitTypeInsn(
-                        Opcodes.NEW,
-                        "java/lang/StringBuilder"
-                    );
-                    mv.visitInsn(Opcodes.DUP);
-                    mv.visitLdcInsn("PluginThread: $pluginExecuteThreadName Method: $name, timecost: ");
+                    mv.visitTypeInsn(Opcodes.NEW, "java/lang/StringBuilder")
+                    mv.visitInsn(Opcodes.DUP)
+                    mv.visitLdcInsn("方法: $name, 耗时: ")
                     mv.visitMethodInsn(
                         Opcodes.INVOKESPECIAL,
                         "java/lang/StringBuilder",
                         "<init>",
                         "(Ljava/lang/String;)V",
                         false
-                    );
+                    )
                     mv.visitMethodInsn(
                         Opcodes.INVOKESTATIC,
                         "java/lang/System",
                         "currentTimeMillis",
                         "()J",
                         false
-                    );
-                    mv.visitVarInsn(Opcodes.LLOAD, startTimeLocal);
-                    mv.visitInsn(Opcodes.LSUB);
+                    )
+                    mv.visitVarInsn(Opcodes.LLOAD, startTimeLocal)
+                    mv.visitInsn(Opcodes.LSUB)
                     mv.visitMethodInsn(
                         Opcodes.INVOKEVIRTUAL,
                         "java/lang/StringBuilder",
                         "append",
                         "(J)Ljava/lang/StringBuilder;",
                         false
-                    );
+                    )
                     mv.visitMethodInsn(
                         Opcodes.INVOKEVIRTUAL,
                         "java/lang/StringBuilder",
                         "toString",
                         "()Ljava/lang/String;",
                         false
-                    );
+                    )
                     //从配置中读取tag
                     mv.visitLdcInsn(tag)
                     mv.visitInsn(Opcodes.SWAP)
                     mv.visitMethodInsn(
                         Opcodes.INVOKESTATIC,
                         "android/util/Log",
-                        "e",
+                        "i",
                         "(Ljava/lang/String;Ljava/lang/String;)I",
                         false
                     )
                     mv.visitInsn(POP)
-                    super.onMethodExit(opcode);
+                    super.onMethodExit(opcode)
                 }
             }
         return newMethodVisitor

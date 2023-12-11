@@ -32,6 +32,7 @@ class SplashActivity : AppCompatActivity() {
         }
         splashScreen.setOnExitAnimationListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         lifecycleScope.launch { loaded = mockLoading() }

@@ -3,7 +3,15 @@ package com.demo
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import com.demo.utils.*
+import com.demo.utils.lifecycleLogCreate
+import com.demo.utils.lifecycleLogDestroy
+import com.demo.utils.lifecycleLogPause
+import com.demo.utils.lifecycleLogResume
+import com.demo.utils.lifecycleLogSaveInstanceState
+import com.demo.utils.lifecycleLogStart
+import com.demo.utils.lifecycleLogStop
+import com.demo.utils.lifecycleLogV
+import com.facebook.drawee.backends.pipeline.Fresco
 
 /**
  * Description 主Application
@@ -114,6 +122,8 @@ class MainApplication : Application() {
             }
 
         })
+
+        Fresco.initialize(this)
     }
 
 }

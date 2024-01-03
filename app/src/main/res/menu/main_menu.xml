@@ -68,6 +68,10 @@
                 android:id="@+id/surfaceViewFragment"
                 android:title="@string/surface_view"
                 app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/frescoFragment"
+                android:title="@string/fresco"
+                app:showAsAction="ifRoom" />
         </menu>
     </item>
     <item

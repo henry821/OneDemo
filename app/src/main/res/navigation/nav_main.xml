@@ -61,8 +61,13 @@
     <fragment
         android:id="@+id/surfaceViewFragment"
         android:name="com.demo.modules.surfaceview.SurfaceViewFragment"
-        tools:layout="@layout/fragment_surfaceview"
-        android:label="SurfaceViewFragment" />
+        android:label="SurfaceViewFragment"
+        tools:layout="@layout/fragment_surfaceview" />
+    <fragment
+        android:id="@+id/frescoFragment"
+        android:name="com.demo.modules.fresco.FrescoFragment"
+        android:label="FrescoFragment"
+        tools:layout="@layout/fragment_fresco" />
     <activity
         android:id="@+id/fragmentLifecycleActivity"
         android:name="com.demo.modules.FragmentLifecycleActivity"

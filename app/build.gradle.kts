@@ -65,4 +65,9 @@ dependencies {
     implementation(libs.lottie)
     //btrace
     implementation(libs.btrace.core)
+    //fresco
+    implementation(libs.fresco.base)
+    implementation(libs.fresco.animated.base)
+    implementation(libs.fresco.animated.gif)
+    implementation(libs.fresco.animated.webp)
 }

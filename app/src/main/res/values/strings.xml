@@ -16,6 +16,7 @@
     <string name="coroutine_fragment">协程</string>
     <string name="opengl">opengl</string>
     <string name="surface_view">SurfaceView</string>
+    <string name="fresco">fresco</string>
     <string name="global_gray">全局灰度化</string>
 
     <string name="main_show_content_description">Show navigation drawer</string>

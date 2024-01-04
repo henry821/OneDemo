@@ -70,4 +70,6 @@ dependencies {
     implementation(libs.fresco.animated.base)
     implementation(libs.fresco.animated.gif)
     implementation(libs.fresco.animated.webp)
+    //microscope
+    implementation(libs.microscope.lifecycle)
 }

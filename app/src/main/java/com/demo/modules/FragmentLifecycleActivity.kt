@@ -1,6 +1,5 @@
 package com.demo.modules
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -16,7 +15,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.OnBackStackChangedListener
 import com.demo.one.R
 import com.demo.one.databinding.ActivityFragmentLifecycleBinding
-import com.demo.utils.*
+import com.demo.utils.dp
 
 /**
  * Description Fragment生命周期
@@ -88,63 +87,18 @@ class ChildFragment : Fragment() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        lifecycleLogAttach("$index")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        lifecycleLogCreate("$index")
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-        lifecycleLogCreateView("$index")
         return TextView(context).apply {
             gravity = Gravity.CENTER
             textSize = 16f.dp
             setBackgroundColor(Color.WHITE)
             text = "子Fragment：$index"
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        lifecycleLogViewCreated("$index")
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        lifecycleLogActivityCreated("$index")
-    }
-
-    override fun onPause() {
-        lifecycleLogPause("$index")
-        super.onPause()
-    }
-
-    override fun onStop() {
-        lifecycleLogStop("$index")
-        super.onStop()
-    }
-
-    override fun onDestroyView() {
-        lifecycleLogDestroyView("$index")
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        lifecycleLogDestroy("$index")
-        super.onDestroy()
-    }
-
-    override fun onDetach() {
-        lifecycleLogDetach("$index")
-        super.onDetach()
     }
 
 }

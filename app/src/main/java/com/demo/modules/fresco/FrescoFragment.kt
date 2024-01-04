@@ -33,22 +33,22 @@ class FrescoFragment : Fragment() {
 
         binding.refresh.setOnClickListener { displayWebp(imageUriStr) }
 
-        val list =
-            List(50) { imageUriStr }
-        with(binding.rv) {
-            adapter = MainAdapter(list)
-            layoutManager = LinearLayoutManager(
-                context,
-                RecyclerView.VERTICAL,
-                false
-            )
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    RecyclerView.VERTICAL
-                )
-            )
-        }
+//        val list =
+//            List(50) { imageUriStr }
+//        with(binding.rv) {
+//            adapter = MainAdapter(list)
+//            layoutManager = LinearLayoutManager(
+//                context,
+//                RecyclerView.VERTICAL,
+//                false
+//            )
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    context,
+//                    RecyclerView.VERTICAL
+//                )
+//            )
+//        }
     }
 
     override fun onDestroyView() {

@@ -72,4 +72,5 @@ dependencies {
     implementation(libs.fresco.animated.webp)
     //microscope
     implementation(libs.microscope.lifecycle)
+    implementation(libs.microscope.fresco)
 }

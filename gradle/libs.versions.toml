@@ -14,7 +14,6 @@ splashscreen = "1.0.1"
 material = "1.9.0"
 lottie = "3.6.1"
 rhea-trace = "2.0.3-rc02"
-one-demo = "1.0.0"
 asm = "9.2"
 fresco = "3.1.3"
 microscope-lifecycle = "0.0.1"
@@ -53,11 +52,9 @@ android-gradle-plugin-api = { group = "com.android.tools.build", name = "gradle-
 #kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 #navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigaton" }
 btrace-gradle-plugin = { group = "com.bytedance.btrace", name = "rhea-gradle-plugin", version.ref = "rhea-trace" }
-one-demo-plugin = { group = "com.demo", name = "plugin", version.ref = "one-demo" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-plugin" }
 android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-one-demo = { id = "one-demo", version = "1.0.0" }
 #btrace = { id = "com.bytedance.rhea-trace", version.ref = "rhea-trace" }
 

@@ -5,11 +5,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven(url = "\\localmaven")
     }
     dependencies {
         classpath(libs.btrace.gradle.plugin)
-        classpath(libs.one.demo.plugin)
     }
 }
 

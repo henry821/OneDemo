@@ -2,7 +2,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
-    id("one-demo")
     id("com.bytedance.rhea-trace")
 }
 
@@ -35,10 +34,6 @@ android {
         }
     }
 
-    methodTime {
-        includePackages = arrayOf("com.demo.one")
-        logTag = "OneDemoPlugin"
-    }
 }
 
 dependencies {

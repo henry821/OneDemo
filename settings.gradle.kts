@@ -17,8 +17,3 @@ dependencyResolutionManagement {
 rootProject.name = "OneDemo"
 include(":app")
 include(":base")
-include(":plugin")
-
-include(":designpattern")
-include(":leetcode")
-include(":concurrency")

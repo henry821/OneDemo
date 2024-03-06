@@ -1,4 +1,4 @@
-package com.demo.fragment
+package com.demo.modules.animator
 
 import android.animation.ValueAnimator
 import android.os.Bundle

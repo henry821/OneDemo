@@ -1,4 +1,4 @@
-package com.demo.fragment
+package com.demo.modules.lottie
 
 import android.os.Bundle
 import android.view.LayoutInflater

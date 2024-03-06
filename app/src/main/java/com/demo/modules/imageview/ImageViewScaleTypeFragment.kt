@@ -1,4 +1,4 @@
-package com.demo.fragment
+package com.demo.modules.imageview
 
 import android.annotation.SuppressLint
 import android.os.Bundle

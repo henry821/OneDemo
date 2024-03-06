@@ -8,7 +8,6 @@ import android.content.Intent.CATEGORY_HOME
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
@@ -17,15 +16,11 @@ import androidx.navigation.ui.NavigationUI
 import com.demo.base.GlobalGray
 import com.demo.one.R
 import com.demo.one.databinding.ActivityMainBinding
-import com.demo.widgets.OverviewFloatView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var overviewFloatView: OverviewFloatView
     private lateinit var navController: NavController
-
-    private val mainVM by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,18 +39,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        mainVM.fps.observe(this) { overviewFloatView.updateFps(it) }
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        overviewFloatView = OverviewFloatView(this)
-        overviewFloatView.show()
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        mainVM.watchFps()
     }
 
     override fun onSupportNavigateUp(): Boolean {

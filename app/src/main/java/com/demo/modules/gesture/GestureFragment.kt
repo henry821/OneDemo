@@ -1,4 +1,4 @@
-package com.demo.fragment
+package com.demo.modules.gesture
 
 import android.annotation.SuppressLint
 import android.graphics.PointF

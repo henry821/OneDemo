@@ -1,31 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
- Copyright 2017 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright 2018 The Android Open Source Project
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+      http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <item
-        android:id="@+id/action_open"
-        android:title="@string/open_file"
-        app:showAsAction="never" />
-
+        android:id="@+id/main_item"
+        android:title="@string/menu">
+        <menu>
+            <item
+                android:id="@+id/lottieFragment"
+                android:title="@string/lottie_activity"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/gestureFragment"
+                android:title="@string/gesture_activity"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/touchEventFragment"
+                android:title="@string/touch_event"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/fragmentLifecycleActivity"
+                android:title="@string/fragment_lifecycle_activity"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/imageViewScaleTypeFragment"
+                android:title="@string/image_view_scale_type_activity"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/animatorFragment"
+                android:title="@string/animator_app_name"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/editTextFragment"
+                android:title="@string/edit_text"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/spanFragment"
+                android:title="@string/textview_span"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/openGlFragment"
+                android:title="@string/opengl"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/surfaceViewFragment"
+                android:title="@string/surface_view"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/frescoFragment"
+                android:title="@string/fresco"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
     <item
-        android:id="@+id/action_info"
-        android:icon="@drawable/ic_info"
-        android:title="@string/info"
-        app:showAsAction="ifRoom" />
-
+        android:id="@+id/settings"
+        android:title="@string/settings">
+        <menu>
+            <group android:checkableBehavior="all">
+                <item
+                    android:id="@+id/global_gray"
+                    android:title="@string/global_gray"
+                    app:showAsAction="ifRoom" />
+            </group>
+        </menu>
+    </item>
 </menu>

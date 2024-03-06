@@ -1,4 +1,5 @@
 <resources>
+    <string name="home">主页</string>
     <string name="menu">菜单</string>
     <string name="settings">设置</string>
     <string name="login">登录</string>

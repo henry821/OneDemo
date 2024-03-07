@@ -2,6 +2,7 @@
     <string name="home">主页</string>
     <string name="menu">菜单</string>
     <string name="settings">设置</string>
+    <string name="welcome">欢迎</string>
 
     <string name="lottie_activity">验证Lottie文件</string>
     <string name="gesture_activity">手势页面</string>

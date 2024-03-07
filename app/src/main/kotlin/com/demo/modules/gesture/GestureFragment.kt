@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.demo.one.R
 import com.demo.utils.dp
-import com.demo.widgets.GestureContainer
 
 /**
  * 手势页面

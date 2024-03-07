@@ -5,12 +5,13 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/red"
         android:gravity="center"
         android:padding="20dp"
-        android:text="原生开屏页"
+        android:text="@string/welcome"
         android:textColor="@color/green"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

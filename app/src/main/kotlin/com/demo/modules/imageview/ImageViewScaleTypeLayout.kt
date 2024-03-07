@@ -1,4 +1,4 @@
-package com.demo.widgets
+package com.demo.modules.imageview
 
 import android.app.Dialog
 import android.content.Context

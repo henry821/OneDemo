@@ -38,7 +38,7 @@ class RecyclerViewFragment : Fragment() {
             adapter = userAdapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            ItemTouchHelper(SimpleItemTouchCallback()).also { it.attachToRecyclerView(this) }
+            ItemTouchHelper(SwipeShowIconCallback()).also { it.attachToRecyclerView(this) }
         }
         userAdapter.submitList(List(10) { User("", "用户名：$it") })
     }

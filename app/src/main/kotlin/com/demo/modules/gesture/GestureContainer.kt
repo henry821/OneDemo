@@ -1,4 +1,4 @@
-package com.demo.widgets
+package com.demo.modules.gesture
 
 import android.annotation.SuppressLint
 import android.content.Context

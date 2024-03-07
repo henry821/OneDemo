@@ -20,39 +20,6 @@
         <item name="postSplashScreenTheme">@style/AppTheme</item>
     </style>
 
-    <!-- Base application theme. -->
-    <style name="Theme.DirSelect" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="Theme.DirSelect.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.DirSelect.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.DirSelect.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <declare-styleable name="SimpleTabLayout">
-        <attr name="indicatorColor" format="color" />
-        <attr name="underlineColor" format="color" />
-        <attr name="dividerColor" format="color" />
-        <attr name="normalTextColor" format="color" />
-        <attr name="indicatorHeight" format="dimension" />
-        <attr name="underlineHeight" format="dimension" />
-        <attr name="dividerPadding" format="dimension" />
-        <attr name="tabPaddingLeftRight" format="dimension" />
-        <attr name="normalTextSize" format="dimension" />
-        <attr name="scrollOffset" format="dimension" />
-        <attr name="tabBackground" format="reference" />
-        <attr name="shouldExpand" format="boolean" />
-        <!--        <attr name="textAllCaps" format="boolean" />-->
-    </declare-styleable>
-
     <declare-styleable name="ImageViewScaleTypeLayout">
         <attr name="scaleType">
             <!-- Scale using the image matrix when drawing. See
@@ -80,20 +47,6 @@
         </attr>
     </declare-styleable>
 
-    <!--边沿透明View-->
-    <declare-styleable name="EdgeTransparentView">
-        <attr name="edge_position">
-            <flag name="top" value="0x01" />
-            <flag name="bottom" value="0x02" />
-            <flag name="left" value="0x04" />
-            <flag name="right" value="0x08" />
-        </attr>
-        <attr name="edge_width" format="dimension" />
-        <attr name="left_edge_width" format="dimension" />
-        <attr name="top_edge_width" format="dimension" />
-        <attr name="right_edge_width" format="dimension" />
-        <attr name="bottom_edge_width" format="dimension" />
-    </declare-styleable>
 
     <declare-styleable name="DisplayShapeView">
         <attr name="display_shape" format="string" />

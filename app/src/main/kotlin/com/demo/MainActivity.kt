@@ -1,4 +1,4 @@
-package com.demo.modules.main
+package com.demo
 
 import android.app.Activity
 import android.app.AlertDialog

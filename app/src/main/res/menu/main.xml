@@ -64,6 +64,11 @@
                 android:id="@+id/frescoFragment"
                 android:title="@string/fresco"
                 app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/recyclerViewFragment"
+                android:title="@string/recyclerview"
+                app:showAsAction="ifRoom" />
+
         </menu>
     </item>
     <item

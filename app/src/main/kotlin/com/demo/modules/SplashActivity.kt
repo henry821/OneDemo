@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.demo.modules.main.MainActivity
+import com.demo.MainActivity
 import com.demo.one.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

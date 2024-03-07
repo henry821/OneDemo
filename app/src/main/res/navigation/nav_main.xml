@@ -58,6 +58,11 @@
         android:name="com.demo.modules.fresco.FrescoFragment"
         android:label="FrescoFragment"
         tools:layout="@layout/fragment_fresco" />
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="com.demo.modules.recyclerview.RecyclerViewFragment"
+        android:label="RecyclerViewFragment"
+        tools:layout="@layout/rv_fragment" />
     <activity
         android:id="@+id/fragmentLifecycleActivity"
         android:name="com.demo.modules.FragmentLifecycleActivity"

@@ -2,31 +2,19 @@
     <string name="home">主页</string>
     <string name="menu">菜单</string>
     <string name="settings">设置</string>
-    <string name="login">登录</string>
-    <string name="logout">登出</string>
 
     <string name="lottie_activity">验证Lottie文件</string>
     <string name="gesture_activity">手势页面</string>
     <string name="touch_event">触摸事件分发</string>
-    <string name="executor_service_activity">线程池页面</string>
     <string name="fragment_lifecycle_activity">Fragment生命周期</string>
     <string name="image_view_scale_type_activity">ScaleType查询页面</string>
     <string name="edit_text">EditText Demo</string>
     <string name="textview_span">TextView Span</string>
-    <string name="window_insets_activity">WINDOW_INSETS</string>
-    <string name="coroutine_fragment">协程</string>
     <string name="opengl">opengl</string>
     <string name="surface_view">SurfaceView</string>
     <string name="fresco">fresco</string>
+    <string name="recyclerview">RecyclerView</string>
     <string name="global_gray">全局灰度化</string>
-
-    <string name="main_show_content_description">Show navigation drawer</string>
-    <string name="main_hide_content_description">Hide navigation drawer</string>
-
-    <string name="screen_fps">帧率：%s</string>
-    <string name="screen_width">屏幕宽度：%dpx (%ddp)</string>
-    <string name="screen_height">屏幕高度：%dpx (%ddp)</string>
-    <string name="screen_density">屏幕密度：%.1f</string>
 
     <string name="fragment_add">添加Fragment</string>
     <string name="fragment_pop">弹出Fragment</string>
@@ -35,33 +23,8 @@
 
     <string name="scale_type_original">原始图片</string>
 
-    <string name="google_sample_storage_entrance">存储示例</string>
-
     <string name="animator_app_name">动画</string>
     <string name="animator_value_progress">动画进度：%.0f%%</string>
     <string name="animator_time_progress">时间进度：%.0f%%</string>
-
-    <string name="login_tip">请登录</string>
-    <string name="logged_already">已经登录</string>
-
-    <!--ActionOpenDocument-->
-    <string name="action_open_document_app_name">aodViewer</string>
-    <string name="app_name_with_index">aodViewer (%1$d/%2$d)</string>
-    <string name="open_file">Open…</string>
-    <string name="info">Info</string>
-    <string name="open_file_button">Open File</string>
-    <string name="previous">Previous</string>
-    <string name="next">Next</string>
-    <string name="intro_message">
-        This sample demonstrates how to use PdfRenderer to display PDF documents on the screen.
-    </string>
-    <string name="open_call_to_action">Click "open" to view the contents of a PDF.</string>
-
-    <!--ActionOpenDocumentTree-->
-    <string name="action_open_document_tree_app_name">ktFiles</string>
-    <string name="action_open_document_tree_rename_title">Rename</string>
-    <string name="action_open_document_tree_rename_okay">Rename</string>
-    <string name="action_open_document_tree_rename_cancel">Cancel</string>
-    <string name="action_open_document_tree_error_no_activity">No activity found to open "%1$s".</string>
 
 </resources>

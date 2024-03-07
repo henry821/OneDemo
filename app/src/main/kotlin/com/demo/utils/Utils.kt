@@ -1,7 +1,9 @@
 package com.demo.utils
 
+import android.content.Context
 import android.content.res.Resources
 import android.util.TypedValue
+import android.widget.Toast
 
 /**
  * Created by hengwei on 2022/3/16.
@@ -23,5 +25,7 @@ inline val Int.screenWidth: Int
 inline val Int.screenHeight: Int
     get() = Resources.getSystem().displayMetrics.heightPixels
 
-inline val String.appendThreadInfo: String
-    get() = "$this -- ${Thread.currentThread().name}"
+
+fun showToast(context: Context, text: String) {
+    Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+}

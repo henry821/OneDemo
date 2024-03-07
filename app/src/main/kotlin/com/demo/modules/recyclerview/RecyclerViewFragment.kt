@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.demo.one.R
 import com.demo.one.databinding.RvFragmentBinding
 import com.demo.one.databinding.RvRecycleItemUserBinding
+import com.demo.utils.launchAndRepeatWithViewLifecycle
 
 class RecyclerViewFragment : Fragment() {
 
@@ -22,6 +24,8 @@ class RecyclerViewFragment : Fragment() {
         override fun areItemsTheSame(oldItem: User, newItem: User) = oldItem == newItem
         override fun areContentsTheSame(oldItem: User, newItem: User) = oldItem == newItem
     })
+
+    private val dataVM by viewModels<RecyclerViewViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,9 +42,15 @@ class RecyclerViewFragment : Fragment() {
             adapter = userAdapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            ItemTouchHelper(SwipeShowIconCallback()).also { it.attachToRecyclerView(this) }
+            ItemTouchHelper(SwipeToDeleteCallback(this) {
+                dataVM.remove(it)
+            }).also { it.attachToRecyclerView(this) }
         }
-        userAdapter.submitList(List(10) { User("", "用户名：$it") })
+
+        launchAndRepeatWithViewLifecycle {
+            dataVM.userList.collect { userAdapter.submitList(it) }
+        }
+
     }
 
     class UserAdapter(itemCallback: ItemCallback<User>) :
@@ -62,6 +72,4 @@ class RecyclerViewFragment : Fragment() {
             binding.name.text = data.name
         }
     }
-
-    data class User(val avatar: String, val name: String)
 }

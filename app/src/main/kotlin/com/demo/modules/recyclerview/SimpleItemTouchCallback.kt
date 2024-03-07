@@ -1,12 +1,14 @@
 package com.demo.modules.recyclerview
 
-import android.graphics.Canvas
-import android.util.Log
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.utils.showToast
 
+/**
+ * 简易的拖动、侧滑回调
+ */
 class SimpleItemTouchCallback(
+    private val deleteAction: (Int) -> Unit,
     dragDirs: Int = ItemTouchHelper.UP or ItemTouchHelper.DOWN,
     swipeDirs: Int = ItemTouchHelper.START or ItemTouchHelper.END,
 ) : ItemTouchHelper.SimpleCallback(dragDirs, swipeDirs) {
@@ -20,6 +22,7 @@ class SimpleItemTouchCallback(
             viewHolder.itemView.context,
             "[onMove] from: ${viewHolder.layoutPosition} to: ${target.layoutPosition}"
         )
+        deleteAction.invoke(viewHolder.layoutPosition)
         return true
     }
 
@@ -28,24 +31,4 @@ class SimpleItemTouchCallback(
         showToast(viewHolder.itemView.context, "[onSwipe] direction: $directionStr")
     }
 
-    override fun onChildDraw(
-        c: Canvas,
-        recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        dX: Float,
-        dY: Float,
-        actionState: Int,
-        isCurrentlyActive: Boolean,
-    ) {
-        val itemView = viewHolder.itemView
-        Log.i(
-            "whw",
-            """onChildDraw: 
-                |left=${itemView.left}, right=${itemView.right}, 
-                |dx=${dX}, dy=${dY}
-                |translationX=${itemView.translationX}, translationY=${itemView.translationY}
-                |""".trimMargin()
-        )
-        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-    }
 }

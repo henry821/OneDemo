@@ -38,7 +38,6 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-    implementation(project(":base"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)

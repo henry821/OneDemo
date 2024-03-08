@@ -71,16 +71,4 @@
 
         </menu>
     </item>
-    <item
-        android:id="@+id/settings"
-        android:title="@string/settings">
-        <menu>
-            <group android:checkableBehavior="all">
-                <item
-                    android:id="@+id/global_gray"
-                    android:title="@string/global_gray"
-                    app:showAsAction="ifRoom" />
-            </group>
-        </menu>
-    </item>
 </menu>

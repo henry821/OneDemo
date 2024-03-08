@@ -16,4 +16,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "OneDemo"
 include(":app")
-include(":base")

@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">OneDemo</string>
     <string name="home">主页</string>
     <string name="menu">菜单</string>
     <string name="settings">设置</string>

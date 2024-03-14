@@ -1,6 +1,5 @@
 package com.demo
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.Intent.ACTION_MAIN
@@ -17,6 +16,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.demo.one.R
 import com.demo.one.databinding.ActivityMainBinding
+import com.demo.utils.TAG_GLOBAL
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,30 +43,19 @@ class MainActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 AlertDialog.Builder(this@MainActivity).setTitle("选择退出方式")
                     .setPositiveButton("完整退出") { _, _ -> finish() }
-                    .setNegativeButton("简单退出") { _, _ -> appBackToBackground(this@MainActivity) }
+                    .setNegativeButton("简单退出") { _, _ ->
+                        try {
+                            startActivity(Intent(ACTION_MAIN).also {
+                                it.flags = FLAG_ACTIVITY_NEW_TASK
+                                it.addCategory(CATEGORY_HOME)
+                            })
+                        } catch (e: Exception) {
+                            Log.e(TAG_GLOBAL, "简单退出APP: ", e)
+                        }
+                    }
                     .show()
             }
-
         })
-    }
-
-    // appBackToBackground
-    private fun appBackToBackground(activity: Activity) {
-        safeThrowable {
-            activity.startActivity(Intent(ACTION_MAIN).also {
-                it.flags = FLAG_ACTIVITY_NEW_TASK
-                it.addCategory(CATEGORY_HOME)
-            })
-        }
-    }
-
-    private inline fun <T> safeThrowable(method: () -> T?): T? {
-        try {
-            return method()
-        } catch (e: Throwable) {
-            Log.e("safeThrowable", e.message.toString())
-        }
-        return null
     }
 
 }

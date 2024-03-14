@@ -19,10 +19,10 @@ inline val Float.dp: Float
 inline val Int.dp: Int
     get() = this.toFloat().dp.toInt()
 
-inline val Int.screenWidth: Int
+inline val screenWidth: Int
     get() = Resources.getSystem().displayMetrics.widthPixels
 
-inline val Int.screenHeight: Int
+inline val screenHeight: Int
     get() = Resources.getSystem().displayMetrics.heightPixels
 
 

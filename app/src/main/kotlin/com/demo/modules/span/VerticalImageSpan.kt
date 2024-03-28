@@ -1,11 +1,12 @@
 package com.demo.modules.span
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.text.style.ImageSpan
+import androidx.core.graphics.drawable.toBitmap
 
 
 /**
@@ -16,7 +17,7 @@ import android.text.style.ImageSpan
 class VerticalImageSpan : ImageSpan {
 
     constructor(context: Context, resourceId: Int) : super(context, resourceId)
-    constructor(context: Context, bitmap: Bitmap) : super(context, bitmap)
+    constructor(context: Context, drawable: Drawable) : super(context, drawable.toBitmap())
 
     override fun draw(
         canvas: Canvas,
@@ -31,10 +32,9 @@ class VerticalImageSpan : ImageSpan {
     ) {
         val b = drawable
         canvas.save()
-        var transY = 0
         //获得将要显示的文本高度 - 图片高度除2 = 居中位置+top(换行情况)
         //获得将要显示的文本高度 - 图片高度除2 = 居中位置+top(换行情况)
-        transY = (bottom - top - b.bounds.bottom) / 2 + top
+        val transY: Int = (bottom - top - b.bounds.bottom) / 2 + top
         //偏移画布后开始绘制
         //偏移画布后开始绘制
         canvas.translate(x, transY.toFloat())

@@ -1,18 +1,11 @@
 package com.demo.modules.span
 
-import android.graphics.Color
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.style.ForegroundColorSpan
-import android.text.style.ImageSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.text.set
 import androidx.fragment.app.Fragment
+import com.demo.modules.span.core.spannable
 import com.demo.one.R
 import com.demo.one.databinding.FragmentSpanBinding
 
@@ -29,7 +22,7 @@ class SpanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentSpanBinding.inflate(inflater, container, false)
         return _binding?.root
@@ -38,31 +31,14 @@ class SpanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val text = "心爱的小摩托:当前文本是用户发的一段话，可以换行的一段话"
-        val spanList = listOf<Any>(
-            VerticalImageSpan(requireContext(), R.drawable.ic_span_gender),
-            VerticalImageSpan(requireContext(), LevelDrawable(requireContext()).toBitmap()),
-            VerticalImageSpan(requireContext(), VipDrawable(requireContext()).toBitmap())
-        )
-
-        val list = text.split(":").toMutableList().apply {
-            add(1, ": ")
-            spanList.forEach { _ -> add(1, "%") }
-        }
-
-        val builder = SpannableStringBuilder().apply {
-            list.forEach { append(it) }
-        }
-
-        val nameSpan = ForegroundColorSpan(Color.parseColor("#A4A9B3"))
-        builder[0, builder.indexOf(":")] = nameSpan
-
-        val replaceIndex = builder.indexOfFirst { it == '%' }
-        spanList.forEachIndexed { index, any ->
-            builder[replaceIndex + index, replaceIndex + index + 1] = any
-        }
-
-        binding.content.text = builder
+        binding.content.spannable()
+            .append({ "N" }, { VerticalImageSpan(requireContext(), R.drawable.ic_span_gender) })
+            .append(
+                { "N" },
+                { VerticalImageSpan(requireContext(), LevelDrawable(requireContext())) })
+            .append({ "N" }, { VerticalImageSpan(requireContext(), VipDrawable(requireContext())) })
+            .append({ "心爱的小摩托:当前文本是用户发的一段话，可以换行的一段话" }, {})
+            .commit()
     }
 
     override fun onDestroyView() {

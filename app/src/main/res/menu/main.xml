@@ -68,6 +68,10 @@
                 android:id="@+id/recyclerViewFragment"
                 android:title="@string/recyclerview"
                 app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/galleryFragment"
+                android:title="@string/gallery"
+                app:showAsAction="ifRoom" />
 
         </menu>
     </item>

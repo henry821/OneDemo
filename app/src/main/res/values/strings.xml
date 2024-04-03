@@ -16,6 +16,7 @@
     <string name="surface_view">SurfaceView</string>
     <string name="fresco">fresco</string>
     <string name="recyclerview">RecyclerView</string>
+    <string name="gallery">相册</string>
     <string name="global_gray">全局灰度化</string>
 
     <string name="fragment_add">添加Fragment</string>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    app:layoutDescription="@xml/gallery_fragment_scene">
+
+    <ImageView
+        android:id="@+id/navigator"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/gallery_ic_navgator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/toolbarBg"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigator" />
+
+    <TextView
+        android:id="@+id/bucket"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
+        android:textAppearance="@style/typography_title_18_medium"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
+        app:layout_constraintEnd_toStartOf="@id/arrow"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/toolbarBg"
+        app:layout_constraintTop_toTopOf="@+id/toolbarBg"
+        tools:text="相册标题" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/gallery_ic_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarBg"
+        app:layout_constraintEnd_toEndOf="@id/close"
+        app:layout_constraintStart_toEndOf="@id/bucket"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/gallery_ic_close"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarBg"
+        app:layout_constraintEnd_toEndOf="@id/toolbarBg"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg"
+        tools:ignore="ContentDescription" />
+
+    <!-- 图片列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gallery"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarBg"
+        app:spanCount="3"
+        tools:itemCount="9"
+        tools:listitem="@layout/gallery_recycle_item" />
+
+    <!-- 图片集合列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/buckets"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F9F9F9"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarBg"
+        tools:listitem="@layout/gallery_buckets_recycle_item" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

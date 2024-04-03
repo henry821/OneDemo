@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="typography_body_10_medium">
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="typography_body_12_medium">
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="typography_body_12_semi_bold">
+        <item name="android:fontFamily">@font/font_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="typography_body_12_special">
+        <item name="android:fontFamily">@font/font_tinos_bold_italic</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="typography_body_14_medium">
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="typography_body_14_semi_bold">
+        <item name="android:fontFamily">@font/font_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="typography_body_14_special">
+        <item name="android:fontFamily">@font/font_tinos_bold_italic</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="typography_headline_22_semi_bold">
+        <item name="android:fontFamily">@font/font_semi_bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="typography_headline_22_special">
+        <item name="android:fontFamily">@font/font_tinos_bold_italic</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="typography_headline_28_special">
+        <item name="android:fontFamily">@font/font_tinos_bold_italic</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="typography_title_16_semi_bold">
+        <item name="android:fontFamily">@font/font_semi_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="typography_title_18_medium">
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="typography_title_18_special">
+        <item name="android:fontFamily">@font/font_tinos_bold_italic</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

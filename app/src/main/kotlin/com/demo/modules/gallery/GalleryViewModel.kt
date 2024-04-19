@@ -1,124 +1,120 @@
 package com.demo.modules.gallery
 
 import android.app.Application
-import android.content.ContentUris
 import android.net.Uri
-import android.provider.MediaStore
-import androidx.lifecycle.AndroidViewModel
+import androidx.annotation.Keep
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.viewmodel.CreationExtras
+import androidx.recyclerview.widget.DiffUtil
+import com.demo.modules.gallery.GalleryRepository.Companion.toBucketList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * 相册ViewModel
  */
-class GalleryViewModel(application: Application) : AndroidViewModel(application) {
+@Keep
+class GalleryViewModel(
+    private val application: Application?,
+    private val enableCapture: Boolean,
+) : ViewModel() {
+
+    class ViewModelFactory(private val enableCapture: Boolean) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+            val application = extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY]
+            return modelClass.getConstructor(Application::class.java, Boolean::class.java)
+                .newInstance(application, enableCapture)
+        }
+    }
+
+    private val repo = GalleryRepository()
 
     /**
      * 所有图片
      */
-    private var allImages = listOf<CoffeeGalleryImage>()
+    private val _allImages = MutableStateFlow<List<CoffeeGalleryImage>>(emptyList())
 
     /**
-     * 相册分类集合 <[CoffeeGalleryBucket.bucketId],[CoffeeGalleryBucket]>
+     * 图片目录列表
      */
-    private val bucketMap = mutableMapOf<Int, CoffeeGalleryBucket>()
+    private val _buckets = _allImages.map { list ->
+        val result = mutableListOf<CoffeeGalleryBucket>()
+        result.add(
+            CoffeeGalleryBucket(
+                bucketId = CoffeeGalleryBucket.RECENT_BUCKET_ID,
+                bucketName = "最近项目",
+                coverUri = list.firstOrNull()?.contentUri ?: Uri.EMPTY,
+                count = list.size
+            )
+        )
+        result.addAll(list.toBucketList())
+        result.toList()
+    }.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     /**
-     * 相册分类列表
+     * 当前选择目录id
      */
-    private val _buckets = MutableStateFlow<List<CoffeeGalleryBucket>>(emptyList())
-    val buckets = _buckets.asStateFlow()
+    private val _selectedBucketId = MutableStateFlow(0)
+
+    /**
+     * 页面展示的图片目录列表
+     */
+    val bucketsState = combine(_buckets, _selectedBucketId) { d1, d2 ->
+        d1.map { CoffeeGalleryBucketUiState(it, it.bucketId == d2) }
+    }
 
     /**
      * 根据选中的相册分类[_buckets]过滤出对应的图片列表
      */
-    val images = _buckets.map { list ->
-        val selectedBucket = list.firstOrNull { it.selected }
-        if (selectedBucket?.bucketId == DEFAULT_BUCKET.bucketId) allImages
-        else allImages.filter { it.bucketId == selectedBucket?.bucketId }
+    val imagesState = bucketsState.map { list ->
+        val selectedBucket = list.firstOrNull { it.selected }?.bucket
+        val result = mutableListOf<CoffeeGalleryImage>()
+        if (enableCapture) result.add(CoffeeGalleryImage.CAPTURE_PLACE_HOLDER)
+        result.addAll(
+            if (selectedBucket?.bucketId == CoffeeGalleryBucket.RECENT_BUCKET_ID) _allImages.value
+            else _allImages.value.filter { it.bucketId == selectedBucket?.bucketId }
+        )
+        result.toList()
     }.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     init {
-        viewModelScope.launch {
-            queryImages()
-        }
+        loadImages()
     }
 
-    /**
-     * 扫描相册图片[allImages]，同时更新相册分类[_buckets]
-     */
-    private suspend fun queryImages() {
-        bucketMap.clear()
-        withContext(Dispatchers.IO) {
-            val images = mutableListOf<CoffeeGalleryImage>()
-            getApplication<Application>().contentResolver.query(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                arrayOf(
-                    MediaStore.Images.Media._ID,
-                    MediaStore.Images.Media.BUCKET_ID,
-                    MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
-                ),
-                null,
-                null,
-                "${MediaStore.Images.Media.DATE_ADDED} DESC"
-            )?.use { cursor ->
-                val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
-                val bucketIdColumn =
-                    cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_ID)
-                val bucketNameColumn =
-                    cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
-
-                while (cursor.moveToNext()) {
-                    val id = cursor.getLong(idColumn)
-                    val bucketId = cursor.getInt(bucketIdColumn)
-
-                    //构造图片信息
-                    val image = CoffeeGalleryImage(
-                        id,
-                        bucketId,
-                        ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id)
-                    )
-                    images += image
-
-                    //构造相册分类信息
-                    val bucket = bucketMap.getOrElse(bucketId) { CoffeeGalleryBucket() }
-                    bucketMap[bucketId] = bucket.copy(
-                        bucketId = bucketId,
-                        bucketName = cursor.getString(bucketNameColumn),
-                        coverUri = if (bucket.coverUri == Uri.EMPTY) image.contentUri else bucket.coverUri,
-                        count = bucket.count + 1,
-                        selected = false
-                    )
-                }
-            }
-            allImages = images
+    fun loadImages() {
+        viewModelScope.launch {
+            _allImages.value = repo.queryAllImages(application)
+            _selectedBucketId.value = CoffeeGalleryBucket.RECENT_BUCKET_ID
         }
-        _buckets.value =
-            bucketMap.values.toMutableList()
-                .also {
-                    it.add(
-                        0,
-                        DEFAULT_BUCKET.copy(
-                            coverUri = allImages.firstOrNull()?.contentUri ?: Uri.EMPTY,
-                            count = allImages.size
-                        )
-                    )
-                }.toList()
     }
 
     fun selectBucket(bucketId: Int) {
-        _buckets.update { list -> list.map { it.copy(selected = it.bucketId == bucketId) } }
+        _selectedBucketId.value = bucketId
     }
 
+}
+
+/**
+ * 页面展示图片目录
+ */
+data class CoffeeGalleryBucketUiState(val bucket: CoffeeGalleryBucket, val selected: Boolean) {
     companion object {
-        val DEFAULT_BUCKET = CoffeeGalleryBucket(0, "最近项目", Uri.EMPTY, 0, true)
+        val diffCallback = object : DiffUtil.ItemCallback<CoffeeGalleryBucketUiState>() {
+            override fun areItemsTheSame(
+                oldItem: CoffeeGalleryBucketUiState,
+                newItem: CoffeeGalleryBucketUiState,
+            ) = oldItem.bucket.bucketId == newItem.bucket.bucketId
+
+            override fun areContentsTheSame(
+                oldItem: CoffeeGalleryBucketUiState,
+                newItem: CoffeeGalleryBucketUiState,
+            ) = oldItem == newItem
+        }
     }
 }

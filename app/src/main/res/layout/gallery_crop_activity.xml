@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9">
+
+    <View
+        android:id="@+id/toolbarBg"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gallery_crop_ic_toolbar_back"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarBg"
+        app:layout_constraintStart_toStartOf="@id/toolbarBg"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crop"
+        android:textAppearance="@style/typography_title_18_medium"
+        android:textColor="#FF000000"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarBg"
+        app:layout_constraintEnd_toEndOf="@id/toolbarBg"
+        app:layout_constraintStart_toStartOf="@id/toolbarBg"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg" />
+
+    <TextView
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:textAppearance="@style/typography_title_16_semi_bold"
+        android:textColor="#BF43F3"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarBg"
+        app:layout_constraintEnd_toEndOf="@id/toolbarBg"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg" />
+
+    <com.demo.modules.gallery.crop.CropView
+        android:id="@+id/cropView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarBg" />
+
+    <com.demo.modules.gallery.crop.CropCoverView
+        android:id="@+id/coverView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cropView"
+        app:layout_constraintEnd_toEndOf="@+id/cropView"
+        app:layout_constraintStart_toStartOf="@+id/cropView"
+        app:layout_constraintTop_toTopOf="@+id/cropView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="72dp"
     android:paddingHorizontal="16dp"
-    tools:background="@color/app_color">
+    tools:background="@color/colorAccent">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/cover"
@@ -23,7 +23,7 @@
         android:layout_marginHorizontal="12dp"
         android:gravity="start|center_vertical"
         android:textAppearance="@style/typography_title_16_semi_bold"
-        android:textColor="@color/black"
+        android:textColor="#FF0000"
         app:layout_constraintBottom_toTopOf="@id/count"
         app:layout_constraintEnd_toStartOf="@id/selected"
         app:layout_constraintStart_toEndOf="@id/cover"

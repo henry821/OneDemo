@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9"
     app:layoutDescription="@xml/gallery_fragment_scene">
 
     <ImageView
@@ -75,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbarBg"
         app:spanCount="3"
         tools:itemCount="9"
-        tools:listitem="@layout/gallery_recycle_item" />
+        tools:listitem="@layout/gallery_image_recycle_item" />
 
     <!-- 图片集合列表 -->
     <androidx.recyclerview.widget.RecyclerView
@@ -85,6 +84,7 @@
         android:background="#F9F9F9"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbarBg"

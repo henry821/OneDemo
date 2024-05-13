@@ -7,8 +7,14 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
 import com.demo.one.databinding.GalleryCameraRecycleItemBinding
 import com.demo.one.databinding.GalleryImageRecycleItemBinding
+import com.demo.utils.screenWidth
+import com.facebook.drawee.backends.pipeline.Fresco
+import com.facebook.imagepipeline.common.ResizeOptions
+import com.facebook.imagepipeline.request.ImageRequestBuilder
+
 
 class GalleryAdapter(
+    private val column: Int,
     private val captureAction: () -> Unit,
     private val itemClickAction: (CoffeeGalleryImage) -> Unit,
 ) : ListAdapter<CoffeeGalleryImage, AbsGalleryViewHolder<*>>(CoffeeGalleryImage.diffCallback) {
@@ -22,7 +28,8 @@ class GalleryAdapter(
 
             else -> {
                 val binding = GalleryImageRecycleItemBinding.inflate(inflater, parent, false)
-                ImageViewHolder(binding, itemClickAction)
+                val itemSize = screenWidth / column
+                ImageViewHolder(binding, itemSize, itemClickAction)
             }
         }
 
@@ -59,10 +66,19 @@ class CameraViewHolder(
 
 class ImageViewHolder(
     private val binding: GalleryImageRecycleItemBinding,
+    private val itemSize: Int,
     private val itemClickAction: (CoffeeGalleryImage) -> Unit,
 ) : AbsGalleryViewHolder<GalleryImageRecycleItemBinding>(binding) {
     override fun bind(data: CoffeeGalleryImage) {
         binding.root.setOnClickListener { itemClickAction(data) }
-        binding.root.setImageURI(data.contentUri)
+        val request = ImageRequestBuilder.newBuilderWithSource(data.contentUri)
+            .setResizeOptions(ResizeOptions(itemSize, itemSize))
+            .build()
+        val controller =
+            Fresco.newDraweeControllerBuilder().setOldController(binding.root.controller)
+                .setImageRequest(request)
+                .build()
+        binding.root.controller = controller
+//        binding.root.setImageURI(data.contentUri)
     }
 }

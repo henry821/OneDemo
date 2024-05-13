@@ -1,6 +1,7 @@
 package com.demo.modules.gallery
 
 import android.Manifest
+import android.animation.ValueAnimator
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -47,6 +48,7 @@ class GalleryFragment : Fragment(R.layout.gallery_fragment) {
     private val enableCapture by lazy { arguments?.getBoolean(KEY_ENABLE_CAPTURE) ?: false }
 
     private val galleryAdapter = GalleryAdapter(
+        COLUMN,
         captureAction = { setFragmentResult(KEY_ACTION_CAPTURE, bundleOf()) },
         itemClickAction = {
             setFragmentResult(
@@ -55,10 +57,29 @@ class GalleryFragment : Fragment(R.layout.gallery_fragment) {
             )
         }
     )
-    private val bucketAdapter = GalleryBucketsAdapter { galleryVM.selectBucket(it.bucket.bucketId) }
+    private val bucketAdapter = GalleryBucketsAdapter {
+        toggleBuckets()
+        galleryVM.selectBucket(it.bucket.bucketId)
+    }
 
     private val launcher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
         galleryVM.loadImages()
+    }
+
+    private val anim = ValueAnimator.ofFloat(0f, 1f).also { anim ->
+        anim.addUpdateListener {
+            val animValue = (it.animatedValue as Float)
+            with(binding) {
+                buckets.translationY =
+                    animValue * (
+                            buckets.measuredHeight
+                                    + navigator.measuredHeight
+                                    + toolbarBg.measuredHeight
+                            )
+                arrow.rotation = animValue * 180
+            }
+        }
+        anim.duration = 300
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -82,6 +103,8 @@ class GalleryFragment : Fragment(R.layout.gallery_fragment) {
             itemAnimator = null
         }
 
+        binding.toolbarBg.setOnClickListener { toggleBuckets() }
+
         with(galleryVM) {
             launchAndRepeatWithViewLifecycle {
                 imagesState.collect {
@@ -93,9 +116,16 @@ class GalleryFragment : Fragment(R.layout.gallery_fragment) {
                     val selected = list.firstOrNull { it.selected }
                     binding.bucket.text = selected?.bucket?.bucketName
                     bucketAdapter.submitList(list)
-                    binding.root.transitionToStart()
                 }
             }
+        }
+    }
+
+    private fun toggleBuckets() {
+        if (binding.buckets.translationY != 0f) {
+            anim.reverse()
+        } else {
+            anim.start()
         }
     }
 

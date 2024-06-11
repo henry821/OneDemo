@@ -6,9 +6,6 @@ buildscript {
         google()
         mavenCentral()
     }
-    dependencies {
-        classpath(libs.btrace.gradle.plugin)
-    }
 }
 
 plugins {

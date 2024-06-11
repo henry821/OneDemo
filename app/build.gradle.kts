@@ -2,7 +2,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
-    id("com.bytedance.rhea-trace")
     id("kotlin-parcelize")
 }
 
@@ -27,14 +26,6 @@ android {
 
     viewBinding.isEnabled = true
 
-    rheaTrace {
-        compilation {
-            traceFilterFilePath = "${project.rootDir}/trace-filter/traceFilter.txt"
-            needPackageWithMethodMap = true
-            applyMethodMappingFilePath = ""
-        }
-    }
-
 }
 
 dependencies {
@@ -58,8 +49,6 @@ dependencies {
     implementation(libs.androidx.splashscreen)
     //lottie
     implementation(libs.lottie)
-    //btrace
-    implementation(libs.btrace.core)
     //fresco
     implementation(libs.fresco.base)
     implementation(libs.fresco.animated.base)

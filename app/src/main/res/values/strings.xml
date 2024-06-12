@@ -15,7 +15,7 @@
     <string name="opengl">opengl</string>
     <string name="surface_view">SurfaceView</string>
     <string name="fresco">fresco</string>
-    <string name="recyclerview">RecyclerView</string>
+    <string name="paging">Paging</string>
     <string name="gallery">相册</string>
     <string name="global_gray">全局灰度化</string>
 

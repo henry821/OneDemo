@@ -65,8 +65,8 @@
                 android:title="@string/fresco"
                 app:showAsAction="ifRoom" />
             <item
-                android:id="@+id/recyclerViewFragment"
-                android:title="@string/recyclerview"
+                android:id="@+id/pagingFragment"
+                android:title="@string/paging"
                 app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/galleryFragment"

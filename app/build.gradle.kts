@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     //splashscreen
     implementation(libs.androidx.splashscreen)
+    //paging
+    implementation(libs.androidx.paging)
     //lottie
     implementation(libs.lottie)
     //fresco

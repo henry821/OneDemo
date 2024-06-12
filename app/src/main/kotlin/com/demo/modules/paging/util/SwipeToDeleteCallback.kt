@@ -1,4 +1,4 @@
-package com.demo.modules.recyclerview
+package com.demo.modules.paging.util
 
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory

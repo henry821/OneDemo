@@ -9,12 +9,12 @@ plugins {
 android {
 
     namespace = "com.demo.one"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.demo.one"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -26,6 +26,15 @@ android {
     }
 
     viewBinding.isEnabled = true
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions{
+        jvmTarget = "17"
+    }
 
 }
 

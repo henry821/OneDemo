@@ -7,7 +7,6 @@ import android.util.ArrayMap
 import android.util.Log
 import android.widget.TextView
 import androidx.core.text.BidiFormatter
-import com.demo.one.BuildConfig
 import java.util.LinkedList
 
 /**
@@ -210,5 +209,5 @@ private data class ProcessCommand(
 )
 
 private fun String.logI() {
-    if (BuildConfig.DEBUG) Log.i("SSBF", this)
+    Log.i("SSBF", this)
 }

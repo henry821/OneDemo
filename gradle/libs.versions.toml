@@ -1,6 +1,7 @@
 [versions]
 kotlin = "1.9.0"
 android-plugin = "7.4.2"
+ksp-plugin = "1.9.0-1.0.13"
 app-compat = "1.6.1"
 core-ktx = "1.12.0"
 fragment-ktx = "1.6.1"
@@ -12,6 +13,7 @@ lifecycle-extensions = "2.2.0"
 navigaton = "2.7.2"
 splashscreen = "1.0.1"
 paging = "3.3.0"
+room = "2.6.1"
 material = "1.9.0"
 lottie = "3.6.1"
 asm = "9.2"
@@ -34,6 +36,9 @@ androidx-navigation-ui-base = { group = "androidx.navigation", name = "navigatio
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigaton" }
 androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
 androidx-paging = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
+androidx-room = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 asm-base = { group = "org.ow2.asm", name = "asm", version.ref = "asm" }
@@ -53,6 +58,7 @@ android-gradle-plugin-api = { group = "com.android.tools.build", name = "gradle-
 #navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigaton" }
 
 [plugins]
+android-ksp = {id="com.google.devtools.ksp",version.ref="ksp-plugin"}
 android-application = { id = "com.android.application", version.ref = "android-plugin" }
 android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 

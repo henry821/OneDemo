@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
+    alias(libs.plugins.android.ksp)
     id("kotlin-parcelize")
 }
 
@@ -49,6 +50,10 @@ dependencies {
     implementation(libs.androidx.splashscreen)
     //paging
     implementation(libs.androidx.paging)
+    //room
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
     //lottie
     implementation(libs.lottie)
     //fresco

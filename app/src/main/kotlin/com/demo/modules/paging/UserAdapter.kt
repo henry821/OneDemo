@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.demo.modules.paging.mock.User
 import com.demo.one.R
 import com.demo.one.databinding.PagingUserRecyclerItemBinding
 

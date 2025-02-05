@@ -2,17 +2,21 @@ package com.demo.modules.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.demo.modules.paging.mock.MockService
-import com.demo.modules.paging.mock.User
+import com.demo.DatabaseHolder
 
-class UserDataSource(private val service: MockService) : PagingSource<Int, User>() {
+const val PAGE_COUNT = 30
+
+class UserDataSource : PagingSource<Int, User>() {
+
+    private val userDao = DatabaseHolder.db.userDao()
+
     override fun getRefreshKey(state: PagingState<Int, User>): Int? {
         return null
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, User> {
         val nextId = params.key ?: 0
-        val userList = service.loadNext(nextId, params.loadSize)
-        return LoadResult.Page(userList, null, userList.last().id + 1)
+        val userList = userDao.loadNextPageUsers(nextId, PAGE_COUNT)
+        return LoadResult.Page(userList, null, userList.last().id)
     }
 }

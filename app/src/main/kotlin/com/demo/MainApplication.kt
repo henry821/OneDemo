@@ -16,7 +16,6 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        DatabaseHolder.init(this)
         LifecycleMonitor.start(this)
 
         val config = ImagePipelineConfig.newBuilder(this).setDownsampleEnabled(true).build()

@@ -36,8 +36,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 TitleItem(getString(R.string.animator_app_name), R.id.action_home_to_animator),
                 TitleItem(getString(R.string.edit_text), R.id.action_home_to_edit_text),
                 TitleItem(getString(R.string.fresco), R.id.action_home_to_fresco),
-                TitleItem(getString(R.string.paging), R.id.action_home_to_paging),
-                TitleItem(getString(R.string.gallery), R.id.action_home_to_gallery),
             )
         )
     }

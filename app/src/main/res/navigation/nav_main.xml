@@ -44,14 +44,4 @@
         android:name="com.demo.modules.fresco.FrescoFragment"
         android:label="FrescoFragment"
         tools:layout="@layout/fresco_fragment" />
-    <fragment
-        android:id="@+id/action_home_to_paging"
-        android:name="com.demo.modules.paging.PagingFragment"
-        android:label="PagingFragment"
-        tools:layout="@layout/paging_fragment" />
-    <fragment
-        android:id="@+id/action_home_to_gallery"
-        android:name="com.demo.modules.gallery.GalleryFragment"
-        android:label="GalleryFragment"
-        tools:layout="@layout/gallery_fragment" />
 </navigation>

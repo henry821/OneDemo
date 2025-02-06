@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsAnimationCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import com.demo.one.databinding.FragmentEditTextBinding
+import com.demo.one.databinding.EditTextFragmentBinding
 
 /**
  * Created by hengwei on 2022/11/3.
@@ -22,7 +22,7 @@ class EditTextFragment : Fragment() {
         private const val CLRF = '\n'
     }
 
-    private var _binding: FragmentEditTextBinding? = null
+    private var _binding: EditTextFragmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,7 +30,7 @@ class EditTextFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        _binding = FragmentEditTextBinding.inflate(inflater, container, false)
+        _binding = EditTextFragmentBinding.inflate(inflater, container, false)
         return _binding?.root
     }
 

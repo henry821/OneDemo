@@ -3,74 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.demo.MainFragment"
+        android:id="@+id/homeFragment"
+        android:name="com.demo.modules.home.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/home_fragment" />
     <fragment
-        android:id="@+id/lottieFragment"
+        android:id="@+id/action_home_to_lottie"
         android:name="com.demo.modules.lottie.LottieFragment"
         android:label="LottieFragment"
-        tools:layout="@layout/fragment_lottie" />
+        tools:layout="@layout/lottie_fragment" />
     <fragment
-        android:id="@+id/gestureFragment"
+        android:id="@+id/action_home_to_gesture"
         android:name="com.demo.modules.gesture.GestureFragment"
         android:label="GestureFragment"
-        tools:layout="@layout/fragment_gesture" />
+        tools:layout="@layout/gesture_fragment" />
     <fragment
-        android:id="@+id/imageViewScaleTypeFragment"
+        android:id="@+id/action_home_to_scale_type"
         android:name="com.demo.modules.imageview.ImageViewScaleTypeFragment"
         android:label="ImageViewScaleTypeFragment"
-        tools:layout="@layout/fragment_image_view_scale_type" />
+        tools:layout="@layout/scale_type_fragment" />
     <fragment
-        android:id="@+id/animatorFragment"
+        android:id="@+id/action_home_to_animator"
         android:name="com.demo.modules.animator.AnimatorFragment"
         android:label="AnimatorFragment"
-        tools:layout="@layout/fragment_animator" />
+        tools:layout="@layout/animator_fragment" />
     <fragment
-        android:id="@+id/openGlFragment"
-        android:name="com.demo.opengl.OpenGlFragment"
-        android:label="OpenGlFragment" />
-    <fragment
-        android:id="@+id/editTextFragment"
+        android:id="@+id/action_home_to_edit_text"
         android:name="com.demo.modules.edittext.EditTextFragment"
         android:label="EditTextFragment"
-        tools:layout="@layout/fragment_edit_text" />
+        tools:layout="@layout/edit_text_fragment" />
     <fragment
-        android:id="@+id/spanFragment"
-        android:name="com.demo.modules.span.SpanFragment"
-        android:label="SpanFragment"
-        tools:layout="@layout/fragment_span" />
-    <fragment
-        android:id="@+id/touchEventFragment"
+        android:id="@+id/action_home_to_touch_event"
         android:name="com.demo.modules.touchevent.TouchEventFragment"
         android:label="TouchEventFragment"
-        tools:layout="@layout/fragment_touch_event" />
+        tools:layout="@layout/touch_event_fragment" />
     <fragment
-        android:id="@+id/surfaceViewFragment"
-        android:name="com.demo.modules.surfaceview.SurfaceViewFragment"
-        android:label="SurfaceViewFragment"
-        tools:layout="@layout/fragment_surfaceview" />
-    <fragment
-        android:id="@+id/frescoFragment"
+        android:id="@+id/action_home_to_fresco"
         android:name="com.demo.modules.fresco.FrescoFragment"
         android:label="FrescoFragment"
-        tools:layout="@layout/fragment_fresco" />
+        tools:layout="@layout/fresco_fragment" />
     <fragment
-        android:id="@+id/pagingFragment"
+        android:id="@+id/action_home_to_paging"
         android:name="com.demo.modules.paging.PagingFragment"
         android:label="PagingFragment"
         tools:layout="@layout/paging_fragment" />
     <fragment
-        android:id="@+id/galleryFragment"
+        android:id="@+id/action_home_to_gallery"
         android:name="com.demo.modules.gallery.GalleryFragment"
         android:label="GalleryFragment"
         tools:layout="@layout/gallery_fragment" />
-    <activity
-        android:id="@+id/fragmentLifecycleActivity"
-        android:name="com.demo.modules.FragmentLifecycleActivity"
-        android:label="FragmentLifecycleActivity"
-        tools:layout="@layout/activity_fragment_lifecycle" />
 </navigation>

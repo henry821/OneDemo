@@ -45,7 +45,7 @@ class AnimatorFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_animator, container, false).apply {
+        val root = inflater.inflate(R.layout.animator_fragment, container, false).apply {
             line = findViewById(R.id.line)
             ball = findViewById(R.id.ball)
             tvProgress = findViewById(R.id.tv_progress)

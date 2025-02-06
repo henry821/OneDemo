@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.demo.one.databinding.FragmentTouchEventBinding
+import com.demo.one.databinding.TouchEventFragmentBinding
 
 /**
  * Description 触摸事件分发
@@ -15,15 +15,15 @@ import com.demo.one.databinding.FragmentTouchEventBinding
  */
 class TouchEventFragment : Fragment() {
 
-    private var _binding: FragmentTouchEventBinding? = null
-    private val binding: FragmentTouchEventBinding get() = _binding!!
+    private var _binding: TouchEventFragmentBinding? = null
+    private val binding: TouchEventFragmentBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        _binding = FragmentTouchEventBinding.inflate(inflater, container, false)
+        _binding = TouchEventFragmentBinding.inflate(inflater, container, false)
         return _binding?.root
     }
 

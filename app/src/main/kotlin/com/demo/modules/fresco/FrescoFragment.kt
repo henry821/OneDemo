@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.one.R
-import com.demo.one.databinding.FragmentFrescoBinding
+import com.demo.one.databinding.FrescoFragmentBinding
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.view.SimpleDraweeView
 
 class FrescoFragment : Fragment() {
-    private var _binding: FragmentFrescoBinding? = null
+    private var _binding: FrescoFragmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,7 +22,7 @@ class FrescoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentFrescoBinding.inflate(inflater)
+        _binding = FrescoFragmentBinding.inflate(inflater)
         return binding.root
     }
 
@@ -69,7 +69,7 @@ class FrescoFragment : Fragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
             val itemView =
-                LayoutInflater.from(parent.context).inflate(R.layout.item_fresco_rv, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.fresco_item, parent, false)
             return MainHolder(itemView)
         }
 

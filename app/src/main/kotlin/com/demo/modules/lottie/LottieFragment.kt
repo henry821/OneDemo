@@ -24,7 +24,7 @@ class LottieFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_lottie, container, false)
+        val root = inflater.inflate(R.layout.lottie_fragment, container, false)
         rvContainer = root.findViewById(R.id.rv_container)
         return root
     }

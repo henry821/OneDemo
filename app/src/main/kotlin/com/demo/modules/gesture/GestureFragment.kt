@@ -28,7 +28,7 @@ class GestureFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_gesture, container, false)
+        val root = inflater.inflate(R.layout.gesture_fragment, container, false)
         tvPosition = root.findViewById(R.id.tv_position)
         btnScale = root.findViewById(R.id.btn_scale)
         btnProperties = root.findViewById(R.id.btn_properties)

@@ -22,7 +22,7 @@ class ImageViewScaleTypeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_image_view_scale_type, container, false)
+        val root = inflater.inflate(R.layout.scale_type_fragment, container, false)
         tvOriginal = root.findViewById(R.id.tv_original)
         return root
     }
